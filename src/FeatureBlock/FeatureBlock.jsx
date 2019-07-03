@@ -10,22 +10,22 @@ export default class FeatureBlock extends Component {
                     <div className="title"><strong>{this.props.title}</strong></div>
                 </div>
                 <div className="tips-container">
-                    <div className="tips-box">
+                    <div className="tips-box {this.props}">
                         <div className="tip">
-                            <i className='{this.props.small-graphic-1}'/>
-                            <div>{this.props.tip-1}</div>
+                            <i className='{this.props.smallGraphicOne}'/>
+                            <div>{this.props.tipOne}</div>
                         </div>
                     </div>
                     <div className="tips-box">
                         <div className="tip">
-                            <i className="{this.props.small-graphic-2}"/>
-                            <div>{this.props.tip-2}</div>
+                            <i className="{this.props.smallGraphicTwo}"/>
+                            <div>{this.props.tipTwo}</div>
                         </div>
                     </div>
                     <div className="tips-box">
                         <div className="tip">
-                            <i className="{this.props.small-graphic-3}"></i>
-                            <div>{this.props.tip-3}</div>
+                            <i className="{this.props.smallGraphicThree}"></i>
+                            <div>{this.props.tipThree}</div>
                         </div>
                     </div>
                     <div>{this.props.paragraph}</div>
