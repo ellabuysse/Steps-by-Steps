@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FeatureBlock.css';
 
 export default class FeatureBlock extends Component {
 
@@ -28,8 +29,9 @@ export default class FeatureBlock extends Component {
                             <div>{this.props.tipThree}</div>
                         </div>
                     </div>
-                    <div>{this.props.paragraph}</div>
                 </div>
+                    <div>{this.props.paragraph}</div>
+
             </div>
         )
     }

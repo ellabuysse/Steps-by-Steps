@@ -184,6 +184,11 @@ template {
 
 /* actual code */
 
+
+body {
+    margin-top: 25px;
+}
+
 .title {
     position: absolute;
     top: 50%;
@@ -203,7 +208,17 @@ h1, h3 {
     padding: 30px;
     text-align: center;
 }
-
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    padding: 10px;
+    z-index: 10;
+}
 p {
     font-family: 'Quicksand', sans-serif;
     margin-top: 0;
@@ -245,6 +260,9 @@ p {
 .tip {
     flex-direction: column;
 }
+.tips-container, .tips-box{
+    column-count: 1;
+}
 .tip{
     display: flex;
     width: 150px;
@@ -257,5 +275,62 @@ p {
     padding: 50px;
     justify-content: space-between;
 }
+.paragraph{
+    width: 150px;
+    height: 100px;
+    column-count: 1;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    line-height: 120%;
+    font-size: 120%;
+    padding: 0;
+    bottom: 0;
+    display: inline-block;
+    vertical-align: baseline;
 
+}
+#bike-bg {
+    background-image: url("https://images.unsplash.com/photo-1500748851664-017ef7f22878?ixlib=rb-1.2.1&auto=format&fit=crop&w=2562&q=80");
+    background-position: bottom;
+}
+
+#tree-bg {
+    background-image: url("https://images.pexels.com/photos/1313807/pexels-photo-1313807.jpeg?cs=srgb&dl=branch-bright-color-1313807.jpg&fm=jpg");
+}
+
+#mountain-bg {
+    background-image: url("https://images.pexels.com/photos/250400/pexels-photo-250400.jpeg?cs=srgb&dl=dawn-daylight-fog-250400.jpg&fm=jpg");
+}
+
+#wheat-bg {
+    background-image: url("https://images.pexels.com/photos/450004/pexels-photo-450004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
+
+#flowers-bg{
+    background-image: url("https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?cs=srgb&dl=beautiful-flowers-bloom-blossom-1115090.jpg&fm=jpg");
+    height: 700px;
+}
+
+#food-bg {
+    background-image: url("https://images.unsplash.com/photo-1522184216316-3c25379f9760?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80");
+}
+
+#shopping-bg {
+    background-image: url("https://images.unsplash.com/photo-1557687790-902ede7ab58c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1243&q=80");
+}
+
+#utilities {
+    background-image: url("https://images.unsplash.com/photo-1544215830-1c67ed769a61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+}
+
+.container#sprouts-bg {
+    background-image: url("https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+}
+
+
+.smallGraphicOne, .smallGraphicTwo, .smallGraphicThree{
+    margin-top: 90px;
+    display:block;
+
+}
 

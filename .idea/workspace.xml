@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="118" column="18" lean-forward="true" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
+            <state relative-caret-position="98">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -76,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FeatureBlock/FeatureBlock.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
+            <state relative-caret-position="-380">
               <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
             </state>
           </provider>
@@ -250,12 +250,17 @@
       <workItem from="1562173853721" duration="11671000" />
 =======
       <workItem from="1562342788907" duration="1492000" />
+<<<<<<< HEAD
       <workItem from="1562354815742" duration="1245000" />
 >>>>>>> 95949d70be7f67ef97d7f56cd5c6ed6093af0a0e
+=======
+      <workItem from="1562354815742" duration="1577000" />
+>>>>>>> 305e6db5c40810f999b8bffc681aed5ac9ffc08d
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="19956000" />
 =======
@@ -264,6 +269,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="934" height="958" extended-state="0" />
+=======
+    <option name="totallyTimeSpent" value="11354000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+>>>>>>> 305e6db5c40810f999b8bffc681aed5ac9ffc08d
     <layout>
 <<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25301206" />
@@ -284,10 +295,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29099306" />
 =======
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25612244" />
 >>>>>>> 95949d70be7f67ef97d7f56cd5c6ed6093af0a0e
+=======
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25510204" />
+>>>>>>> 305e6db5c40810f999b8bffc681aed5ac9ffc08d
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -389,36 +404,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WhyMatters/WhyMatters.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FeatureBlock/FeatureBlock.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
+        <state relative-caret-position="-380">
           <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WhyMatters/WhyMatters.jsx">
-      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="262">
           <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
 >>>>>>> 95949d70be7f67ef97d7f56cd5c6ed6093af0a0e
+=======
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+>>>>>>> 305e6db5c40810f999b8bffc681aed5ac9ffc08d
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state>
 =======
         <state relative-caret-position="407">
           <caret line="118" column="18" lean-forward="true" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
 >>>>>>> 95949d70be7f67ef97d7f56cd5c6ed6093af0a0e
+=======
+        <state relative-caret-position="98">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+>>>>>>> 305e6db5c40810f999b8bffc681aed5ac9ffc08d
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
