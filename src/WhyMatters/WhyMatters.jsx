@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './WhyMatters.css';
 
 export default class WhyMatters extends Component {
 
