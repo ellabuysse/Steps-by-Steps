@@ -5,8 +5,8 @@ export default class FeatureBlock extends Component {
     render() {
 
         return(
-            <React.Fragment>
-                <div className="container" id="{this.props.bg-image}">
+            <div>
+                <div className="container" id="{this.props.bgImage}">
                     <div className="title"><strong>{this.props.title}</strong></div>
                 </div>
                 <div className="tips-container">
@@ -30,7 +30,7 @@ export default class FeatureBlock extends Component {
                     </div>
                     <div>{this.props.paragraph}</div>
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 }
