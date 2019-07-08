@@ -55,9 +55,6 @@ class App extends React.Component {
     TipsPage = (props) => {
         return (
             <div>
-<<<<<<< HEAD
-
-=======
                 <div className="tips-container">
                     <FeatureBox
                         smallGraphic="fas fa-bus"
