@@ -7,6 +7,7 @@ import {
 import FeatureBlock from './FeatureBlock/FeatureBlock';
 import NavBar from './NavBar/NavBar';
 import WhyMatters from './WhyMatters/WhyMatters';
+import Footer from './Footer/Footer';
 
 class App extends React.Component {
 
