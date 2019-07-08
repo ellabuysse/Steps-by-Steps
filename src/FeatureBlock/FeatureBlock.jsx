@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './FeatureBlock.css';
+import './FeatureBox/FeatureBox';
 
 export default class FeatureBlock extends Component {
 
