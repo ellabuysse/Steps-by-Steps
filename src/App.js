@@ -4,9 +4,10 @@ import {
     Link,
     BrowserRouter as Router
 } from 'react-router-dom';
-import FeatureBlock from './FeatureBlock/FeatureBlock';
+import FeatureBox from './FeatureBox/FeatureBox';
 import NavBar from './NavBar/NavBar';
 import WhyMatters from './WhyMatters/WhyMatters';
+import Footer from './Footer/Footer';
 
 class App extends React.Component {
 
@@ -54,7 +55,29 @@ class App extends React.Component {
     TipsPage = (props) => {
         return (
             <div>
+<<<<<<< HEAD
 
+=======
+                <div className="tips-container">
+                    <FeatureBox
+                        smallGraphic="fas fa-bus"
+                        tipText="Ride public transport or carpool to school"
+                    />
+                    <FeatureBox
+                        smallGraphic="fa fa-biking"
+                        tipText="Ride your bike to somewhere you would usually drive"
+                    />
+                    <FeatureBox
+                        smallGraphic="fas fa-walking"
+                        tipText="Walk somewhere instead of driving"
+                    />
+                    </div>
+                    <div className="paragraph">
+                        <p>Message here about why you should drive</p>
+                    </div>
+            </div>
+            /*
+>>>>>>> 635febca2efeb8660a1128f5dd9f4a42754f5b25
             <FeatureBlock
                 bgImage="bike-bg"
                 title="Transportation"
@@ -109,7 +132,7 @@ class App extends React.Component {
                 tipThree="Unplug electronics when they are fully charged"
                 paragraph="turn off ur lights uwu"
             />
-            </div>
+            </div>*/
         );
     };
 
