@@ -54,6 +54,7 @@ class App extends React.Component {
     TipsPage = (props) => {
         return (
             <div>
+
             <FeatureBlock
                 bgImage="bike-bg"
                 title="Transportation"
