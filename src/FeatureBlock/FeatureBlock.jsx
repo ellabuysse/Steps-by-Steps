@@ -5,6 +5,12 @@ import './FeatureBox/FeatureBox';
 export default class FeatureBlock extends Component {
 
     render() {
+            backgroundImage id="mountain-bg": "url(" + "https://images.unsplash.com/photo-1500748851664-017ef7f22878?ixlib=rb-1.2.1&auto=format&fit=crop&w=2562&q=80" + ")";
+            backgroundImage id="wheat-bg": "url(" + "https://images.unsplash.com/photo-1522184216316-3c25379f9760?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" + ")";
+            backgroundImage id="bike-bg": "url(" + "https://images.unsplash.com/photo-1557687790-902ede7ab58c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1243&q=80" + ")";
+            backgroundImage id="food-bg": "url(" + "https://images.unsplash.com/photo-1544215830-1c67ed769a61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" + ")";
+            backgroundImage id="buying-bg": "url(" + "https://images.pexels.com/photos/250400/pexels-photo-250400.jpeg?cs=srgb&dl=dawn-daylight-fog-250400.jpg&fm=jpg" + ")";
+            backgroundImage id="utilities-bg": "url(" + "https://images.pexels.com/photos/450004/pexels-photo-450004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" + ")";
 
         return(
             <div>

@@ -55,6 +55,9 @@ class App extends React.Component {
     TipsPage = (props) => {
         return (
             <div>
+<<<<<<< HEAD
+
+=======
                 <div className="tips-container">
                     <FeatureBox
                         smallGraphic="fas fa-bus"
@@ -74,6 +77,7 @@ class App extends React.Component {
                     </div>
             </div>
             /*
+>>>>>>> 635febca2efeb8660a1128f5dd9f4a42754f5b25
             <FeatureBlock
                 bgImage="bike-bg"
                 title="Transportation"
