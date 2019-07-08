@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './FeatureBox.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class FeatureBox extends Component {
 
@@ -9,7 +10,7 @@ export default class FeatureBox extends Component {
             <div>
                 <div className="tips-box">
                     <div className="tip">
-                        <i className='{this.props.smallGraphic}'/>
+                        <FontAwesomeIcon icon={this.props.smallGraphic}/>
                         <div>{this.props.tipText}</div>
                     </div>
                 </div>

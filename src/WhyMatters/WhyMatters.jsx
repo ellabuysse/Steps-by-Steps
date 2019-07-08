@@ -7,7 +7,7 @@ export default class WhyMatters extends Component {
 
         return(
             <div>
-                <div className="container" id="{this.props.bgImage}">
+                <div className="container" id={`static ${ this.props.bgImage }`}>
                     <div class="title"><strong>{this.props.header}</strong></div>
                 </div>
                 <i class="{this.props.image} large-graphic"></i>

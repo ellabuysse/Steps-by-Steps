@@ -4,23 +4,18 @@ import {
     Link,
     BrowserRouter as Router
 } from 'react-router-dom';
+
 import FeatureBox from './FeatureBox/FeatureBox';
-import NavBar from './NavBar/NavBar';
+import NavBar from './NavBar/NavBar'; 
 import WhyMatters from './WhyMatters/WhyMatters';
 import Footer from './Footer/Footer';
+import tips from './Data/tips';
+import HomePage from './HomePage';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class App extends React.Component {
 
-    HomePage = (props) => {
-        return (
-            <div>
-                <NavBar/>
-                <h1>Steps by Steps</h1>
-                <h2>Saving the earth one step at a time</h2>
-            </div>
-        );
-    };
-    
     WIMPage = (props) => {
         return (
             <div>
@@ -56,18 +51,16 @@ class App extends React.Component {
         return (
             <div>
                 <div className="tips-container">
-                    <FeatureBox
-                        smallGraphic="fas fa-bus"
-                        tipText="Ride public transport or carpool to school"
-                    />
-                    <FeatureBox
-                        smallGraphic="fa fa-biking"
-                        tipText="Ride your bike to somewhere you would usually drive"
-                    />
-                    <FeatureBox
-                        smallGraphic="fas fa-walking"
-                        tipText="Walk somewhere instead of driving"
-                    />
+                    {
+                        tips.map(value => (
+                            <FeatureBox
+                                smallGraphic={value.icon}
+                                tipText={value.tipText}
+                                key={value.tipText}
+                            />
+                        ))
+                    }
+                    
                     </div>
                     <div className="paragraph">
                         <p>Message here about why you should drive</p>
@@ -140,7 +133,7 @@ class App extends React.Component {
             <div>
                 <NavBar/>
                 <div>
-                    <Route exact path="/" render={this.HomePage}/>
+                    <Route exact path="/" render={HomePage}/>
                     <Route exact path="why-it-matters" render={this.WIMPage}/>
                     <Route exact path="/tips" render={this.TipsPage}/>
                 </div>

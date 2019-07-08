@@ -10,7 +10,7 @@ export default class NavBar extends Component {
         return(
             <header>
                 <nav>
-                    <div class="nav-title">
+                    <div className="nav-title">
                         <Link to="/">Steps by Steps</Link>
                     </div>
                     <Link to="/tips">what you can do</Link>
