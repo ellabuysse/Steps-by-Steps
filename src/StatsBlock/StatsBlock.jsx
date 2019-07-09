@@ -7,8 +7,8 @@ export default class StatsBlock extends Component {
         return(
             <div>
                 <div className="stats-block">
-                    <div className="stats-number">{this.props.number}</div>
-                    <div className="stats-text">{this.props.text}</div>
+                    <div className="stats-number">{this.props.statsNumber}</div>
+                    <div className="stats-text">{this.props.statsText}</div>
                 </div>
             </div>
         )
