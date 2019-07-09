@@ -7,14 +7,12 @@ import {
 
 import NavBar from './NavBar/NavBar'; 
 import WhyMatters from './WhyMatters/WhyMatters';
-import Footer from './Footer/Footer';
 import HomePage from './HomePage';
 import TipsPage from './TipsPage';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import WIMPage from './WIMPage';
 
 class App extends React.Component {
-
+/*
     WIMPage = (props) => {
         return (
             <div>
@@ -45,6 +43,7 @@ class App extends React.Component {
             </div>
         );
     }
+*/
 
     render() {
 
@@ -54,7 +53,7 @@ class App extends React.Component {
                 <NavBar/>
                 <div>
                     <Route exact path="/" render={HomePage}/>
-                    <Route exact path="why-it-matters" render={this.WIMPage}/>
+                    <Route exact path="why-it-matters" render={WIMPage}/>
                     <Route exact path="/tips" render={TipsPage}/>
                 </div>
             </div>
