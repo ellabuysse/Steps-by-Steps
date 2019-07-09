@@ -5,7 +5,6 @@ import {
     BrowserRouter as Router
 } from 'react-router-dom';
 
-import FeatureBox from './FeatureBox/FeatureBox';
 import NavBar from './NavBar/NavBar'; 
 import WhyMatters from './WhyMatters/WhyMatters';
 import Footer from './Footer/Footer';

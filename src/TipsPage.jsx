@@ -8,7 +8,7 @@ import utilitiesTips from './Data/utilitiesTips';
 
 const TipsPage = (props) => {
     return (
-        <div>
+        <div> 
             <div className="tips-container">
                 {
                     transportTips.map(value => (
