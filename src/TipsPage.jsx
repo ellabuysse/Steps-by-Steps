@@ -19,7 +19,7 @@ const TipsPage = (props) => {
                         />
                     ))
                 } 
-                </div>
+            </div>
             <div className="paragraph">
                 <p>Message</p>
             </div>
