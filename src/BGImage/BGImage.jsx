@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import './BGImage.css';
 
-export default class BGImage extends Component {
+let imgUrl = '{this.props.bg}'
+    let styles = {
+        root: {
+            backgroundImage: 'url(' + imgUrl + ')',
+            backgroundSize: 'cover',
+            overflow: 'hidden',
+        }, 
+    }
 
+export default class BGImage extends Component {
+    
     render() {
 
-        return(
+        return( 
             <div>
-                <div className="container" >
-                    <div className="title">
-                        
-                    </div>
+                <div className="container">
+                    <div className="title"><strong>{this.props.title}</strong></div>
                 </div>
             </div>
 
-            < div
-        className = "container"
-        id = "biker-bg-image" >
-            < div
-        className = "title" > < strong > Transportation < /strong></
-        div >
-        < /div>
         )
     }
 }

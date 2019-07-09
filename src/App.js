@@ -9,7 +9,6 @@ import FeatureBox from './FeatureBox/FeatureBox';
 import NavBar from './NavBar/NavBar'; 
 import WhyMatters from './WhyMatters/WhyMatters';
 import Footer from './Footer/Footer';
-import tips from './Data/tips';
 import HomePage from './HomePage';
 import TipsPage from './TipsPage';
 
