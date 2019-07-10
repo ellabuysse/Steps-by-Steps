@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 
 import NavBar from './NavBar/NavBar'; 
-import WhyMatters from './WhyMatters/WhyMatters';
 import HomePage from './HomePage';
 import TipsPage from './TipsPage';
 import WIMPage from './WIMPage';
@@ -19,9 +18,10 @@ class App extends React.Component {
             <Router>
             <div>
                 <NavBar/>
+                
                 <div>
                     <Route exact path="/" render={HomePage}/>
-                    <Route exact path="why-it-matters" render={WIMPage}/>
+                    <Route exact path="/why-it-matters" render={WIMPage}/>
                     <Route exact path="/tips" render={TipsPage}/>
                 </div>
             </div>
