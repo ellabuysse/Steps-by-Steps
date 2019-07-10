@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
 @import url(https://fonts.googleapis.com/css?family=Homemade+Apple);
 
-/*normalize code*/
-
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -182,64 +180,39 @@ template {
     display: none;
 }
 
-/* actual code */
 
-.stats-container {
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    width: auto;
-    padding: 70px 70px 0;
-}
+#body{
+    background: url("https://images.unsplash.com/photo-1533003265859-b1214e265efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80") no-repeat center center fixed;
+    min-height: 1000px;
+    width: 100%;
 
-.stats-box {
-    display: inline-block;
-    width: 165px;
-    height: 150px;
-    margin: 1em;
-    position: center;
-    text-align: center;
-}
-
-mark.stat{
-    font-size: 70px;
-    font-weight: 900;
-    font-family: 'Noto Sans TC', sans-serif;
-    display: inline-block;
-    padding-bottom: 50px;
-    background-color: white;
-    color: rgba(101, 178, 255, 0.34);
-}
-
-mark.stat#stat2{
-    color: rgba(197, 251, 179, 0.72)
-}
-
-mark.stat#stat3{
-    color: rgba(255, 178, 52, 0.42);
-}
-
-.stats-container p {
-    column-count: 1;
-    text-align: center;
-}
-.container {
-    margin: 0;
-    position: relative;
-    text-align: center;
-    color: white;
-    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    height: 500px;
+    right: 0;
+    left: 0;
+
+    
 }
-.title {
+#words {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Quicksand', sans-serif;
-    font-size: 50px;
-    letter-spacing: 5px;
-    padding: 10px;
-    z-index: 10;
+    top: 40%;
+    bottom: auto;
+    transform: translate(0, -50%);
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+    height: 100px;
+    width: 100%;
 }
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 85px;
+    color: white;
+}
+h2 {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 30px;
+}
+

@@ -1,25 +1,62 @@
 import React from 'react';
-import NavBar from './NavBar/NavBar';
+import TextBlock from './TextBlock/TextBlock';
 import FeatureBox from './FeatureBox/FeatureBox';
-import tips from './Data/tips';
+import StatsBlock from './StatsBlock/StatsBlock';
+import stats from './Data/stats';
+import introText from './Data/introText';
+import weArePartText from './Data/weArePartText';
+import smallActionsMakeText from './Data/smallActionsMakeText';
 
 const WIMPage = (props) => {
     return (
         <div>
-            <div className="tips-container">
-                {
-                    tips.map(value => (
-                        <FeatureBox
-                            smallGraphic={value.icon}
-                            tipText={value.tipText}
-                            key={value.tipText}
-                        />
-                    ))
-                } 
-                </div>
-                <div className="paragraph">
-                    <p>Message here about why you should drive</p>
-                </div>
+            <div className="stats-container"> 
+            {
+                stats.map(value => (
+                    <StatsBlock
+                                statsNumber={value.number}
+                                statsText={value.text}
+                                key={value.text}
+                            />
+                ))
+            }
+            </div>
+            <div className="text-container">
+            {
+                introText.map(value => (
+                    <TextBlock
+                        graphic={value.icon}
+                        text={value.text}
+                            key={value.text}
+                
+            />
+            ))
+            }
+            </div>
+            <div className="text-container">
+            {
+                weArePartText.map(value => (
+                    <TextBlock
+                        graphic={value.icon}
+                        text={value.text}
+                            key={value.text}
+                
+            />
+            ))
+            }
+            </div>
+            <div className="text-container">
+            {
+                smallActionsMakeText.map(value => (
+                    <TextBlock
+                        graphic={value.icon}
+                        text={value.text}
+                            key={value.text}
+                
+            />
+            ))
+            }
+            </div>
         </div>
     
     );
