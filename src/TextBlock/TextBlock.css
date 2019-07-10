@@ -1,0 +1,25 @@
+.text{
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 0;
+    margin-right: 25%;
+    margin-left: 25%;
+    column-count: 2;
+    line-height: 120%;
+    font-size: 120%;
+    padding: 50px;
+}
+.icon{
+    text-align: center;
+    position: relative;
+    vertical-align: top;
+}
+
+.img{
+    margin: 0;
+    position: relative;
+    text-align: center;
+   
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}

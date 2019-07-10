@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import './StatsBlock.css';
 
 export default class StatsBlock extends Component {
 
     render() {
 
         return(
-            <div>
-                <div className="stats-block">
-                    <div className="stats-number">{this.props.statsNumber}</div>
-                    <div className="stats-text">{this.props.statsText}</div>
-                </div>
+            <div class="container">
+                <p className="stats-block">
+                    <p className="stats-number">{this.props.statsNumber}</p>
+                    <p className="stats-text">{this.props.statsText}</p>
+                </p>
             </div>
         )
     }

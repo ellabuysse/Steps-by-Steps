@@ -5,6 +5,7 @@ import stats from './Data/stats';
 import introText from './Data/introText';
 import weArePartText from './Data/weArePartText';
 import smallActionsMakeText from './Data/smallActionsMakeText';
+import './WIMPage.css';
 
 const WIMPage = (props) => {
     return (
@@ -24,6 +25,7 @@ const WIMPage = (props) => {
             {
                 introText.map(value => (
                     <TextBlock
+                        img={value.img}
                         graphic={value.icon}
                         text={value.text}
                             key={value.text}
