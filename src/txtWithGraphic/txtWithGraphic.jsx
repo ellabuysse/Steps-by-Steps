@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './TextBlock.css';
+import './txtWithGraphic.css';
 
 export default class txtWithGraphic extends Component {
 

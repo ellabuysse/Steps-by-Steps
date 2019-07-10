@@ -1,5 +1,5 @@
 import React from 'react';
-import `txtWithGraphic from './txtWithGraphic/txtWithGraphic';
+import txtWithGraphic from './txtWithGraphic/txtWithGraphic';
 import FeatureBox from './FeatureBox/FeatureBox';
 import StatsBlock from './StatsBlock/StatsBlock';
 import stats from './Data/stats';
@@ -28,7 +28,7 @@ const WIMPage = (props) => {
                     <txtWithGraphic
                         graphic={value.icon}
                         text={value.text}
-                            key={value.text}
+                        key={value.text}
                 
             />
             ))
