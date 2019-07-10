@@ -4,7 +4,7 @@ import transportTips from '../Data/transportTips';
 import foodTips from '../Data/foodTips';
 import shoppingTips from '../Data/shoppingTips';
 import utilitiesTips from '../Data/utilitiesTips';
-import './TipsPage.css';
+import TipsPageCSS from './TipsPageCSS.css';
 
 const TipsPage = (props) => {
     return (

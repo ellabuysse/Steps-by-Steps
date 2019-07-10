@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './TextBlock.css';
 
-export default class TextBlock extends Component {
+export default class txtWithGraphic extends Component {
 
     render() {
 
