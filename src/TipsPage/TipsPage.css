@@ -1,0 +1,66 @@
+.tips-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-bottom: 10px;
+}
+FeatureBox{
+    background-color: rgba(101, 178, 255, 0.34);
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    column-count: 1;
+    display: flex;
+    justify-content: center;
+}
+.paragraph{
+    width: 150px;
+    height: 100px;
+    column-count: 1;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    line-height: 120%;
+    font-size: 120%;
+    padding: 0;
+    bottom: 0;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+
+
+
+
+
+.tip {
+    flex-direction: column;
+}
+
+.tips2 {
+    background-color: rgba(251, 126, 80, 0.27)
+}
+.tips3 {
+    background-color: rgba(197, 251, 179, 0.34);
+}
+
+.tips4 {
+    background-color: rgba(255, 178, 52, 0.42);
+}
+.tips-container, .tips-box{
+    column-count: 1;
+}
+.tip{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    margin: 1em;
+    position: center;
+    text-align: center;
+    border: 1px solid black;
+    column-count: 1;
+    padding: 50px;
+    justify-content: space-between;
+}
+
+

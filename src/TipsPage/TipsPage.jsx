@@ -74,4 +74,4 @@ const TipsPage = (props) => {
     );
 };
 
-export default TipsPage
+export default TipsPage;
