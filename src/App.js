@@ -9,8 +9,8 @@ import FeatureBox from './FeatureBox/FeatureBox';
 import NavBar from './NavBar/NavBar'; 
 import WhyMatters from './WhyMatters/WhyMatters';
 import Footer from './Footer/Footer';
-import HomePage from './HomePage';
-import TipsPage from './TipsPage';
+import HomePage from './HomePage/HomePage';
+import TipsPage from './TipsPage/TipsPage';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -56,7 +56,7 @@ class App extends React.Component {
                 <div>
                     <Route exact path="/" render={HomePage}/>
                     <Route exact path="why-it-matters" render={this.WIMPage}/>
-                    <Route exact path="/tips" render={TipsPage}/>
+                    <Route exact path="/tips" render={TipsPage/TipsPage}/>
                 </div>
             </div>
             </Router>
