@@ -1,0 +1,27 @@
+.stats-block {
+    display: inline-block;
+    width: 165px;
+    height: 150px;
+    margin: 1em;
+    position: center;
+    text-align: center;
+}
+.stats-number{
+    font-size: 70px;
+    font-weight: 900;
+    font-family: 'Noto Sans TC', sans-serif;
+    display: inline-block;
+    padding-bottom: 50px;
+    background-color: white;
+    color: rgba(101, 178, 255, 0.34);
+}
+.stats-text {
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 0;
+    margin-right: 450px;
+    margin-left: 450px;
+    column-count: 2;
+    line-height: 120%;
+    font-size: 120%;
+    padding: 50px;
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../NavBar/NavBar';
 import FeatureBox from '../FeatureBox/FeatureBox';
 import transportTips from '../Data/transportTips';
 import foodTips from '../Data/foodTips';

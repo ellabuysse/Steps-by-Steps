@@ -1,15 +1,12 @@
 import React from 'react';
 import {
     Route,
-    Link,
     BrowserRouter as Router
 } from 'react-router-dom';
 
 import NavBar from './NavBar/NavBar'; 
 import HomePage from './HomePage/HomePage';
 import TipsPage from './TipsPage/TipsPage';
-import Footer from './Footer/Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import WIMPage from './WIMPage';
 
 

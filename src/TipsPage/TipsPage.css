@@ -12,7 +12,22 @@ FeatureBox{
     text-align: center;
     column-count: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.tips-box{
+    background-color: rgba(101, 178, 255, 0.34);
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    column-count: 1;
+    display: flex;
+    justify-content: center;
+}
+
+FeatureBox .tip {
+    flex-direction: column;
 }
 .paragraph{
     width: 150px;
