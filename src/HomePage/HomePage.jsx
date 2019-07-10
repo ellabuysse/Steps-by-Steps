@@ -6,10 +6,10 @@ const HomePage = (props) => {
     return (
         
         <div id="body">
-            
-            <h1>Steps by Steps</h1>
+            <div id="words">
+            <h1>STEPS BY STEPS</h1>
             <h2>Saving the earth one step at a time</h2>
-        </div>
+        </div></div>
     );
 }
 

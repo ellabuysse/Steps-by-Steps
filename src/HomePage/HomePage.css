@@ -183,15 +183,19 @@ template {
 
 #body{
     background: url("https://images.unsplash.com/photo-1533003265859-b1214e265efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80") no-repeat center center fixed;
-    height: 2000px;
+    min-height: 1000px;
+    width: 100%;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     right: 0;
     left: 0;
+
+    
 }
-h1 {
+#words {
     position: absolute;
     top: 40%;
     bottom: auto;
