@@ -1,11 +1,11 @@
 import React from 'react';
-import NavBar from './NavBar/NavBar';
-import FeatureBox from './FeatureBox/FeatureBox';
-import transportTips from './Data/transportTips';
-import foodTips from './Data/foodTips';
-import shoppingTips from './Data/shoppingTips';
-import utilitiesTips from './Data/utilitiesTips';
-import TipsPageCSS from './TipsPageCSS';
+import NavBar from '../NavBar/NavBar';
+import FeatureBox from '../FeatureBox/FeatureBox';
+import transportTips from '../Data/transportTips';
+import foodTips from '../Data/foodTips';
+import shoppingTips from '../Data/shoppingTips';
+import utilitiesTips from '../Data/utilitiesTips';
+import TipsPageCSS from './TipsPageCSS.css';
 
 const TipsPage = (props) => {
     return (

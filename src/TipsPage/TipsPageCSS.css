@@ -1,0 +1,8 @@
+.tips-container {
+    column-count: 1;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-bottom: 10px;
+}
