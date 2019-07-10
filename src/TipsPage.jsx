@@ -5,6 +5,7 @@ import transportTips from './Data/transportTips';
 import foodTips from './Data/foodTips';
 import shoppingTips from './Data/shoppingTips';
 import utilitiesTips from './Data/utilitiesTips';
+import TipsPageCSS from './TipsPageCSS';
 
 const TipsPage = (props) => {
     return (
