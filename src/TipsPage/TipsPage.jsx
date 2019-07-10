@@ -9,7 +9,7 @@ import './TipsPage.css';
 
 const TipsPage = (props) => {
     return (
-        <div>
+        <div> 
             <div className="tips-container">
                 {
                     transportTips.map(value => (
@@ -20,7 +20,7 @@ const TipsPage = (props) => {
                         />
                     ))
                 } 
-                </div>
+            </div>
             <div className="paragraph">
                 <p>Message</p>
             </div>
