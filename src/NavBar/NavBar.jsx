@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Route,
-    BrowserRouter,
     Link
 } from 'react-router-dom';
 import './NavBar.css';
-import HomePage from '../HomePage/HomePage';
-import TipsPage from '../TipsPage/TipsPage';
-import WIMPage from '../WIMPage';
 
 export default class NavBar extends Component {
 

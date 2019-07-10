@@ -1,6 +1,5 @@
 import React from 'react';
 import TextBlock from './TextBlock/TextBlock';
-import FeatureBox from './FeatureBox/FeatureBox';
 import StatsBlock from './StatsBlock/StatsBlock';
 import stats from './Data/stats';
 import introText from './Data/introText';
