@@ -1,7 +1,8 @@
 import React from 'react';
-import txtWithGraphic from './txtWithGraphic/txtWithGraphic';
+import TextWithGraphic from './TextWithGraphic/TextWithGraphic';
 import FeatureBox from './FeatureBox/FeatureBox';
 import StatsBlock from './StatsBlock/StatsBlock';
+import Footer from './Footer/Footer';
 import stats from './Data/stats';
 import introText from './Data/introText';
 import weArePartText from './Data/weArePartText';
@@ -22,42 +23,42 @@ const WIMPage = (props) => {
                 ))
             }
             </div>
+            
             <div className="text-container">
             {
                 introText.map(value => (
-                    <txtWithGraphic
+                    <TextWithGraphic
                         graphic={value.icon}
                         text={value.text}
                         key={value.text}
-                
-            />
+                    />
             ))
             }
             </div>
             <div className="text-container">
             {
                 weArePartText.map(value => (
-                    <txtWithGraphic
+                    <TextWithGraphic
                         graphic={value.icon}
                         text={value.text}
                             key={value.text}
                 
-            />
+                    />
             ))
             }
             </div>
             <div className="text-container">
             {
                 smallActionsMakeText.map(value => (
-                    <txtWithGraphic
+                    <TextWithGraphic
                         graphic={value.icon}
                         text={value.text}
                             key={value.text}
-                
             />
             ))
             }
             </div>
+            <Footer/>
         </div>
     
     );
