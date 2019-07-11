@@ -33,6 +33,7 @@ const WIMPage = (props) => {
                                 statsNumber={value.number}
                                 statsText={value.text}
                                 key={value.text}
+                                color={value.color}
                             />
                 ))
             }
@@ -52,7 +53,7 @@ const WIMPage = (props) => {
             <div className="bg-image">
                 {
                     <BGImage 
-                        bg="https://images.pexels.com/photos/250400/pexels-photo-250400.jpeg?cs=srgb&dl=dawn-daylight-fog-250400.jpg&fm=jpg"
+                        img="https://images.pexels.com/photos/250400/pexels-photo-250400.jpeg?cs=srgb&dl=dawn-daylight-fog-250400.jpg&fm=jpg"
                         title="We Are Part Of The Solution"
                         />
                 }
@@ -75,7 +76,7 @@ const WIMPage = (props) => {
             <div className="bg-image">
                 {
                     <BGImage 
-                        bg="https://images.pexels.com/photos/450004/pexels-photo-450004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        img="https://images.pexels.com/photos/450004/pexels-photo-450004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         title="Small Actions Make Great Change"
                         />
                 }

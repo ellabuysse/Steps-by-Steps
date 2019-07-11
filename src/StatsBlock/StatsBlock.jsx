@@ -8,7 +8,7 @@ export default class StatsBlock extends Component {
         return(
             
                 <p className="stats-block">
-                    <p className="stats-number">{this.props.statsNumber}</p>
+                    <mark className="stats-number" style={{color:this.props.color}}>{this.props.statsNumber}</mark>
                     <p className="stats-text">{this.props.statsText}</p>
                 </p>
          

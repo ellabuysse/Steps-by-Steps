@@ -7,12 +7,10 @@ export default class TextWithGraphic extends Component {
     render() {
 
         return(
-            <div>
+            <div class="txt-graphic-container">
                 
-                <div className="img" style={{backgroundImage: "url("+this.props.img+")"}}></div>
-                <div className="title">{this.props.photo}</div>
                 <div class="icon">
-                    <FontAwesomeIcon icon={this.props.graphic} size="3x"/>
+                    <FontAwesomeIcon icon={this.props.graphic} size="7x"/>
                 </div>
                 <div className="text">{this.props.text}</div>
             </div>
