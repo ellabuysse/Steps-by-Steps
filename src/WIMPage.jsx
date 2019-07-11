@@ -25,6 +25,8 @@ const WIMPage = (props) => {
                 </div>
 
                 <div className="stats-container"> 
+            <h1 className="page-title">Why It Matters</h1>
+            <div className="bg-image">
                 {
                     stats.map(value => (
                         <StatsBlock
@@ -90,6 +92,7 @@ const WIMPage = (props) => {
                 }
                 </div>
             <Footer/>
+        </div>
         </div>
     );
 };
