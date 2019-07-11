@@ -1,6 +1,6 @@
 import React from 'react';
 
-import txtWithGraphic from './txtWithGraphic/txtWithGraphic';
+
 
 import TextWithGraphic from './TextWithGraphic/TextWithGraphic';
 
@@ -12,10 +12,20 @@ import introText from './Data/introText';
 import weArePartText from './Data/weArePartText';
 import smallActionsMakeText from './Data/smallActionsMakeText';
 import './WIMPage.css';
+import BGImage from './BGImage/BGImage';
 
 const WIMPage = (props) => {
     return (
         <div>
+            <div className="bg-image">
+                {
+                    <BGImage 
+                        img="https://images.pexels.com/photos/1313807/pexels-photo-1313807.jpeg?cs=srgb&dl=branch-bright-color-1313807.jpg&fm=jpg"
+                        title="The Earth Needs Our Help"
+                        />
+                }
+            </div>
+
             <div className="stats-container"> 
             {
                 stats.map(value => (
@@ -37,7 +47,17 @@ const WIMPage = (props) => {
                         key={value.text}
                     />
             ))
-            }
+                }
+
+            <div className="bg-image">
+                {
+                    <BGImage 
+                        bg="https://images.pexels.com/photos/250400/pexels-photo-250400.jpeg?cs=srgb&dl=dawn-daylight-fog-250400.jpg&fm=jpg"
+                        title="We Are Part Of The Solution"
+                        />
+                }
+            </div>
+
             </div>
             <div className="text-container">
             {
@@ -51,6 +71,16 @@ const WIMPage = (props) => {
             ))
             }
             </div>
+
+            <div className="bg-image">
+                {
+                    <BGImage 
+                        bg="https://images.pexels.com/photos/450004/pexels-photo-450004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        title="Small Actions Make Great Change"
+                        />
+                }
+            </div>
+
             <div className="text-container">
             {
                 smallActionsMakeText.map(value => (
