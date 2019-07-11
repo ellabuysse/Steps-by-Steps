@@ -38,8 +38,7 @@ const TipsPage = (props) => {
     should drive. Message here about why you should drive. Message here about why you should drive. Message here about
     why you should drive. Message here about why you should drive. Message here about why you should drive. Message here
     about why you should drive.</p>
-           
-
+        
             <div className="bg-image">
                 {
                     <BGImage 
@@ -59,7 +58,7 @@ const TipsPage = (props) => {
                         />
                     ))
                 } 
-                </div>
+            </div>
             <p className="paragraph">Food waste has become a global problem. In fact, over the last 60 years, our annual global food waste has increased
     by half. With the 2.9 trillion tons of food we waste each year, we could feed all 800 million undernourished people
     in the world twice. Besides wasting valuable land, fuel, and water resources, food waste contributes to global
@@ -88,7 +87,7 @@ const TipsPage = (props) => {
                         />
                     ))
                 } 
-                </div>
+            </div>
             <p className="paragraph">As consumers, we have a responsibility to make conscious choices about our purchases. When buying something, we often
     forget to see the resources and energy that went into manufacturing and shipping that product. For instance, because
     cotton plants require so much water, a single cotton T-shirt can require up to 713 gallons of water- enough to keep
@@ -113,7 +112,7 @@ const TipsPage = (props) => {
                         />
                     ))
                 } 
-                </div>
+            </div>
             <p className="paragraph">Message here</p>
         </div>
     );
