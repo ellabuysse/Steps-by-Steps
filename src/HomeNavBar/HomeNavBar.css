@@ -19,3 +19,7 @@ header {
     text-align: right;
 }
 
+.home-title {
+    opacity: 0;
+}
+
