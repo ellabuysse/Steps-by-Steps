@@ -17,8 +17,8 @@
     text-align: center;
 }
 .stats-number{
-    font-size: 70px;
-    font-weight: 900;
+    font-size: 90px;
+    font-weight: 500;
     font-family: 'Noto Sans TC', sans-serif;
     background-color: white;
     color: rgba(101, 178, 255, 0.34);
@@ -32,7 +32,7 @@
     font-size: 120%;
     
     text-align: center;
-    padding-top: 0;
+    padding-top: 10px;
 }
 
 p.stats-number{
