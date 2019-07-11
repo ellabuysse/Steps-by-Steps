@@ -8,15 +8,14 @@
         display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-    
+  width: 100%;  
+}
+
+.top {
+    padding-top: 125px;
 }
 
 .bg-image .title{
-
-    
-   
-
     top: 50%;
     left: 80%;
 

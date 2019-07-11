@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import {
     Link
 } from 'react-router-dom';
-import './NavBar.css';
+import './HomeNavBar.css';
 
-export default class NavBar extends Component {
+export default class HomeNavBar extends Component {
 
     render() {
         return(
             <header>
-                <nav className="pages-nav">
+                <nav className="home-nav">
                     <div className="nav-title">
                         <Link to="/">Steps by Steps</Link>
                     </div>

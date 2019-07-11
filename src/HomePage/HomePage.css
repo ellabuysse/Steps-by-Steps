@@ -185,7 +185,7 @@ template {
     background: url("https://images.unsplash.com/photo-1533003265859-b1214e265efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80") no-repeat center center fixed;
     min-height: 1000px;
     width: 100%;
-
+    padding-top: 50px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -215,4 +215,6 @@ h2 {
     font-family: 'Homemade Apple', cursive;
     font-size: 30px;
 }
+
+
 

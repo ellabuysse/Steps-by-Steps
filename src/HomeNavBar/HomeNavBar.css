@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple);
+
+header {
+    position: absolute;
+    bottom: auto;
+    text-align: center;
+    margin: 0;
+    height: 100px;
+    width: 100%;
+}
+
+.home-nav {
+    background-color: none;
+}
+
+.nav-menu {
+    display: flex;
+    text-align: right;
+}
+

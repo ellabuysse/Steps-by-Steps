@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
 @import url(https://fonts.googleapis.com/css?family=Homemade+Apple);
 
-
 nav {
     font-family: 'Quicksand', sans-serif;
     position: relative;
@@ -13,10 +12,14 @@ nav {
     width: 100%;
     text-align: center;
     top: 0;
-    background-color: white;
     z-index: 11;
     font-size: 20px;
 }
+
+.pages-nav {
+    background-color: white;
+}
+
 nav a{
     top: 0;
     padding: 50px;

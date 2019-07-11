@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 import './BGImage.css';
 
-/*let imgUrl = '{this.props.bg}'
-    let styles = {
-        root: {
-            backgroundImage: 'url(' + imgUrl + ')',
-            backgroundSize: 'cover',
-            overflow: 'hidden',
-        }, 
-    }*/
-
 export default class BGImage extends Component {
     
     render() {

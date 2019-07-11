@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../NavBar/NavBar';
 import FeatureBox from '../FeatureBox/FeatureBox';
 import transportTips from '../Data/transportTips';
 import foodTips from '../Data/foodTips';
@@ -9,7 +10,8 @@ import TipsPageCSS from './TipsPageCSS.css';
 const TipsPage = (props) => {
     return (
         <div> 
-            <div className="tips-container">
+            <NavBar/>
+            <div className="tips-container top">
                 {
                     transportTips.map(value => (
                         <FeatureBox
