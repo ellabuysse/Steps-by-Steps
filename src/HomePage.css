@@ -206,7 +206,7 @@ template {
     height: 100px;
     width: 100%;
 }
-h1 {
+.home-title {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 85px;
     color: white;
