@@ -6,7 +6,7 @@ export default class Footer extends Component {
     render() {
 
         return(
-            <p>&#169; 2019</p>
+            <p className="footer">&#169; 2019</p>
         )
     }
 }

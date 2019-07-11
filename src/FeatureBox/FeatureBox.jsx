@@ -8,8 +8,8 @@ export default class FeatureBox extends Component {
 
         return(
             <div>
-                <div className="tips-box">
-                    <div className="tip">
+                <div className="tips-box" style={{backgroundColor: this.props.color}}>
+                    <div className="tip" >
                         <FontAwesomeIcon icon={this.props.smallGraphic}/>
                         <div className="tip-text">{this.props.tipText}</div>
                     </div>

@@ -17,6 +17,7 @@ import BGImage from './BGImage/BGImage';
 const WIMPage = (props) => {
     return (
         <div>
+            <h1 className="page-title">Why It Matters</h1>
             <div className="bg-image">
                 {
                     <BGImage 
