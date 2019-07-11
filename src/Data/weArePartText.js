@@ -2,7 +2,6 @@ import { faSeedling } from '@fortawesome/free-solid-svg-icons'
 
 let array = [
     {
-        img: "https://images.pexels.com/photos/250400/pexels-photo-250400.jpeg?cs=srgb&dl=dawn-daylight-fog-250400.jpg&fm=jpg",
         icon: faSeedling,
         text: "The average American emits 20 tons of greenhouse has emissions per year due to what "
         + "they eat, how they power their homes and mobile devices, and how they travel from place "

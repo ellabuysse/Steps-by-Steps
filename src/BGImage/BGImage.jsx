@@ -18,6 +18,7 @@ export default class BGImage extends Component {
             <div>
                 <div className="container">
                     <div className="title"><strong>{this.props.title}</strong></div>
+                    <div className="bg-image" style={{ backgroundImage: "url("+this.props.img+")"}}></div>
                 </div>
             </div>
 

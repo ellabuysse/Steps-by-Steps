@@ -1,15 +1,17 @@
 .stats-block {
-    width: 165px;
-    height: 150px;
+    width: 200px;
+    height: 300px;
     margin: 1em;
     position: center;
     text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    
 }
 .container{
-    display: flex;
-    flex-direction: row;
+    
     width: 165px;
-    height: 150px;
+    
     margin: 1em;
     position: center;
     text-align: center;
@@ -18,10 +20,9 @@
     font-size: 70px;
     font-weight: 900;
     font-family: 'Noto Sans TC', sans-serif;
-
-    padding-bottom: 50px;
     background-color: white;
     color: rgba(101, 178, 255, 0.34);
+    padding-bottom: 0;
 }
 .stats-text {
     font-family: 'Quicksand', sans-serif;
@@ -31,7 +32,7 @@
     font-size: 120%;
     
     text-align: center;
-    
+    padding-top: 0;
 }
 
 p.stats-number{
