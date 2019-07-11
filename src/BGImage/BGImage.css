@@ -2,37 +2,25 @@
         margin: 0;
         position: relative;
         text-align: center;
-        background-position: center;
+        /*background-position: center;*/
         background-size: cover;
         height: 500px;
         display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;  
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-position: center;
 }
-
-.top {
-    padding-top: 125px;
-}
-
 .bg-image .title{
     top: 50%;
     left: 80%;
-
     font-family: 'Quicksand', sans-serif;
     font-size: 50px;
     letter-spacing: 5px;
     padding: 10px;
     z-index: 10;
-
     width: 5000px;
-    
-
-    
-
-    align-self: center;
-
-    
+    align-self: center;  
 }
 strong{
     font-weight: bolder;
