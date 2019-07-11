@@ -6,7 +6,7 @@ let array = [
     },
     {
         number: "80%",
-        color: "rgba(197, 251, 179, 0.72)",
+        color: "rgba(188, 251, 180, 0.78)",
         text: "of our forests have been destroyed"
     },
     {
