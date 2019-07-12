@@ -9,7 +9,7 @@ const HomePage = (props) => {
             <div id="body">
                 <div id="words">
                     <h1>STEPS BY STEPS</h1>
-                    <h2>Saving the earth one step at a time</h2>
+                    <h2>Saving the Earth One Step at a Time</h2>
                 </div>
             </div>
         </div>

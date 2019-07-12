@@ -1,10 +1,10 @@
-import { faCoffee, faBiking, faWalking } from '@fortawesome/free-solid-svg-icons'  
+import { faBus, faBiking, faWalking } from '@fortawesome/free-solid-svg-icons'  
 
 let array = [
     {
         color: "rgba(127, 162, 255, 0.27)",
         tipText: "Ride public transport or carpool to school",
-        icon: faCoffee
+        icon: faBus
 
     },
     {

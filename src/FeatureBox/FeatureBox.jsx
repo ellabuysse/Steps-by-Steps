@@ -10,7 +10,7 @@ export default class FeatureBox extends Component {
             <div>
                 <div className="tips-box" style={{backgroundColor: this.props.color}}>
                     <div className="tip" >
-                        <FontAwesomeIcon icon={this.props.smallGraphic}/>
+                        <FontAwesomeIcon icon={this.props.smallGraphic} size="2x" className="icon"/>
                         <div className="tip-text">{this.props.tipText}</div>
                     </div>
                 </div>

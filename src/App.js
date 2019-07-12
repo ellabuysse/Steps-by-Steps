@@ -8,6 +8,7 @@ import NavBar from './NavBar/NavBar';
 import HomePage from './HomePage/HomePage';
 import TipsPage from './TipsPage/TipsPage';
 import WIMPage from './WIMPage';
+import QuizPage from './QuizPage/QuizPage';
 
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
                     <Route exact path="/" render={HomePage}/>
                     <Route exact path="/why-this-matters" render={WIMPage}/>
                     <Route exact path="/tips" render={TipsPage}/>
+                    <Route exact path="/quiz" render={QuizPage}/>
 
                 </div>
             </Router>

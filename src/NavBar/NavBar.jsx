@@ -14,8 +14,9 @@ export default class NavBar extends Component {
                         <Link to="/">Steps by Steps</Link>
                     </div>
                     <div className="nav-menu">
+                        <Link to="/why-this-matters">why it matters</Link>
                         <Link to="/tips">what you can do</Link>
-                        <Link to="/why-this-matters">why this matters</Link>
+                        <Link to="/quiz" class="quiz-box">take the quiz</Link>
                     </div>
                 </nav>
             </header>

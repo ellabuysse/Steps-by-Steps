@@ -7,6 +7,7 @@ import shoppingTips from '../Data/shoppingTips';
 import utilitiesTips from '../Data/utilitiesTips';
 import TipsPageCSS from './TipsPageCSS.css';
 import BGImage from '../BGImage/BGImage';
+import Footer from '../Footer/Footer';
 
 const TipsPage = (props) => {
     return (
@@ -45,6 +46,7 @@ const TipsPage = (props) => {
                     <BGImage 
                         img="https://images.unsplash.com/photo-1522184216316-3c25379f9760?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80"
                         title="Food"
+                        position="center"
                         />
                 }
             </div>
@@ -74,6 +76,7 @@ const TipsPage = (props) => {
                     <BGImage 
                         img="https://images.unsplash.com/photo-1557687790-902ede7ab58c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1243&q=80"
                         title="Conscious Buying"
+                        position="center"
                         />
                 }
             </div>
@@ -99,6 +102,7 @@ const TipsPage = (props) => {
                     <BGImage 
                         img="https://images.unsplash.com/photo-1544215830-1c67ed769a61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
                         title="Utilities"
+                        position="center"
                         />
                 }
             </div>
@@ -115,7 +119,11 @@ const TipsPage = (props) => {
                 } 
             </div>
             <p className="paragraph">Message here</p>
+            
+        <Footer/>
+           
         </div>
+        
     );
 };
 
