@@ -2,14 +2,13 @@
         margin: 0;
         position: relative;
         text-align: center;
-        /*background-position: center;*/
         background-size: cover;
         height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        background-position: center;
+       background-position: center;
 }
 .bg-image .title{
     top: 50%;

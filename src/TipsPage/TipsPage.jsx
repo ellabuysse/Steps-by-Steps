@@ -16,11 +16,12 @@ const TipsPage = (props) => {
             <h1 className="page-title">What You Can Do</h1>
             <div className="bg-image">
                 {
+                <div className="transport">
                     <BGImage 
                         img="https://images.unsplash.com/photo-1500748851664-017ef7f22878?ixlib=rb-1.2.1&auto=format&fit=crop&w=2562&q=80"
                         title="Transportation"
-                        position="bottom"
                         />
+                </div>
                 }
             </div>
             <div className="tips-container top">
