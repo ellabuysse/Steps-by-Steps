@@ -1,9 +1,6 @@
 import React from 'react';
 
-
 import TextWithGraphic from './TextWithGraphic/TextWithGraphic';
-
-import FeatureBox from './FeatureBox/FeatureBox';
 import StatsBlock from './StatsBlock/StatsBlock';
 import Footer from './Footer/Footer';
 import stats from './Data/stats';

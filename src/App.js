@@ -4,7 +4,6 @@ import {
     BrowserRouter as Router
 } from 'react-router-dom';
 
-import NavBar from './NavBar/NavBar'; 
 import HomePage from './HomePage/HomePage';
 import TipsPage from './TipsPage/TipsPage';
 import WIMPage from './WIMPage';

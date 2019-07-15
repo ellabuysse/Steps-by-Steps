@@ -27,5 +27,8 @@
     font-size: 32px;
     padding-top: 130px;
     margin-top: 0;
-    
+}
+
+.bg-image .transport .container {
+    background-position: bottom;
 }
