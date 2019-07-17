@@ -12,7 +12,12 @@ export default class QuizForm extends Component {
                 totalPoints: 0,
                 publicTransit: false,
                 car: false,
-                walkingBiking: false
+                walkingBiking: false,
+                meatLover: false,
+                omnivore: false,
+                noRed: false,
+                vegetarian: false,
+                vegan: false
             },
             submitted: false
         };
@@ -36,14 +41,30 @@ export default class QuizForm extends Component {
     onSubmit() {
         let total = 0;
         if (this.state.formData.publicTransit) {
-            total++;
+            total += 10;
         }
         else if (this.state.formData.car) {
-            total++;
+            total -= 50;
         }
         else if (this.state.formData.walkingBiking) {
-            total++;
+            total += 50;
         }
+        else if (this.state.formData.meatLover) {
+            total -= 10;
+        }
+        else if (this.state.formData.omnivore) {
+            total += 5;
+        }
+        else if (this.state.formData.noRed) {
+            total += 8;
+        }
+        else if (this.state.formData.vegetarian) {
+            total += 9;
+        }
+        else if (this.state.formData.vegan) {
+            total += 10;
+        }
+       
         this.state.formData.totalPoints = total;
         this.setState({
             submitted: true
@@ -94,9 +115,11 @@ export default class QuizForm extends Component {
                         </div>
                     </div>
 
+                </div>
+
                 <div className="diet-types">
                     <div className="quiz-question">
-                        <span>Select which box best describes your diet </span>
+                        <span>Select which box best describes your diet: </span>
                     </div>
                     <div className="boxes">
                         <div className="check">
@@ -147,8 +170,13 @@ export default class QuizForm extends Component {
                     </div>
                 </div>
 
+
+                
+                <button onClick={this.onSubmit}>submit</button>
+                {this.state.submitted ? this.renderResponse() : null}
+
             </div>
-                    </div>
+                 
                   
                 
             
