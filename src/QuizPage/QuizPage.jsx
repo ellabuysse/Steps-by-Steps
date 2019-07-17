@@ -12,7 +12,7 @@ const TipsPage = (props) => {
                 {
                     <BGImage 
                         img="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?cs=srgb&dl=beautiful-flowers-bloom-blossom-1115090.jpg&fm=jpg"
-                        title="Environemental Impact Quiz"
+                        title="Environmental Impact Quiz"
                         position="bottom"
                         />
                 }

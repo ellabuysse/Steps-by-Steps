@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Response from './Response';
 import './QuizForm.css';
 
-let totalPoints = 0;
 export default class QuizForm extends Component {
 
     constructor(props) {
@@ -10,135 +9,199 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             formData: {
-
-                
-
-                totalPoints: 0
+                totalPoints: 0,
+                publicTransit: false,
+                car: false,
+                walkingBiking: false
             },
             submitted: false
         };
-        // this.onChange = this.onChange.bind(this);
-        // this.onSubmit = this.onSubmit.bind(this);
-        // this.renderResponse = this.renderResponse.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.renderResponse = this.renderResponse.bind(this);
     }
-
 
     onChange(event) {
-        let formData = {...this.state.formData};
-        formData[event.target.name] = event.target.value;
+        let formData = this.state.formData;
+        formData[event.target.name] = event.target.checked;
+    
         this.setState({
             formData: formData
-        })
-    }
+        })}
+    
 
-    onCarClick() {
-        this.state.formData.totalPoints += 10;
 
     
-    // onChange(event) {
-    //     let formData = {...this.state.formData};
-    //     formData[event.target.name] = event.target.value;
-    //     this.setState({
-    //         formData: formData
-    //     })
-    // }
-
-    addPoints() {
-        totalPoints += 10;
-
-    }
 
     onSubmit() {
+        let total = 0;
+        if (this.state.formData.publicTransit) {
+            total++;
+        }
+        else if (this.state.formData.car) {
+            total++;
+        }
+        else if (this.state.formData.walkingBiking) {
+            total++;
+        }
+        this.state.formData.totalPoints = total;
         this.setState({
             submitted: true
         })
     }
 
+
     renderResponse() {
         return(
-            <Response formResponse={this.state.formData}/>
+            <Response formResponse={this.state.formData.totalPoints}/>
         )
     }
 
     render() {
-
-        
-        return (
+       return (
             <div>
                 <div className="transport-types">
                     <div className="quiz-question">
-                    <span>Select all modes of transport you used this week: </span>
+                        <span>Select all modes of transport you used this week: </span>
                     </div>
                     <div className="boxes">
-                    <div className="check">
-                    <input
-                        type="checkbox"
-                        name="Bus/Subway/Metro"
-                        id="Bus/Subway/Metro"
-                        onChange={this.onChange}
-                        onClick = "onCarClicked()"
-                    /> Bus/Subway/Metro
-                    </div>
-                    <div className="check">
-                    <input 
-                        type="checkbox"
-                        name="Car"
-                        id="Car"
-                        onChange={this.onChange}
-                        onClick = "onCarClicked()"
-                    /> Car
-                    </div>
-                    <div className="check">
-                    <input
-                        type="checkbox"
-                        name="Walking/Biking"
-                        id="Walking/Biking"
-                        onChange={this.onChange}
-                        onClick = "onWalkBiked()"
-                    /> Walk/Bike
-                    </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="publicTransit"
+                                id="publicTransit"
+                                onChange={this.onChange}
+                                checked={this.state.formData.publicTransit}
+                            /> Bus/Subway/Metro
+                        </div>
+                        <div className="check">
+                            <input 
+                                type="checkbox"
+                                name="car"
+                                id="car"
+                                onChange={this.onChange}
+                                checked={this.state.formData.car}
+                            /> Car
+                        </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="walkingBiking"
+                                id="walkingBiking"
+                                onChange={this.onChange}
+                                checked={this.state.formData.walkingBiking}
+                            /> Walk/Bike
+                        </div>
                     </div>
                 </div>
-            
 
-        return (
-            <div>
-                <label htmlFor="transport-types">
-                    <p>check all the forms of tranportation you used this week: </p>
-                    <span>Bus/Subway/Metro</span>
-                    <input type="checkbox"
-                        name="Bus/Subway/Metro"
-                        id="Bus/Subway/Metro"
-                        onClick={this.addPoints}
-                    />  
-                    <span>Car</span>
-                    <input type="checkbox"
-                        name="Car"
-                        id="Car"
-                        onClick={this.addPoints}
-                    /> 
-                    <span>Walking/Biking</span>
-                    <input type="checkbox"
-                        name="Walking/Biking"
-                        id="Walking/Biking"
-                        onClick={this.addPoints}
-                        
-                    /> 
-                </label>
+                <div className="diet-types">
+                    <div className="quiz-question">
+                        <span>Select which box best describes your diet </span>
+                    </div>
+                    <div className="boxes">
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="meatLover"
+                                id="meatLover"
+                                onChange={this.onChange}
+                                checked={this.state.formData.meatLover}
+                            /> High meat consumption
+                        </div>
+                        <div className="check">
+                            <input 
+                                type="checkbox"
+                                name="omnivore"
+                                id="omnivore"
+                                onChange={this.onChange}
+                                checked={this.state.formData.omnivore}
+                            /> Average omnivore 
+                        </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="noRed"
+                                id="noRed"
+                                onChange={this.onChange}
+                                checked={this.state.formData.noRed}
+                            /> No red meat
+                        </div>
+                        <div className="check">
+                            <input 
+                                type="checkbox"
+                                name="vegetarian"
+                                id="vegetarian"
+                                onChange={this.onChange}
+                                checked={this.state.formData.vegetarian}
+                            /> Vegetarian 
+                        </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="vegan"
+                                id="vegan"
+                                onChange={this.onChange}
+                                checked={this.state.formData.vegan}
+                            /> Vegan
+                        </div>
+                    </div>
+                </div>
 
+                <div className="diet-types">
+                    <div className="quiz-question">
+                        <span>Select which box best describes your diet </span>
+                    </div>
+                    <div className="boxes">
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="meatLover"
+                                id="meatLover"
+                                onChange={this.onChange}
+                                checked={this.state.formData.meatLover}
+                            /> High meat consumption
+                        </div>
+                        <div className="check">
+                            <input 
+                                type="checkbox"
+                                name="omnivore"
+                                id="omnivore"
+                                onChange={this.onChange}
+                                checked={this.state.formData.omnivore}
+                            /> Average omnivore 
+                        </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="noRed"
+                                id="noRed"
+                                onChange={this.onChange}
+                                checked={this.state.formData.noRed}
+                            /> No red meat
+                        </div>
+                        <div className="check">
+                            <input 
+                                type="checkbox"
+                                name="vegetarian"
+                                id="vegetarian"
+                                onChange={this.onChange}
+                                checked={this.state.formData.vegetarian}
+                            /> Vegetarian 
+                        </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="vegan"
+                                id="vegan"
+                                onChange={this.onChange}
+                                checked={this.state.formData.vegan}
+                            /> Vegan
+                        </div>
+                    </div>
+                    </div>
+                    </div>
                 
-                {/* <label htmlFor="Last name">
-                    <span>your comments</span>
-                    <textarea
-                        name="lastName"
-                        id="lastName"
-                        onChange={this.onChange}
-                    />  
-                </label> */}
-
-                <button onClick={this.onSubmit}>submit</button>
-                {this.state.submitted ? this.renderResponse() : null}
-            </div>
-        )
-        }
+            
+            )}
     }
