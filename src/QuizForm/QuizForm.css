@@ -55,3 +55,20 @@ span{
     vertical-align: top;
 
 }
+
+button{
+    background-color: rgba(56, 191, 167, 0.78);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 10px;
+    border-radius: 15px;
+    letter-spacing: 2px;
+    width: 100px;
+
+}
+.submit{
+    text-align: center;
+}

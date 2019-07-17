@@ -6,7 +6,7 @@ export default class Response extends Component {
 
 
             
-            <div>Your total is: {this.props.formResponse}.</div>
+            <div className="results">Your total is: {this.props.formResponse}.</div>
 
         )
     }

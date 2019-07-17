@@ -115,7 +115,7 @@ export default class QuizForm extends Component {
                         </div>
                     </div>
 
-                </div>
+               
 
                 <div className="diet-types">
                     <div className="quiz-question">
@@ -171,10 +171,11 @@ export default class QuizForm extends Component {
                 </div>
 
 
-                
+                </div>
+                <div className = "submit">
                 <button onClick={this.onSubmit}>submit</button>
                 {this.state.submitted ? this.renderResponse() : null}
-
+                </div>
             </div>
                  
                   
