@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Response extends Component {
     render() {
         return(
-            <div>hello!</div>
+            <div>total points: {this.props.formResponse}</div>
         )
     }
 }
