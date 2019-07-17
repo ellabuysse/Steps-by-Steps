@@ -93,7 +93,6 @@ export default class QuizForm extends Component {
                             /> Walk/Bike
                         </div>
                     </div>
-                </div>
 
                 <div className="diet-types">
                     <div className="quiz-question">
@@ -148,59 +147,9 @@ export default class QuizForm extends Component {
                     </div>
                 </div>
 
-                <div className="diet-types">
-                    <div className="quiz-question">
-                        <span>Select which box best describes your diet </span>
+            </div>
                     </div>
-                    <div className="boxes">
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="meatLover"
-                                id="meatLover"
-                                onChange={this.onChange}
-                                checked={this.state.formData.meatLover}
-                            /> High meat consumption
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="omnivore"
-                                id="omnivore"
-                                onChange={this.onChange}
-                                checked={this.state.formData.omnivore}
-                            /> Average omnivore 
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="noRed"
-                                id="noRed"
-                                onChange={this.onChange}
-                                checked={this.state.formData.noRed}
-                            /> No red meat
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="vegetarian"
-                                id="vegetarian"
-                                onChange={this.onChange}
-                                checked={this.state.formData.vegetarian}
-                            /> Vegetarian 
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="vegan"
-                                id="vegan"
-                                onChange={this.onChange}
-                                checked={this.state.formData.vegan}
-                            /> Vegan
-                        </div>
-                    </div>
-                    </div>
-                    </div>
+                  
                 
             
             )}
