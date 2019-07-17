@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import Response from './Response';
+import './QuizForm.css';
 
+let totalPoints = 0;
 export default class QuizForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             formData: {
-                posAction: '',
-                negAction: ''
+                
+                totalPoints: 0
             },
             submitted: false
         };
@@ -26,7 +28,7 @@ export default class QuizForm extends Component {
     }
 
     onCarClick() {
-
+        this.state.formData.totalPoints += 10;
     }
 
     onSubmit() {
@@ -42,27 +44,44 @@ export default class QuizForm extends Component {
     }
 
     render() {
-        let totalPoints = 0;
+        
         return (
             <div>
-                <label htmlFor="transport-types">
-                    <span>check all the forms of tranportation you used this week: </span>
-                    <checkbox
+                <div className="transport-types">
+                    <div className="quiz-question">
+                    <span>Select all modes of transport you used this week: </span>
+                    </div>
+                    <div className="boxes">
+                    <div className="check">
+                    <input
+                        type="checkbox"
                         name="Bus/Subway/Metro"
                         id="Bus/Subway/Metro"
                         onChange={this.onChange}
-                    />  
-                    <checkbox
+                        onClick = "onCarClicked()"
+                    /> Bus/Subway/Metro
+                    </div>
+                    <div className="check">
+                    <input 
+                        type="checkbox"
                         name="Car"
                         id="Car"
                         onChange={this.onChange}
-                    /> 
-                    <checkbox
+                        onClick = "onCarClicked()"
+                    /> Car
+                    </div>
+                    <div className="check">
+                    <input
+                        type="checkbox"
                         name="Walking/Biking"
                         id="Walking/Biking"
                         onChange={this.onChange}
-                    /> 
-                </label>
+                        onClick = "onWalkBiked()"
+                    /> Walk/Bike
+                    </div>
+                    </div>
+                </div>
+            
                 
                 {/* <label htmlFor="Last name">
                     <span>your comments</span>
