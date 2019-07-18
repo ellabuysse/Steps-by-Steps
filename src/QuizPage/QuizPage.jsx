@@ -8,7 +8,8 @@ const TipsPage = (props) => {
     return (
         <div>
             <NavBar/>
-            <div className="bg-image top-bg">
+            <h1 className="page-title"></h1>
+            <div className="bg-image">
                 {
                     <BGImage 
                         img="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?cs=srgb&dl=beautiful-flowers-bloom-blossom-1115090.jpg&fm=jpg"
