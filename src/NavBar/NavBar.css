@@ -26,7 +26,7 @@ nav a{
     top: 0;
     padding: 45px;
 
-    display: flex;
+    
     justify-content: space-between;
     
     margin: 0;
@@ -64,4 +64,19 @@ nav a{
     margin-left: 25px;
     margin-right: 53px;
 }
-
+.buttonTrueFirst{
+    background-color:#6ecd9c;
+    padding: 0;
+    width: 100%;
+    min-height: 4px;
+    margin-bottom: 100px;
+    margin-top: 5px;
+}
+.buttonTrueSecond{
+    background-color:#5fa8e5;
+    padding: 0;
+    width: 100%;
+    min-height: 4px;
+    margin-bottom: 100px;
+    margin-top: 5px;
+}

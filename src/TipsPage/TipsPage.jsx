@@ -16,6 +16,8 @@ const TipsPage = (props) => {
             <NavBar/>
             <ScrollNavTips/>
             <h1 className="page-title">What You Can Do</h1>
+            <div className="underline"> 
+            </div>
             <section id="transport">
             <div className="bg-image">
                 {

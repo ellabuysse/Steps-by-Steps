@@ -41,10 +41,10 @@ export default class ScrollNav extends Component {
     render() {
         
         return(
-            <div className = "scroll-nav">
-                <AnchorLink href='#earthNeedsHelp' className={this.state.firstButton ? "buttonTrue": "buttonFalse"} onClick={this.handleClickFirst}><FontAwesomeIcon icon= {faCircle}/></AnchorLink>
-                <AnchorLink href='#partSolution' className={this.state.secondButton ? "buttonTrue": "buttonFalse"} onClick={this.handleClickSecond}><FontAwesomeIcon icon= {faCircle} /></AnchorLink> 
-                <AnchorLink href='#smallActions'className={this.state.thirdButton ? "buttonTrue": "buttonFalse"} onClick={this.handleClickThird}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
+            <div className = "scroll-nav" id="WIM-scroll">
+                <AnchorLink href='#earthNeedsHelp' className={this.state.firstButton ? "buttonTrueWIM": "buttonFalseWIM"} onClick={this.handleClickFirst}><FontAwesomeIcon icon= {faCircle}/></AnchorLink>
+                <AnchorLink href='#partSolution' className={this.state.secondButton ? "buttonTrueWIM": "buttonFalseWIM"} onClick={this.handleClickSecond}><FontAwesomeIcon icon= {faCircle} /></AnchorLink> 
+                <AnchorLink href='#smallActions'className={this.state.thirdButton ? "buttonTrueWIM": "buttonFalseWIM"} onClick={this.handleClickThird}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
             </div>
         )
     }
