@@ -8,12 +8,15 @@ import utilitiesTips from '../Data/utilitiesTips';
 import TipsPageCSS from './TipsPageCSS.css';
 import BGImage from '../BGImage/BGImage';
 import Footer from '../Footer/Footer';
+import ScrollNavTips from '../ScrollNav/ScrollNavTips';
 
 const TipsPage = (props) => {
     return (
         <div> 
             <NavBar/>
+            <ScrollNavTips/>
             <h1 className="page-title">What You Can Do</h1>
+            <section id="transport">
             <div className="bg-image">
                 {
                 <div className="transport">
@@ -41,7 +44,8 @@ const TipsPage = (props) => {
     should drive. Message here about why you should drive. Message here about why you should drive. Message here about
     why you should drive. Message here about why you should drive. Message here about why you should drive. Message here
     about why you should drive.</p>
-        
+    </section>
+    <section id="food">
             <div className="bg-image">
                 {
                     <BGImage 
@@ -71,7 +75,8 @@ const TipsPage = (props) => {
     that number- the next time you go shopping, plan ahead, and only buy what you need. Share plates at restaurants. Eat
     leftovers as much as possible. One person making a commitment to produce zero food waste keeps 300 pounds of food
     from being thrown out over the course of a year. So, imagine what would happen if everyone made these changes.</p>
-            
+    </section>
+    <section id="buying">
             <div className="bg-image">
                 {
                     <BGImage 
@@ -97,7 +102,8 @@ const TipsPage = (props) => {
     forget to see the resources and energy that went into manufacturing and shipping that product. For instance, because
     cotton plants require so much water, a single cotton T-shirt can require up to 713 gallons of water- enough to keep
     one person well-hydrated for over five years. Consider thrifting some of your clothes to save both money and resources. </p>
-        
+    </section>
+    <section id="utilities">
             <div className="bg-image">
                 {
                     <BGImage 
@@ -120,7 +126,7 @@ const TipsPage = (props) => {
                 } 
             </div>
             <p className="paragraph">Message here</p>
-            
+            </section>
         <Footer/>
            
         </div>
