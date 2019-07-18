@@ -1,0 +1,33 @@
+.scroll-nav{
+    
+    background: none;
+    line-height: 50px;
+    top: 50%;
+    position: absolute;
+    width: 20px;
+    right: 70px;
+    max-width: 10px;
+    align-content: flex-end;
+    z-index: 1;
+    position: fixed;
+    font-size: 7px;
+    color: black;
+}
+FontAwesome{
+    display: flex;
+    flex-direction: column;
+    column-count: 1;
+    max-width: 10%;
+    align-content: flex-end;
+    float: right;
+    z-index: -1;
+    color: black;
+    
+}
+.buttonTrue{
+    font-size: 15px;
+    color: black;
+}
+.buttonFalse{
+    color: black;
+}

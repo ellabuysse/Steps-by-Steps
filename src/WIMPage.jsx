@@ -10,12 +10,16 @@ import smallActionsMakeText from './Data/smallActionsMakeText';
 import './WIMPage.css';
 import BGImage from './BGImage/BGImage';
 import NavBar from './NavBar/NavBar';
+import ScrollNav from './ScrollNav/ScrollNavWIM';
 
 const WIMPage = (props) => {
     return (
         <div>
+            <ScrollNav/>
             <NavBar/>
+            
             <h1 className="page-title">Why It Matters</h1>
+            <section id="earthNeedsHelp">
             <div className="bg-image">
                 {
                     <BGImage 
@@ -48,7 +52,9 @@ const WIMPage = (props) => {
                     />
             ))
                 }
-
+                </div>
+        </section>
+        <section id="partSolution">
             <div className="bg-image">
                 {
                     <BGImage 
@@ -58,7 +64,8 @@ const WIMPage = (props) => {
                 }
             </div>
 
-            </div>
+            
+            
             <div className="text-container">
             {
                 weArePartText.map(value => (
@@ -71,7 +78,8 @@ const WIMPage = (props) => {
             ))
             }
             </div>
-
+            </section>
+            <section id="smallActions">
             <div className="bg-image">
                 {
                     <BGImage 
@@ -92,6 +100,7 @@ const WIMPage = (props) => {
             ))
             }
             </div>
+            </section>
             <Footer/>
         </div>
     
