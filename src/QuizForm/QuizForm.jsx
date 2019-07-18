@@ -116,9 +116,7 @@ export default class QuizForm extends Component {
            total -= 65;
         }
 
-        this.setState({
-            totalPoints: total
-        })
+        this.state.formData.totalPoints = total;
         this.setState({
             submitted: true
         })
