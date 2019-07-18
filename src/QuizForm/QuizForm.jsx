@@ -29,10 +29,14 @@ export default class QuizForm extends Component {
     onChange(event) {
         let formData = this.state.formData;
         formData[event.target.name] = event.target.checked;
+    
         this.setState({
             formData: formData
-        })
-    }
+        })}
+    
+
+
+    
 
     onSubmit() {
         let total = 0;
@@ -75,8 +79,7 @@ export default class QuizForm extends Component {
     }
 
     render() {
-        
-        return (
+       return (
             <div>
                 <div className="transport-types">
                     <div className="quiz-question">
@@ -111,7 +114,8 @@ export default class QuizForm extends Component {
                             /> Walk/Bike
                         </div>
                     </div>
-                </div>
+
+               
 
                 <div className="diet-types">
                     <div className="quiz-question">
@@ -166,10 +170,16 @@ export default class QuizForm extends Component {
                     </div>
                 </div>
 
-                
+
+                </div>
+                <div className = "submit">
                 <button onClick={this.onSubmit}>submit</button>
                 {this.state.submitted ? this.renderResponse() : null}
+                </div>
             </div>
-        )
-        }
+                 
+                  
+                
+            
+            )}
     }
