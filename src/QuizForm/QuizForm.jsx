@@ -36,8 +36,6 @@ export default class QuizForm extends Component {
     
 
 
-    
-
     onSubmit() {
         let total = 0;
         if (this.state.formData.publicTransit) {
