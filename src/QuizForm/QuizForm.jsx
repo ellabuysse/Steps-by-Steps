@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Response from './Response';
 import './QuizForm.css';
+//import { typeCastExpression } from '@babel/types';
 
 export default class QuizForm extends Component {
 
@@ -41,77 +42,79 @@ export default class QuizForm extends Component {
     onChange(event) {
         let formData = this.state.formData;
         formData[event.target.name] = event.target.checked;
-    
         this.setState({
             formData: formData
-        })}
+        })
+    }
     
-
-
-    
-
     onSubmit() {
         let total = 0;
         if (this.state.formData.publicTransit) {
             total += 10;
         }
-        else if (this.state.formData.car) {
+        if (this.state.formData.regularCar) {
             total -= 50;
         }
-        else if (this.state.formData.walkingBiking) {
-            total += 50;
-        }
-        else if (this.state.formData.meatLover) {
-            total -= 10;
-        }
-        else if (this.state.formData.omnivore) {
-            total += 5;
-        }
-        else if (this.state.formData.noRed) {
-            total += 8;
-        }
-        else if (this.state.formData.vegetarian) {
-            total += 9;
-        }
-        else if (this.state.formData.vegan) {
-            total += 10;
-        }
-        else if (this.state.formData.thriftStore) {
-            total += 40;
-        }
-        else if (this.state.formData.farmersMarket) {
+        if (this.state.formData.hybridCar) {
             total += 20;
         }
-        else if (this.state.formData.store) {
+        if (this.state.formData.electricCar) {
+            total += 15;
+        }
+        if (this.state.formData.walkingBiking) {
+            total += 50;
+        }
+        if (this.state.formData.meatLover) {
+            total -= 10;
+        }
+        if (this.state.formData.omnivore) {
+            total += 5;
+        }
+        if (this.state.formData.noRed) {
+            total += 8;
+        }
+        if (this.state.formData.vegetarian) {
+            total += 9;
+        }
+        if (this.state.formData.vegan) {
+            total += 10;
+        }
+        if (this.state.formData.thriftStore) {
+            total += 40;
+        }
+        if (this.state.formData.farmersMarket) {
+            total += 20;
+        }
+        if (this.state.formData.store) {
             total -= 30;
         }
-        else if (this.state.formData.recycle) {
+        if (this.state.formData.recycle) {
             total += 15;
         }
-        else if (this.state.formData.compost) {
+        if (this.state.formData.compost) {
             total += 15;
         }
-       else if (this.state.formData.reuse) {
+        if (this.state.formData.reuse) {
            total += 20;
-       }
-       else if (this.state.formData.garbage) {
+        }
+        if (this.state.formData.garbage) {
            total -= 20;
-       }
-       else if (this.state.formData.acHeat) {
+        }
+        if (this.state.formData.acHeat) {
            total += 65;
-       }
-       else if (this.state.formData.lights) {
+        }
+        if (this.state.formData.lights) {
            total += 65;
-       }
-       else if (this.state.formData.computer) {
+        }
+        if (this.state.formData.computer) {
            total += 25;
-       }
-       else if (this.state.formData.water) {
+        }
+        if (this.state.formData.water) {
            total += 25;
-       }
-       else if (this.state.formData.none) {
+        }
+        if (this.state.formData.none) {
            total -= 65;
-       }
+        }
 
         this.state.formData.totalPoints = total;
         this.setState({
@@ -119,6 +122,44 @@ export default class QuizForm extends Component {
         })
     }
 
+    renderCarType() {
+        return(
+            <div className="car-types">
+                    <div className="quiz-question">
+                        <span>Select which model of car you use most often: </span>
+                    </div>
+                    <div className="boxes">
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="regularCar"
+                                id="regularCar"
+                                onChange={this.onChange}
+                                checked={this.state.formData.regularCar}
+                            /> Standard 
+                        </div>
+                        <div className="check">
+                            <input 
+                                type="checkbox"
+                                name="hybridCar"
+                                id="hybridCar"
+                                onChange={this.onChange}
+                                checked={this.state.formData.hybridCar}
+                            /> Hybrid
+                        </div>
+                        <div className="check">
+                            <input
+                                type="checkbox"
+                                name="electricCar"
+                                id="electricCar"
+                                onChange={this.onChange}
+                                checked={this.state.formData.electricCar}
+                            /> Electric
+                        </div>
+                    </div>
+                </div>
+        )
+    }
 
     renderResponse() {
         return(
@@ -141,7 +182,7 @@ export default class QuizForm extends Component {
                                 id="publicTransit"
                                 onChange={this.onChange}
                                 checked={this.state.formData.publicTransit}
-                            /> Bus/Subway/Metro
+                            /> Public transportation/Carpool
                         </div>
                         <div className="check">
                             <input 
@@ -151,6 +192,7 @@ export default class QuizForm extends Component {
                                 onChange={this.onChange}
                                 checked={this.state.formData.car}
                             /> Car
+                            {this.state.formData.car ? this.renderCarType() : null}
                         </div>
                         <div className="check">
                             <input
@@ -162,8 +204,6 @@ export default class QuizForm extends Component {
                             /> Walk/Bike
                         </div>
                     </div>
-
-               
 
                 <div className="diet-types">
                     <div className="quiz-question">
@@ -239,7 +279,7 @@ export default class QuizForm extends Component {
                                 id="farmersMarket"
                                 onChange={this.onChange}
                                 checked={this.state.formData.farmersMarket}
-                            /> Farmers Market
+                            /> Farmers market
                         </div>
                         <div className="check">
                             <input
@@ -354,10 +394,6 @@ export default class QuizForm extends Component {
                 {this.state.submitted ? this.renderResponse() : null}
                 </div>
             </div>
-        
-                 
-                  
-                
-            
+                     
             )}
     }
