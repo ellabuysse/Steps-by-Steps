@@ -12,6 +12,7 @@ import BGImage from './BGImage/BGImage';
 import NavBar from './NavBar/NavBar';
 import ScrollNav from './ScrollNav/ScrollNavWIM';
 
+
 const WIMPage = (props) => {
     return (
         <div>
@@ -19,6 +20,8 @@ const WIMPage = (props) => {
             <NavBar/>
             
             <h1 className="page-title">Why It Matters</h1>
+            <div className="WIM-underline" > 
+            </div>
             <section id="earthNeedsHelp">
             <div className="bg-image">
                 {

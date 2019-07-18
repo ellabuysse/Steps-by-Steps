@@ -4,30 +4,31 @@
     line-height: 50px;
     top: 50%;
     position: absolute;
-    width: 20px;
-    right: 70px;
+    width: 9px;
+    right: 4%;
     max-width: 10px;
     align-content: flex-end;
     z-index: 1;
     position: fixed;
-    font-size: 7px;
+    font-size: 5px;
     color: black;
 }
-FontAwesome{
-    display: flex;
-    flex-direction: column;
-    column-count: 1;
-    max-width: 10%;
-    align-content: flex-end;
-    float: right;
-    z-index: -1;
-    color: black;
-    
+
+.buttonTrueTips{
+    font-size: 13px;
+    color: #5fa8e5;
+    padding: 15px;
 }
-.buttonTrue{
-    font-size: 15px;
-    color: black;
+.buttonFalseTips{
+    color: #5fa8e5;
+    padding: 15px;
 }
-.buttonFalse{
-    color: black;
+.buttonTrueWIM{
+    font-size: 13px;
+    color: #6ecd9c;
+    padding: 15px;
+}
+.buttonFalseWIM{
+    color: #6ecd9c;
+    padding: 15px;
 }

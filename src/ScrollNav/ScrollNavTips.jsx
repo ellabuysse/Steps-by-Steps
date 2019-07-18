@@ -53,11 +53,11 @@ export default class ScrollNav extends Component {
     render() {
 
         return(
-            <div className = "scroll-nav">
-                <AnchorLink href='#transport' className={this.state.firstButton ? "buttonTrue": "buttonFalse"} onClick={this.handleClickFirst}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
-                <AnchorLink href='#food' className={this.state.secondButton ? "buttonTrue": "buttonFalse"} onClick={this.handleClickSecond}><FontAwesomeIcon icon= {faCircle} /></AnchorLink> 
-                <AnchorLink href='#buying' className={this.state.thirdButton? "buttonTrue": "buttonFalse"} onClick={this.handleClickThird}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
-                <AnchorLink href='#utilities' className={this.state.fourthButton ? "buttonTrue": "buttonFalse"} onClick={this.handleClickFourth}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
+            <div className = "scroll-nav" id="tips-scroll">
+                <AnchorLink href='#transport' className={this.state.firstButton ? "buttonTrueTips": "buttonFalseTips"} onClick={this.handleClickFirst}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
+                <AnchorLink href='#food' className={this.state.secondButton ? "buttonTrueTips": "buttonFalseTips"} onClick={this.handleClickSecond}><FontAwesomeIcon icon= {faCircle} /></AnchorLink> 
+                <AnchorLink href='#buying' className={this.state.thirdButton? "buttonTrueTips": "buttonFalseTips"} onClick={this.handleClickThird}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
+                <AnchorLink href='#utilities' className={this.state.fourthButton ? "buttonTrueTips": "buttonFalseTips"} onClick={this.handleClickFourth}><FontAwesomeIcon icon= {faCircle} /></AnchorLink>
             </div>
         )
     }
