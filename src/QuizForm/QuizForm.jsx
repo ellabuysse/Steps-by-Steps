@@ -37,7 +37,7 @@ export default class QuizForm extends Component {
                 none: false
             },
             submitted: false,
-            currentTab: "#tab1"
+            currentTab: "tab1"
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -136,6 +136,7 @@ export default class QuizForm extends Component {
 
     renderCarType() {
         return(
+           
             <div className="car-types">
                     <div className="quiz-question">
                         <span>Select which model of car you use most often: </span>
@@ -170,6 +171,7 @@ export default class QuizForm extends Component {
                         </div>
                     </div>
                 </div>
+             
         )
     }
 
@@ -191,7 +193,7 @@ export default class QuizForm extends Component {
             </div>
             
             <div className="quiz">
-            <TabContent for="tab1" id="tab1">
+            <TabContent for="tab1" value="tab1">
                 <div className="transport-types">
                     <div className="quiz-question">
                         <span>Select all modes of transport you used this week: </span>
@@ -214,7 +216,7 @@ export default class QuizForm extends Component {
                                 onChange={this.onChange}
                                 checked={this.state.formData.car}
                             /> Car
-                            {this.state.formData.car ? this.renderCarType() : null}
+                            
                         </div>
                         <div className="check">
                             <input
@@ -225,12 +227,13 @@ export default class QuizForm extends Component {
                                 checked={this.state.formData.walkingBiking}
                             /> Walk/Bike
                         </div>
-                    </div>
-        
-                    </div>
-                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("#tab2")}>NEXT</button></div>
+                       
+                    </div></div>
+                    {this.state.formData.car ? this.renderCarType() : null}
+                    
+                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab2")}>NEXT</button></div>
 </TabContent>
-<TabContent for="tab2" id="tab2">
+<TabContent for="tab2" value="tab2">
                 <div className="diet-types">
                     <div className="quiz-question">
                         <span>Select which box best describes your diet: </span>
@@ -284,9 +287,9 @@ export default class QuizForm extends Component {
                     </div>
                    
                     </div>
-                    <div className="next-btn"><a href="#tab3" className="new-tab">NEXT</a> </div>
+                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab3")}>NEXT</button></div>
                     </TabContent>
-                    <TabContent for="tab3" id="tab3">
+                    <TabContent for="tab3" value="tab3">
                     <div className="shop-types">
                     <div className="quiz-question">
                         <span>Select where you shopped this week: </span>
@@ -322,9 +325,9 @@ export default class QuizForm extends Component {
                     </div>
                     
                     </div>
-                    <div className="next-btn"><a href="#tab4" className="new-tab">NEXT</a></div> 
+                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab4")}>NEXT</button></div>
                     </TabContent>
-                    <TabContent for="tab4" id="tab4">
+                    <TabContent for="tab4" value="tab4">
                     <div className="waste-types">
                     <div className="quiz-question">
                         <span>Select how you got rid of waste this week: </span>
@@ -368,9 +371,9 @@ export default class QuizForm extends Component {
                         </div>
                     </div>
                     </div>
-                    <div className="next-btn"><a href="#tab5" className="new-tab">NEXT</a> </div>
+                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab5")}>NEXT</button></div>
                     </TabContent>
-                    <TabContent for="tab5" id="tab5">
+                    <TabContent for="tab5" value="tab5">
                     <div className="waste-types">
                     <div className="quiz-question">
                         <span>Select what you powered off when you left your house this week: </span>
