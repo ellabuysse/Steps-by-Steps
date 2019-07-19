@@ -4,7 +4,8 @@ import {
 } from 'react-router-dom';
 import './NavBar.css';
 
-export default class NavBar extends Component {
+export default class WIMNav extends Component {
+/* 
     constructor(props){
         super(props)
         this.state ={
@@ -28,7 +29,7 @@ export default class NavBar extends Component {
             secondButton: true
         })
     }
-   
+   */
     render() {
         return(
             <header>
@@ -37,13 +38,13 @@ export default class NavBar extends Component {
                         <Link to="/">Steps by Steps</Link>
                     </div>
                     <div className="nav-menu">
-                        <Link to="/why-this-matters"  onClick={this.handleClickFirst}>
+                        <Link to="/why-this-matters"  >
                             why it matters 
-                            <div className={this.state.firstButton ? "buttonTrueFirst": "buttonFalse"}></div>
+                            <div className="wim-title-underline"></div>
                             </Link>
-                        <Link to="/tips"  onClick={this.handleClickSecond}>
+                        <Link to="/tips">
                             what you can do
-                            <div className={this.state.secondButton ? "buttonTrueSecond": "buttonFalse"}></div>
+        
                             </Link>
                         <Link to="/quiz" class="quiz-box">take the quiz</Link>
                     </div>

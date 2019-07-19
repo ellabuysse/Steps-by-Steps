@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../NavBar/NavBar';
+import QuizNav from '../NavBar/QuizNav';
 import BGImage from '../BGImage/BGImage';
 import Footer from '../Footer/Footer';
 import QuizForm from '../QuizForm/QuizForm';
@@ -8,7 +8,7 @@ import './QuizPage.css';
 const TipsPage = (props) => {
     return (
         <div>
-            <NavBar/>
+            <QuizNav/>
             <h1 className="page-title"></h1>
             <div className="bg-image">
                 {
