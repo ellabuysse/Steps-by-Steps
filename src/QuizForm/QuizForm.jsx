@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import Response from './Response';
 import './QuizForm.css';
 //import { typeCastExpression } from '@babel/types';
+import { Link } from 'react-router-dom'
 
+import { Tabs, TabLink, TabContent } from "react-tabs-redux";
+ 
 export default class QuizForm extends Component {
 
     constructor(props) {
         
         super(props);
         this.state = {
-            formData: {
+            formData: { 
+                
                 totalPoints: 0,
                 publicTransit: false,
                 car: false,
@@ -32,12 +36,20 @@ export default class QuizForm extends Component {
                 water: false,
                 none: false
             },
-            submitted: false
+            submitted: false,
+            currentTab: "#tab1"
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.renderResponse = this.renderResponse.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
+
+    handleChange = (value) => {
+        this.setState ({
+            currentTab: value,
+        });
+    };
 
     onChange(event) {
         let formData = this.state.formData;
@@ -169,7 +181,17 @@ export default class QuizForm extends Component {
 
     render() {
        return (
-            <div>
+           <Tabs>
+               <div className="quiz-tabs">
+                   <div className="tab"><TabLink to="tab1">TRANSPORTATION</TabLink></div>
+                   <div className="tab"><TabLink to="tab2">DIET</TabLink></div>
+                   <div className="tab"><TabLink to="tab3">SHOPPING</TabLink></div>
+                   <div className="tab"><TabLink to="tab4">WASTE</TabLink></div>
+                   <div className="tab"><TabLink to="tab5">POWER</TabLink></div>
+            </div>
+            
+            <div className="quiz">
+            <TabContent for="tab1" id="tab1">
                 <div className="transport-types">
                     <div className="quiz-question">
                         <span>Select all modes of transport you used this week: </span>
@@ -204,7 +226,11 @@ export default class QuizForm extends Component {
                             /> Walk/Bike
                         </div>
                     </div>
-
+        
+                    </div>
+                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("#tab2")}>NEXT</button></div>
+</TabContent>
+<TabContent for="tab2" id="tab2">
                 <div className="diet-types">
                     <div className="quiz-question">
                         <span>Select which box best describes your diet: </span>
@@ -256,8 +282,11 @@ export default class QuizForm extends Component {
                             /> Vegan
                         </div>
                     </div>
+                   
                     </div>
-
+                    <div className="next-btn"><a href="#tab3" className="new-tab">NEXT</a> </div>
+                    </TabContent>
+                    <TabContent for="tab3" id="tab3">
                     <div className="shop-types">
                     <div className="quiz-question">
                         <span>Select where you shopped this week: </span>
@@ -291,7 +320,11 @@ export default class QuizForm extends Component {
                             /> Regular store
                         </div>
                     </div>
-
+                    
+                    </div>
+                    <div className="next-btn"><a href="#tab4" className="new-tab">NEXT</a></div> 
+                    </TabContent>
+                    <TabContent for="tab4" id="tab4">
                     <div className="waste-types">
                     <div className="quiz-question">
                         <span>Select how you got rid of waste this week: </span>
@@ -334,6 +367,10 @@ export default class QuizForm extends Component {
                             /> Garbage
                         </div>
                     </div>
+                    </div>
+                    <div className="next-btn"><a href="#tab5" className="new-tab">NEXT</a> </div>
+                    </TabContent>
+                    <TabContent for="tab5" id="tab5">
                     <div className="waste-types">
                     <div className="quiz-question">
                         <span>Select what you powered off when you left your house this week: </span>
@@ -385,15 +422,17 @@ export default class QuizForm extends Component {
                             /> Nothing
                         </div>
                     </div>
-                </div>
-</div>
-</div>
-           </div>
+                    </div>
+                    
+           
                 <div className = "submit">
-                <button onClick={this.onSubmit}>submit</button>
+                <button onClick={this.onSubmit} className="submit-button">SUBMIT</button>
                 {this.state.submitted ? this.renderResponse() : null}
                 </div>
-            </div>
-                     
+           
+            </TabContent>
+             
+             </div>   
+             </Tabs>
             )}
     }
