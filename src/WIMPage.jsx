@@ -35,6 +35,7 @@ const WIMPage = (props) => {
                     stats.map(value => (
                         <StatsBlock
                             statsNumber={value.number}
+                            statsSuffix={value.suffix}
                             statsText={value.text}
                             key={value.text}
                             color={value.color}
