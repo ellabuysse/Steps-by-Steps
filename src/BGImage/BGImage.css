@@ -1,37 +1,11 @@
-.bg-image .container{
-        margin: 0;
-        position: relative;
-        text-align: center;
-        background-size: cover;
-        height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        margin-right: 10%;
-        margin-left: 10%;
-       background-position: center;
-}
-.bg-image .title{
-    top: 50%;
-    left: 80%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 50px;
-    letter-spacing: 5px;
-    padding: 10px;
-    z-index: 10;
-    width: 5000px;
-    align-self: center;  
-}
-strong{
-    font-weight: bolder;
-    width: 100%;
-    color: white;
-}
 .img{
     width: 100%;
     background-size: cover;
     background: no-repeat center center fixed;
-}
-
-
+  }
+  strong{
+      font-weight: bolder;
+      width: 100%;
+      color: white;
+  }
+  

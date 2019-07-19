@@ -1,13 +1,14 @@
 .scroll-nav{
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
     background: none;
     line-height: 50px;
-    top: 50%;
-    position: absolute;
+    top: 40%;
     width: 9px;
-    right: 4%;
+    right: 4.5%;
     max-width: 10px;
-    align-content: flex-end;
     z-index: 1;
     position: fixed;
     font-size: 5px;
