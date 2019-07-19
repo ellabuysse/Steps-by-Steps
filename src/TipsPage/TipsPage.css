@@ -10,7 +10,7 @@
     width: 80%;
     margin-right: 10%;
     margin-left: 10%;
-   background-position: center;
+    background-position: center;
 }
 .bg-image .title{
 top: 50%;
@@ -46,39 +46,44 @@ align-self: center;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 4px;
     font-weight: 100;
-    padding: 20px;
-    
-    margin-left: 10%;
-    padding-left: 0;
     color: black;
     font-size: 50px;
     padding-top: 190px;
     margin-top: 0;
     padding-bottom: 0;
+    position: relative;
     text-align: left; 
+    animation: left 1s forwards;
 }
 .underline{
-    margin-left: 10%;
     border-right: 60%;
-     background-color:#5fa8e5;
-    padding: 0;
+    background-color:#5fa8e5;
     width: 10%;
     min-height: 20px;
     margin-bottom: 100px;
+    position: relative;
+    animation: left 1s forwards;
 }
 .WIM-underline{
-    
-    margin-left: 10%;
     border-right: 60%;
-   background-color: #6ecd9c;
+    background-color: #6ecd9c;
     padding: 0;
     width: 10%;
     min-height: 20px;
     margin-bottom: 100px;
+    position: relative;
+    animation: left 1s forwards
 }
-
 .bg-image .transport .container {
     background-position: bottom;
+}
+.animate-title {
+    position: relative;
+    width: 100%;
+}
+@keyframes left {
+    from {left: 0%;}
+    to {left: 10%;}
 }
 
 
