@@ -1,14 +1,4 @@
 
-.transport-types{
-    width: 70%;
-    display: inline-block;
-    
-
-
-    position: relative;
-    margin-left: 25%;
-    margin-right: 25%;
-}
 .quiz-question{
     top:0;
     margin-left: 25%;
@@ -56,21 +46,101 @@ span{
 
 }
 
-button{
+.submit-button{
     background-color: rgba(56, 191, 167, 0.78);
-    border: none;
+
+
     color: white;
-    cursor: pointer;
-    font-weight: bold;
-    outline: none;
-    padding: 10px;
-    border-radius: 15px;
-    letter-spacing: 2px;
-    width: 100px;
+    text-decoration: none;
+   
+    border-radius: 50px;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: 900;
 
 }
 .submit{
     text-align: center;
-    
-  
+    margin-left: -22%;
+      padding-top: 30px;
 }
+
+button{
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 120%;
+
+}
+.quiz-tabs{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 13px;
+
+}
+.tab {
+   display: inline-block;
+   padding: 30px;
+
+
+}
+TabContent{
+    width: 70%;
+    display: inline-block;
+    
+
+
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 2000px;
+}
+.tab-link{
+    height: 50%;
+    width: 120%;
+    padding: 15px;
+}
+.tab-link-active{
+    
+    border-bottom: 3px solid rgb(111, 154, 255);
+    height: 50%;
+    padding: 15px;
+    width: 120%;
+
+}
+.quiz{
+    width: 70%;
+    display: inline-block;
+    
+
+
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 900px;
+}
+
+.new-tab{
+    
+    
+    
+    border: 3px solid #6ecd9c;;
+    color: black;
+    text-decoration: none;
+    background: white;
+    border-radius: 50px;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 0;
+    font-size: 15px;
+  }
+  .next-btn{
+      text-align: center;
+      margin-left: -22%;
+      padding-top: 30px;
+  }
+
+
