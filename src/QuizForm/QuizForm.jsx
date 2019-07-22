@@ -61,74 +61,97 @@ export default class QuizForm extends Component {
     
     onSubmit() {
         let total = 0;
+        let count = 0;
         if (this.state.formData.publicTransit) {
-            total += 10;
+            total += 8;
+            count++;
         }
         if (this.state.formData.regularCar) {
-            total -= 50;
+            total += 3;
+            count++;
         }
         if (this.state.formData.hybridCar) {
-            total += 20;
+            total += 6;
+            count++;
         }
         if (this.state.formData.electricCar) {
-            total += 15;
+            total += 6;
+            count++;
         }
         if (this.state.formData.walkingBiking) {
-            total += 50;
+            total += 10;
+            count++;
         }
         if (this.state.formData.meatLover) {
-            total -= 10;
+            total += 1;
+            count++;
         }
         if (this.state.formData.omnivore) {
-            total += 5;
+            total += 4;
+            count++;
         }
         if (this.state.formData.noRed) {
-            total += 8;
+            total += 6;
+            count++;
         }
         if (this.state.formData.vegetarian) {
-            total += 9;
+            total += 8;
+            count++;
         }
         if (this.state.formData.vegan) {
             total += 10;
+            count++;
         }
         if (this.state.formData.thriftStore) {
-            total += 40;
+            total += 8;
+            count++;
         }
         if (this.state.formData.farmersMarket) {
-            total += 20;
+            total += 10;
+            count++;
         }
         if (this.state.formData.store) {
-            total -= 30;
+            total += 4;
+            count++;
         }
         if (this.state.formData.recycle) {
-            total += 15;
+            total += 8;
+            count++;
         }
         if (this.state.formData.compost) {
-            total += 15;
+            total += 8;
+            count++;
         }
         if (this.state.formData.reuse) {
-           total += 20;
+           total += 10;
+           count++;
         }
         if (this.state.formData.garbage) {
-           total -= 20;
+           total += 1;
+           count++;
         }
         if (this.state.formData.acHeat) {
-           total += 65;
+           total += 8;
+           count++;
         }
         if (this.state.formData.lights) {
-           total += 65;
+           total += 8;
+           count++;
         }
         if (this.state.formData.computer) {
-           total += 25;
+           total += 8;
+           count++;
         }
         if (this.state.formData.water) {
-           total += 25;
+           total += 8;
+           count++;
         }
         if (this.state.formData.none) {
-           total -= 65;
+           total += 1;
+           count++;
         }
 
-        this.state.formData.totalPoints = total;
+        this.state.formData.totalPoints = Math.round(total/count);
         this.setState({
             submitted: true
         })

@@ -23,3 +23,18 @@ header {
     opacity: 0;
 }
 
+.home-nav-link{
+    top: 0;
+    padding: 45px;
+    padding-left: 60px;
+    padding-right: 60px;
+    
+    justify-content: space-between;
+    
+    margin: 0;
+    
+    font-size: 20px;
+    z-index: 11;
+    height: 100%;
+    text-align: center;
+}
