@@ -10,12 +10,10 @@ import WIMPage from './WIMPage';
 import QuizPage from './QuizPage/QuizPage';
 
 class App extends React.Component {
-  
-    render() {
 
+    render() {
         return (
             <Router>
-   
                 <div>
                     <Route exact path="/" render={HomePage}/>
                     <Route exact path="/why-this-matters" render={WIMPage}/>

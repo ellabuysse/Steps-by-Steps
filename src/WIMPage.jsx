@@ -7,7 +7,7 @@ import introText from './Data/introText';
 import weArePartText from './Data/weArePartText';
 import smallActionsMakeText from './Data/smallActionsMakeText';
 import BGImage from './BGImage/BGImage';
-import WIMNav from './NavBar/WIMNav';
+import NavBar from './NavBar/NavBar';
 import ScrollNav from './ScrollNav/ScrollNavWIM';
 
 
@@ -17,7 +17,7 @@ const WIMPage = (props) => {
     return (
         <div>
             <ScrollNav/>
-            <WIMNav/>
+            <NavBar/>
             <div className="animate-title">
                 <h1 className="page-title">Why It Matters</h1>
                 <div className="WIM-underline"/> 
