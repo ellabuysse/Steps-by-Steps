@@ -193,6 +193,7 @@ export default class QuizForm extends Component {
             </div>
             
             <div className="quiz">
+
             <TabContent for="tab1" value="tab1">
                 <div className="transport-types">
                     <div className="quiz-question">
@@ -233,6 +234,7 @@ export default class QuizForm extends Component {
                     
                     <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab2")}>NEXT</button></div>
 </TabContent>
+
 <TabContent for="tab2" value="tab2">
                 <div className="diet-types">
                     <div className="quiz-question">
