@@ -10,6 +10,7 @@ import BGImage from './BGImage/BGImage';
 import WIMNav from './NavBar/WIMNav';
 import ScrollNav from './ScrollNav/ScrollNavWIM';
 
+
 import './WIMPage.css';
 
 const WIMPage = (props) => {
@@ -30,9 +31,11 @@ const WIMPage = (props) => {
                         />
                 }
                 </div>
+                
                 <div className="stats-container"> 
                 {
                     stats.map(value => (
+                        
                         <StatsBlock
                             statsNumber={value.number}
                             statsSuffix={value.suffix}
@@ -43,6 +46,7 @@ const WIMPage = (props) => {
                     ))
                 }
                 </div>
+                
                 <div className="text-container">
                 {
                     introText.map(value => (

@@ -9,9 +9,8 @@ import TipsPage from './TipsPage/TipsPage';
 import WIMPage from './WIMPage';
 import QuizPage from './QuizPage/QuizPage';
 
-
 class App extends React.Component {
-
+  
     render() {
 
         return (
