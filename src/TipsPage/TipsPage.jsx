@@ -1,5 +1,5 @@
 import React from 'react';
-import TipsNav from '../NavBar/TipsNav';
+import NavBar from '../NavBar/NavBar';
 import FeatureBox from '../FeatureBox/FeatureBox';
 import transportTips from '../Data/transportTips';
 import foodTips from '../Data/foodTips';
@@ -14,7 +14,7 @@ import './TipsPage.css';
 const TipsPage = (props) => {
     return (
         <div>
-            <TipsNav/>
+            <NavBar/>
             <ScrollNavTips/>
             <div className="animate-title">
                 <h1 className="page-title">What You Can Do</h1>
