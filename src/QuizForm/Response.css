@@ -7,6 +7,7 @@
     width: 60%;
    
     margin:100px auto;
+    margin-bottom: 15px;
  
 
     
@@ -64,4 +65,31 @@
    vertical-align: middle;
    margin: auto auto;
   
+}
+
+.categories-container{
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+}
+.rating-scale{
+    display: inline-block;
+    width: 300px;
+    padding: 40px;
+    padding-left: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+#red-dot{
+    color: rgba(251, 86, 78, 0.62);
+}
+#yellow-dot{
+    color: rgba(251, 170, 109, 0.72);
+}
+#green-dot{
+    color: #6ecd9c;
 }
