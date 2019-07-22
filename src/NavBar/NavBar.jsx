@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import './NavBar.css';
 
-export default class WIMNav extends Component {
+export default class NavBar extends Component {
 /* 
     constructor(props){
         super(props)
@@ -31,22 +31,23 @@ export default class WIMNav extends Component {
     }
    */
     render() {
+        let pageName=window.location.pathname;
+        pageName=pageName.substr(1);
+
         return(
-            <header>
-                <nav className="pages-nav">
+            <header className={pageName}>
+                <nav className= "pages-nav">
                     <div className="nav-title">
                         <Link to="/">Steps by Steps</Link>
                     </div>
                     <div className="nav-menu">
-                        <Link to="/why-this-matters"  >
+                        <Link to="/why-this-matters" id="whyThisMattersPage">
                             why it matters 
-                            <div className="wim-title-underline"></div>
-                            </Link>
-                        <Link to="/tips">
+                        </Link>
+                        <Link to="/tips" id="tipsPage">
                             what you can do
-        
                             </Link>
-                        <Link to="/quiz" class="quiz-box">take the quiz</Link>
+                        <Link to="/quiz" class="quiz-box" id="quizPage">take the quiz</Link>
                     </div>
                 </nav>
             </header>
