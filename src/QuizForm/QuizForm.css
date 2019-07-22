@@ -124,7 +124,7 @@ TabContent{
 }
 
 .new-tab{
-    
+
     text-align: center;
     outline: none;
     border: none;
@@ -141,7 +141,7 @@ TabContent{
 
   }
   .next-btn{
-      text-align: center;
+ `
       margin-left: -22%;
       padding-top: 30px;
       bottom: 0;
