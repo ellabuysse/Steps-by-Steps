@@ -30,7 +30,7 @@ span{
 .boxes{
     top: 0;
     display: inline-block;
-    
+    text-align: left;
   
    
     width: 20%;
@@ -50,8 +50,7 @@ span{
     outline: none;
     border: none;
     background-color: rgba(56, 191, 167, 0.78);
-
-
+    
     color: white;
     text-decoration: none;
    
@@ -118,20 +117,15 @@ TabContent{
 
 }
 .quiz{
-    width: 70%;
+    width: 100%;
     display: inline-block;
-    
-
-
     position: relative;
-    margin-left: 25%;
-    margin-right: 25%;
-    height: 600px;
+    text-align: center;
 }
 
 .new-tab{
-    
-    
+
+    text-align: center;
     outline: none;
     border: none;
     border: 3px solid #6ecd9c;;
@@ -144,11 +138,13 @@ TabContent{
     padding-right: 30px;
     margin-top: 0;
     font-size: 15px;
+
   }
   .next-btn{
-      text-align: center;
+ 
       margin-left: -22%;
       padding-top: 30px;
       bottom: 0;
+      
   }
 

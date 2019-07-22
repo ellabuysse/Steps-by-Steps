@@ -1,12 +1,13 @@
 .results {
     font-family: 'Quicksand', sans-serif;
-    
+    text-align: center;
     
     font-size: 120%;
     margin-top: 100px;
     width: 60%;
-    
+   
     margin:100px auto;
+ 
 
     
 }

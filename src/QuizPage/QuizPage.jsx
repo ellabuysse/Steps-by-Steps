@@ -9,7 +9,7 @@ const TipsPage = (props) => {
     return (
         <div>
             <NavBar/>
-            <h1 className="page-title"></h1>
+            <h1></h1>
             <div className="bg-image">
                 {
                     <BGImage 
