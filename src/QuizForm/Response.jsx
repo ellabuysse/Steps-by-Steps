@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Response.css';
+import './QuizForm.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'  
 

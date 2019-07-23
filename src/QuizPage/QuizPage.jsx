@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 import QuizForm from '../QuizForm/QuizForm';
 import './QuizPage.css';
 
-const TipsPage = (props) => {
+const QuizPage = (props) => {
     return (
         <div>
             <NavBar/>
@@ -28,4 +28,4 @@ const TipsPage = (props) => {
 </div>
     );
 };
-export default TipsPage;
+export default QuizPage;
