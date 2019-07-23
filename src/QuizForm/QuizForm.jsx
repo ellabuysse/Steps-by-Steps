@@ -15,10 +15,9 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             formData: { 
-<<<<<<< HEAD
+
                 transportPoints: 0,
-=======
->>>>>>> 37e31d3ab0fa0f9a485bf2c0e276ecc1501c5f95
+
                 totalPoints: 0,
                 dotColor: "ffffff",
                 publicTransit: false,
@@ -189,9 +188,9 @@ export default class QuizForm extends Component {
         }
 
         this.state.formData.totalPoints = Math.round(total/count);
-<<<<<<< HEAD
+
         this.state.formData.transportPoints = transportPoints;
-=======
+
 
         if (this.state.formData.totalPoints <= 3) {
             color="rgba(251, 86, 78, 0.62)"
@@ -205,7 +204,7 @@ export default class QuizForm extends Component {
 
         this.state.formData.dotColor = color;
 
->>>>>>> 37e31d3ab0fa0f9a485bf2c0e276ecc1501c5f95
+
         this.setState({
             submitted: true
         })
