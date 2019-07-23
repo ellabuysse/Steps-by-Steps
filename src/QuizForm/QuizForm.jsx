@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Response from './Response';
+//import Response from './Response';
 import './QuizForm.css';
-//import { typeCastExpression } from '@babel/types';
-import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons' 
+import './Response.css';
 
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 import { thisTypeAnnotation } from '@babel/types';
@@ -14,8 +15,12 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             formData: { 
+<<<<<<< HEAD
                 transportPoints: 0,
+=======
+>>>>>>> 37e31d3ab0fa0f9a485bf2c0e276ecc1501c5f95
                 totalPoints: 0,
+                dotColor: "ffffff",
                 publicTransit: false,
                 car: false,
                 walkingBiking: false,
@@ -63,11 +68,15 @@ export default class QuizForm extends Component {
     onSubmit() {
         let total = 0;
         let count = 0;
+
         let transportPoints= 0;
         let dietPoints= 0;
         let shoppingPoints= 0;
         let wastePoints= 0;
         let powerPoints= 0;
+
+        let color = "";
+
         if (this.state.formData.publicTransit) {
             total += 8;
             count++;
@@ -180,7 +189,23 @@ export default class QuizForm extends Component {
         }
 
         this.state.formData.totalPoints = Math.round(total/count);
+<<<<<<< HEAD
         this.state.formData.transportPoints = transportPoints;
+=======
+
+        if (this.state.formData.totalPoints <= 3) {
+            color="rgba(251, 86, 78, 0.62)"
+        }
+        if (this.state.formData.totalPoints > 3 && this.state.formData.totalPoints <= 7) {
+            color="rgba(251, 170, 109, 0.72)"
+        }
+        if (this.state.formData.totalPoints > 7) {
+            color="#6ecd9c"
+        }
+
+        this.state.formData.dotColor = color;
+
+>>>>>>> 37e31d3ab0fa0f9a485bf2c0e276ecc1501c5f95
         this.setState({
             submitted: true
         })
@@ -229,7 +254,27 @@ export default class QuizForm extends Component {
 
     renderResponse() {
         return(
-            <Response formResponse={this.state.formData.totalPoints}/>
+            <div className="results-page">
+            <div className="results">
+                <div className="total-pts-container">
+                <h3 className="total-pts">Total impact points: </h3>
+            </div>
+
+               <div className="points-container">
+                <div className="points" background-color={this.state.formData.dotColor}><span>{this.state.formData.totalPoints}</span></div>
+            </div> 
+            
+            </div>
+            <div className="categories-container">
+                <FontAwesomeIcon icon={faCircle} id="red-dot"/>
+                <div className="rating-scale" >1-3 indicates poor environmental impact</div>
+                <FontAwesomeIcon icon={faCircle} id="yellow-dot"/>
+                <div className="rating-scale" >4-7 indicates average environmental impact</div>
+                <FontAwesomeIcon icon={faCircle} id="green-dot"/>
+                <div className="rating-scale" >8-10 indicates above average environmental impact</div>
+            </div>
+               
+            </div>
         )
     }
 
@@ -493,3 +538,5 @@ export default class QuizForm extends Component {
              </Tabs>
             )}
     }
+
+    
