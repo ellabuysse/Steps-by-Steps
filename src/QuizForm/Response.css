@@ -93,3 +93,22 @@
 #green-dot{
     color: #6ecd9c;
 }
+
+.donutChart{
+    height: 450px;
+    text-align: left;
+}
+.chart-container{
+    text-align: left;
+    margin-left: 15%;
+    padding-top: 50px;
+    width: 50%;
+}
+.breakdown-words{
+    letter-spacing: 6px;
+    font: size 20px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    padding-bottom: 50px;
+    
+}

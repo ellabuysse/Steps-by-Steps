@@ -5,6 +5,7 @@ import './QuizForm.css';
 import { Link } from 'react-router-dom'
 
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
+import { thisTypeAnnotation } from '@babel/types';
  
 export default class QuizForm extends Component {
 
@@ -13,7 +14,7 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             formData: { 
-                
+                transportPoints: 0,
                 totalPoints: 0,
                 publicTransit: false,
                 car: false,
@@ -62,96 +63,124 @@ export default class QuizForm extends Component {
     onSubmit() {
         let total = 0;
         let count = 0;
+        let transportPoints= 0;
+        let dietPoints= 0;
+        let shoppingPoints= 0;
+        let wastePoints= 0;
+        let powerPoints= 0;
         if (this.state.formData.publicTransit) {
             total += 8;
             count++;
+            transportPoints++;
         }
         if (this.state.formData.regularCar) {
             total += 3;
             count++;
+            transportPoints++;
         }
         if (this.state.formData.hybridCar) {
             total += 6;
             count++;
+            transportPoints++;
         }
         if (this.state.formData.electricCar) {
             total += 6;
             count++;
+            transportPoints++;
         }
         if (this.state.formData.walkingBiking) {
             total += 10;
             count++;
+            transportPoints++;
         }
         if (this.state.formData.meatLover) {
             total += 1;
             count++;
+            dietPoints++;
         }
         if (this.state.formData.omnivore) {
             total += 4;
             count++;
+            dietPoints++;
         }
         if (this.state.formData.noRed) {
             total += 6;
             count++;
+            dietPoints++;
         }
         if (this.state.formData.vegetarian) {
             total += 8;
             count++;
+            dietPoints++;
         }
         if (this.state.formData.vegan) {
             total += 10;
             count++;
+            dietPoints++;
         }
         if (this.state.formData.thriftStore) {
             total += 8;
             count++;
+            shoppingPoints++;
         }
         if (this.state.formData.farmersMarket) {
             total += 10;
             count++;
+            shoppingPoints++;
         }
         if (this.state.formData.store) {
             total += 4;
             count++;
+            shoppingPoints++;
         }
         if (this.state.formData.recycle) {
             total += 8;
             count++;
+            wastePoints++;
         }
         if (this.state.formData.compost) {
             total += 8;
             count++;
+            wastePoints++;
         }
         if (this.state.formData.reuse) {
            total += 10;
            count++;
+           wastePoints++;
         }
         if (this.state.formData.garbage) {
            total += 1;
            count++;
+           wastePoints++;
         }
         if (this.state.formData.acHeat) {
            total += 8;
            count++;
+           powerPoints++;
         }
         if (this.state.formData.lights) {
            total += 8;
            count++;
+           powerPoints++;
         }
         if (this.state.formData.computer) {
            total += 8;
            count++;
+           powerPoints++;
         }
         if (this.state.formData.water) {
            total += 8;
            count++;
+           powerPoints++;
         }
         if (this.state.formData.none) {
            total += 1;
            count++;
+           powerPoints++;
         }
 
         this.state.formData.totalPoints = Math.round(total/count);
+        this.state.formData.transportPoints = transportPoints;
         this.setState({
             submitted: true
         })
