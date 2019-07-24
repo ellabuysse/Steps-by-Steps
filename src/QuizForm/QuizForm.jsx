@@ -4,10 +4,15 @@ import './QuizForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons' 
 import './Response.css';
-
+import DonutChart from 'react-donut-chart';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 import { thisTypeAnnotation } from '@babel/types';
- 
+import {
+    Link
+} from 'react-router-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
+
 export default class QuizForm extends Component {
 
     constructor(props) {
@@ -15,9 +20,13 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             formData: { 
-
+                initialPage: 1,
+                activeTab: 1,
                 transportPoints: 0,
-
+                dietPoints: 0,
+                shoppingPoints: 0,
+                wastePoints: 0,
+                powerPoints: 0,
                 totalPoints: 0,
                 dotColor: "ffffff",
                 publicTransit: false,
@@ -42,7 +51,7 @@ export default class QuizForm extends Component {
                 none: false
             },
             submitted: false,
-            currentTab: "tab1"
+            currentTab: "#tab1"
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -188,10 +197,13 @@ export default class QuizForm extends Component {
         }
 
         this.state.formData.totalPoints = Math.round(total/count);
-
         this.state.formData.transportPoints = transportPoints;
+        this.state.formData.dietPoints = dietPoints;
+        this.state.formData.shoppingPoints = shoppingPoints;
+        this.state.formData.wastePoints = wastePoints;
+        this.state.formData.powerPoints = powerPoints;
 
-
+   
         if (this.state.formData.totalPoints <= 3) {
             color="rgba(251, 86, 78, 0.62)"
         }
@@ -253,10 +265,10 @@ export default class QuizForm extends Component {
 
     renderResponse() {
         return(
-            <div className="results-page">
+            <div className="results-page" id="results-page">
             <div className="results">
                 <div className="total-pts-container">
-                <h3 className="total-pts">Total impact points: </h3>
+                <h3 className="total-pts">Total Impact Points: </h3>
             </div>
 
                <div className="points-container">
@@ -272,14 +284,61 @@ export default class QuizForm extends Component {
                 <FontAwesomeIcon icon={faCircle} id="green-dot"/>
                 <div className="rating-scale" >8-10 indicates above average environmental impact</div>
             </div>
+            <div className="results-container">
+            <div className="chart-container">
+                <h3 className="breakdown-words">IMPACT BREAKDOWN</h3>
+            <DonutChart className="donutChart"
+    data={[{
+        label: 'TRANSPORTATION',
+        value: this.state.formData.transportPoints
+    },
+    {
+        label: 'DIET',
+        value: this.state.formData.dietPoints
+ 
+    },
+    {
+        label: 'SHOPPING',
+        value: this.state.formData.shoppingPoints
+    },
+    {
+        label: 'WASTE',
+        value: this.state.formData.wastePoints
+    },
+    {
+        label: 'POWER', 
+        value: this.state.formData.powerPoints
+    }
+    ]}
+    colors={[
+        '#6ecd9c', 'rgb(111, 154, 255)', 'rgba(251, 170, 109, 1)', 'rgba(251, 60, 54, 0.6)', 'rgba(123, 244, 251, 0.49)'
+
+    ]}
+    />
+    </div>
+    <div className="results-focus">
+        <h3 className="breakdown-words">THIS WEEK'S FOCUS</h3>
+        {(this.state.formData.totalPoints < 3) ? 
+            <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so take one small step a day to lessen your impact.</h3> :
+            <h3 className="results-description">Let's reduce your environmental impact even more by taking simple steps every day to swap out habits for new ones. Think about your lifestyle and what you can change.</h3>}
+          <div className="learn-more">
+            <Link to="/tips" id="results-link">
+                            LEARN MORE
+                            </Link> </div>
+    </div>
+    
+    
+ 
                
+</div>
             </div>
         )
     }
 
     render() {
        return (
-           <Tabs>
+           <Tabs initialPage={this.state.initialPage} page={this.state.activeTab} initialSelectedIndex={this.state.activeTab}>
+               
                <div className="quiz-tabs">
                    <div className="tab"><TabLink to="tab1">TRANSPORTATION</TabLink></div>
                    <div className="tab"><TabLink to="tab2">DIET</TabLink></div>
@@ -290,7 +349,7 @@ export default class QuizForm extends Component {
             
             <div className="quiz">
 
-            <TabContent for="tab1" value="tab1">
+            <TabContent for="tab1" value={1}>
                 <div className="transport-types">
                     <div className="quiz-question">
                         <span>Select all modes of transport you used this week: </span>
@@ -328,10 +387,11 @@ export default class QuizForm extends Component {
                     </div></div>
                     {this.state.formData.car ? this.renderCarType() : null}
                     
-                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab2")}>NEXT</button></div>
+                    <div className="next-btn">                 
+                    <button className="new-tab"  onClick={() => this.setState({ activeTab: 2 })} >NEXT</button></div>
 </TabContent>
 
-<TabContent for="tab2" value="tab2">
+<TabContent for="tab2" value={2}>
                 <div className="diet-types">
                     <div className="quiz-question">
                         <span>Select which box best describes your diet: </span>
@@ -385,9 +445,11 @@ export default class QuizForm extends Component {
                     </div>
                    
                     </div>
-                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab3")}>NEXT</button></div>
+                    <div className="next-btn">
+                        <button className="new-tab"  onClick={() => this.setState({ activeTab: 3 })} >NEXT</button></div>
                     </TabContent>
-                    <TabContent for="tab3" value="tab3">
+                    
+                    <TabContent for="tab3" value={3}>
                     <div className="shop-types">
                     <div className="quiz-question">
                         <span>Select where you shopped this week: </span>
@@ -423,9 +485,10 @@ export default class QuizForm extends Component {
                     </div>
                     
                     </div>
-                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab4")}>NEXT</button></div>
+                    <div className="next-btn">      
+                    <button className="new-tab"  onClick={() => this.setState({ activeTab: 4 })} >NEXT</button></div>
                     </TabContent>
-                    <TabContent for="tab4" value="tab4">
+                    <TabContent for="tab4" value={4}>
                     <div className="waste-types">
                     <div className="quiz-question">
                         <span>Select how you got rid of waste this week: </span>
@@ -469,9 +532,10 @@ export default class QuizForm extends Component {
                         </div>
                     </div>
                     </div>
-                    <div className="next-btn"><button className="new-tab" onClick={()=>this.handleChange("tab5")}>NEXT</button></div>
+                    <div className="next-btn">            
+                    <button className="new-tab"  onClick={() => this.setState({ activeTab: 5 })} >NEXT</button></div>
                     </TabContent>
-                    <TabContent for="tab5" value="tab5">
+                    <TabContent for="tab5" value={5}>
                     <div className="waste-types">
                     <div className="quiz-question">
                         <span>Select what you powered off when you left your house this week: </span>
@@ -527,7 +591,9 @@ export default class QuizForm extends Component {
                     
            
                 <div className = "submit">
-                <button onClick={this.onSubmit} className="submit-button">SUBMIT</button>
+                <button onClick={this.onSubmit} className="submit-button">
+                    <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
+                </button>
                 {this.state.submitted ? this.renderResponse() : null}
                 </div>
            
