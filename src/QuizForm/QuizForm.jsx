@@ -269,10 +269,11 @@ export default class QuizForm extends Component {
                     <div className="total-pts-container">
                         <h3 className="total-pts">Total Impact Points: </h3>
                     </div>
-                </div>                    
+                                    
                 <div className="points-container">
                     <div className="points" background-color={this.state.formData.dotColor}><span>{this.state.formData.totalPoints}</span></div>
                 </div> 
+                </div>
             </div>
             <div className="categories-container">
                 <FontAwesomeIcon icon={faCircle} id="red-dot"/>
@@ -286,7 +287,7 @@ export default class QuizForm extends Component {
             <div className="results-container">
                 <div className="chart-container">
                     <h3 className="breakdown-words">IMPACT BREAKDOWN</h3>
-                </div>
+                
                 <DonutChart className="donutChart"
                     data={[{
                         label: 'TRANSPORTATION',
@@ -332,7 +333,7 @@ export default class QuizForm extends Component {
                 </div>
             </div>           
 
-            
+            </div>
             </div>
         )
     }
@@ -619,10 +620,12 @@ export default class QuizForm extends Component {
                 <button onClick={this.onSubmit} className="submit-button">
                     <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
                 </button>
+                </div>
+                </TabContent></div>
                 {this.state.submitted ? this.renderResponse() : null}
-                </div>
-                </TabContent>
-                </div>
+                
+                
+                
                 </div>
             </Tabs>
            
