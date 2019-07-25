@@ -26,7 +26,6 @@ export default class QuizForm extends Component {
                 wastePoints: 0,
                 powerPoints: 0,
                 totalPoints: 0,
-                dotColor: "ffffff",
                 publicTransit: false,
                 car: false,
                 walkingBiking: false,
@@ -271,10 +270,19 @@ export default class QuizForm extends Component {
                     </div>
                                     
                 <div className="points-container">
-                    <div className="points" background-color={this.state.formData.dotColor}><span>{this.state.formData.totalPoints}</span></div>
-                </div> 
+                    <div className="points" style={{backgroundColor: 
+                          this.state.formData.totalPoints < 3 ? 
+                            "rgba(251, 86, 78, 0.62)" : 
+                            this.state.formData.totalPoints < 7 ?
+                             "rgba(251, 170, 109, 0.72)" :
+                             "#6ecd9c"
+                    }}>
+                     
+                        <span>{this.state.formData.totalPoints}</span></div>
+          </div>
+                        </div> 
                 </div>
-            </div>
+            
             <div className="categories-container">
                 <FontAwesomeIcon icon={faCircle} id="red-dot"/>
                 <div className="rating-scale" >1-3 indicates poor environmental impact</div>
@@ -491,7 +499,7 @@ export default class QuizForm extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="next-btn quiz-item"><button className="new-tab" onClick={()=>this.handleChange("tab4")}>NEXT</button></div>
+                        <div className="next-btn "><button className="new-tab" onClick={()=>this.handleChange("tab4")}>NEXT</button></div>
                     </TabContent>
 
                     <TabContent for="tab4" value="tab4">
@@ -537,9 +545,10 @@ export default class QuizForm extends Component {
                                     /> Garbage
                                 </div>
                             </div>
-                        </div>
-                        <div className="next-btn quiz-item"><button className="new-tab" onClick={()=>this.handleChange("tab5")}>NEXT</button></div>
-                    </TabContent>
+                        </div> 
+                        
+                        <div className="next-btn "><button className="new-tab" onClick={()=>this.handleChange("tab5")}>NEXT</button></div>
+                   </TabContent>
 
                     <TabContent for="tab5" value="tab5">
                         <div className="quiz-container" id="waste-types">
@@ -592,26 +601,7 @@ export default class QuizForm extends Component {
                                         checked={this.state.formData.none}
                                     /> Nothing
                                 </div>
-                            
                         
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="water"
-                                id="water"
-                                onChange={this.onChange}
-                                checked={this.state.formData.water}
-                            /> Water
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="none"
-                                id="none"
-                                onChange={this.onChange}
-                                checked={this.state.formData.none}
-                            /> Nothing
-                        </div>
                         </div>
                         </div>
     
