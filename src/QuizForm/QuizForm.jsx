@@ -269,10 +269,11 @@ export default class QuizForm extends Component {
                     <div className="total-pts-container">
                         <h3 className="total-pts">Total Impact Points: </h3>
                     </div>
-                </div>                    
+                                    
                 <div className="points-container">
                     <div className="points" background-color={this.state.formData.dotColor}><span>{this.state.formData.totalPoints}</span></div>
                 </div> 
+                </div>
             </div>
             <div className="categories-container">
                 <FontAwesomeIcon icon={faCircle} id="red-dot"/>
@@ -286,7 +287,7 @@ export default class QuizForm extends Component {
             <div className="results-container">
                 <div className="chart-container">
                     <h3 className="breakdown-words">IMPACT BREAKDOWN</h3>
-                </div>
+                
                 <DonutChart className="donutChart"
                     data={[{
                         label: 'TRANSPORTATION',
@@ -317,19 +318,22 @@ export default class QuizForm extends Component {
 
 
             <div className="results-focus">
-                <h3 className="breakdown-words">THIS WEEK'S FOCUS</h3>
-                {(this.state.formData.totalPoints < 3) ? 
-                <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so take one small step a day to lessen your impact.</h3> :
-                <h3 className="results-description">Let's reduce your environmental impact even more by taking simple steps every day to swap out habits for new ones. Think about your lifestyle and what you can change.</h3>}
-                <div className="learn-more">
-                    <Link to="/tips" id="results-link">
+
+        <h3 className="breakdown-words">THIS WEEK'S FOCUS</h3>
+        {(this.state.formData.totalPoints < 3) ? 
+            <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so commit to taking one small step a day to lessen your impact. You can do this!</h3> :
+           <div>
+        { (this.state.formData.totalPoints < 7) ? <h3 className="results-description">You are taking some steps to reduce your impact but have room to improve. Focus on one action you can add to your every-day routine and record each time you complete it this week. You've got this!</h3> : 
+            <h3 className="results-description">Look at your largest percentage of impact and commit to changing one aspect of your lifestyle to reduce it. Over this week, evaluate your changes and make an effort to add them to your routine.</h3>}</div> }
+           <div className="learn-more">
+            <Link to="/tips" id="results-link">
 
                             LEARN MORE
                     </Link>
                 </div>
             </div>           
 
-            
+            </div>
             </div>
         )
     }
@@ -616,10 +620,12 @@ export default class QuizForm extends Component {
                 <button onClick={this.onSubmit} className="submit-button">
                     <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
                 </button>
+                </div>
+                </TabContent></div>
                 {this.state.submitted ? this.renderResponse() : null}
-                </div>
-                </TabContent>
-                </div>
+                
+                
+                
                 </div>
             </Tabs>
            
