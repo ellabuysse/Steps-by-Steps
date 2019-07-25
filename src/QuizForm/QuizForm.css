@@ -1,49 +1,14 @@
-
-.quiz-question{
-    top:0;
-    margin-left: 25%;
-    
-    width: 40%;
-    padding: 30px;
-    display: inline-block;
-    text-align: left;
-    margin: 0;
-    padding: 30px;
-
-    margin-top:0;
-    vertical-align: top;
-    
-}
 span{
-   
     font-family: 'Quicksand', sans-serif;
-    
-    
     font-size: 120%;
- 
-
-    
-
- 
 }
 
-.boxes{
-    top: 0;
-    display: inline-block;
-    text-align: left;
-  
-   
-    width: 20%;
+.boxes{ 
+    width: 40%;
     font-family: 'Quicksand', sans-serif;
-    
-    line-height: 120%;
+    line-height: 160%;
     font-size: 120%;
- 
-
-    line-height: 40px;
-    padding: 30px;
-    vertical-align: top;
-
+    padding-left: 5%;
 }
 
 .submit-button{
@@ -74,11 +39,10 @@ button{
     font-size: 120%;
 
 }
-.quiz-tabs{
+#quiz-tabs{
     text-align: center;
-    margin-top: 50px;
     font-size: 13px;
-
+    margin-top: 0;
 }
 .tab {
    display: inline-block;
@@ -115,11 +79,9 @@ TabContent{
     color: black;
 
 }
-.quiz{
-    width: 100%;
-    display: inline-block;
+#quiz{
     position: relative;
-    text-align: center;
+    padding-left: 5%;
 }
 
 .new-tab{
@@ -144,8 +106,14 @@ TabContent{
       margin-left: 0;
       padding-top: 30px;
       bottom: 0;
-      
+      text-align: center;
   }
 
+  .quiz-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+  }
   
 

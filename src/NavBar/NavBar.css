@@ -60,12 +60,8 @@ nav a{
 
 
 .why-this-matters #whyThisMattersPage{
-    border-bottom: 4px solid #6ecd9c;
-
-   
-
-    
-
+    border-bottom: 2px solid #6ecd9c;
+    padding-bottom: 10px;
 }
 
 .nav-links{
@@ -85,5 +81,6 @@ nav a{
   
 }
 .tips #tipsPage{
-    border-bottom: 4px solid #5fa8e5;
+    border-bottom: 2px solid #5fa8e5;
+    padding-bottom: 10px;
 }
