@@ -317,6 +317,7 @@ export default class QuizForm extends Component {
 
 
             <div className="results-focus">
+
         <h3 className="breakdown-words">THIS WEEK'S FOCUS</h3>
         {(this.state.formData.totalPoints < 3) ? 
             <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so commit to taking one small step a day to lessen your impact. You can do this!</h3> :
@@ -325,29 +326,13 @@ export default class QuizForm extends Component {
             <h3 className="results-description">Look at your largest percentage of impact and commit to changing one aspect of your lifestyle to reduce it. Over this week, evaluate your changes and make an effort to add them to your routine.</h3>}</div> }
            <div className="learn-more">
             <Link to="/tips" id="results-link">
+
                             LEARN MORE
                     </Link>
                 </div>
             </div>           
 
-            <div className="results-page">
-                <div className="results">
-                    <div className="total-pts-container">
-                        <h3 className="total-pts">Total impact points: </h3>
-                    </div>
-                    <div className="points-container">
-                        <div className="points" background-color={this.state.formData.dotColor}><span>{this.state.formData.totalPoints}</span></div>
-                    </div> 
-                </div>
-                <div className="categories-container">
-                    <FontAwesomeIcon icon={faCircle} id="red-dot"/>
-                    <div className="rating-scale" >1-3 indicates poor environmental impact</div>
-                    <FontAwesomeIcon icon={faCircle} id="yellow-dot"/>
-                    <div className="rating-scale" >4-7 indicates average environmental impact</div>
-                    <FontAwesomeIcon icon={faCircle} id="green-dot"/>
-                    <div className="rating-scale" >8-10 indicates above average environmental impact</div>
-                </div> 
-            </div>
+            
             </div>
         )
     }
@@ -367,44 +352,6 @@ export default class QuizForm extends Component {
             </div>
             
             <div className="quiz">
-
-            <TabContent for="tab1" value={1}>
-                <div className="transport-types">
-                    <div className="quiz-question">
-                        <span>Select all modes of transport you used this week: </span>
-                    </div>
-                    <div className="boxes">
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="publicTransit"
-                                id="publicTransit"
-                                onChange={this.onChange}
-                                checked={this.state.formData.publicTransit}
-                            /> Public transportation/Carpool
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="car"
-                                id="car"
-                                onChange={this.onChange}
-                                checked={this.state.formData.car}
-                            /> Car
-                            
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="walkingBiking"
-                                id="walkingBiking"
-                                onChange={this.onChange}
-                                checked={this.state.formData.walkingBiking}
-                            /> Walk/Bike
-                </div>
-                </div>
-                </div>
-                </TabContent>
 
                 <div className="quiz-item" id="quiz">
                     <TabContent for="tab1" value="tab1">
@@ -448,58 +395,7 @@ export default class QuizForm extends Component {
                     <button className="new-tab"  onClick={() => this.setState({ activeTab: 2 })} >NEXT</button></div>
 </TabContent>
 
-<TabContent for="tab2" value={2}>
-                <div className="diet-types">
-                    <div className="quiz-question">
-                        <span>Select which box best describes your diet: </span>
-                    </div>
-                    <div className="boxes">
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="meatLover"
-                                id="meatLover"
-                                onChange={this.onChange}
-                                checked={this.state.formData.meatLover}
-                            /> High meat consumption
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="omnivore"
-                                id="omnivore"
-                                onChange={this.onChange}
-                                checked={this.state.formData.omnivore}
-                            /> Average omnivore 
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="noRed"
-                                id="noRed"
-                                onChange={this.onChange}
-                                checked={this.state.formData.noRed}
-                            /> No red meat
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="vegetarian"
-                                id="vegetarian"
-                                onChange={this.onChange}
-                                checked={this.state.formData.vegetarian}
-                            /> Vegetarian 
-                            </div>
-                            </div>
-                            </div>
-                        {this.state.formData.car ? this.renderCarType() : null}
-                        
-                        
-                        <div className="next-btn quiz-item">
-                            <button className="new-tab" onClick={()=>this.handleChange("tab2")}>NEXT</button>
-                        </div>
-                        
-                    </TabContent>
+             
 
                     <TabContent for="tab2" value="tab2">
                         <div className="quiz-container" id="diet-types">
@@ -557,122 +453,6 @@ export default class QuizForm extends Component {
                     
                     <div className="next-btn">
                         <button className="new-tab"  onClick={() => this.setState({ activeTab: 3 })} >NEXT</button></div>
-                    </TabContent>
-                    
-                    <TabContent for="tab3" value={3}>
-                    <div className="shop-types">
-                    <div className="quiz-question">
-                        <span>Select where you shopped this week: </span>
-                    </div>
-                    <div className="boxes">
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="thriftStore"
-                                id="thriftStore"
-                                onChange={this.onChange}
-                                checked={this.state.formData.thriftStore}
-                            /> Thrift store
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="farmersMarket"
-                                id="farmersMarket"
-                                onChange={this.onChange}
-                                checked={this.state.formData.farmersMarket}
-                            /> Farmers market
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="store"
-                                id="store"
-                                onChange={this.onChange}
-                                checked={this.state.formData.store}
-                            /> Regular store
-                        </div>
-                    </div>
-                    
-                    </div>
-                    <div className="next-btn">      
-                    <button className="new-tab"  onClick={() => this.setState({ activeTab: 4 })} >NEXT</button></div>
-                    </TabContent>
-                    <TabContent for="tab4" value={4}>
-                    <div className="waste-types">
-                    <div className="quiz-question">
-                        <span>Select how you got rid of waste this week: </span>
-                    </div>
-                    <div className="boxes">
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="recycle"
-                                id="recycle"
-                                onChange={this.onChange}
-                                checked={this.state.formData.recycle}
-                            /> Recycle
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="compost"
-                                id="compost"
-                                onChange={this.onChange}
-                                checked={this.state.formData.compost}
-                            /> Compost
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="reuse"
-                                id="reuse"
-                                onChange={this.onChange}
-                                checked={this.state.formData.reuse}
-                            /> Reuse
-                        </div>
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="garbage"
-                                id="garbage"
-                                onChange={this.onChange}
-                                checked={this.state.formData.garbage}
-                            /> Garbage
-                        </div>
-                    </div>
-                    </div>
-                    <div className="next-btn">            
-                    <button className="new-tab"  onClick={() => this.setState({ activeTab: 5 })} >NEXT</button></div>
-                    </TabContent>
-
-                    <TabContent for="tab5" value={5}>
-                    <div className="waste-types">
-                    <div className="quiz-question">
-                        <span>Select what you powered off when you left your house this week: </span>
-                    </div>
-                    <div className="boxes">
-                        <div className="check">
-                            <input
-                                type="checkbox"
-                                name="acHeat"
-                                id="acHeat"
-                                onChange={this.onChange}
-                                checked={this.state.formData.acHeat}
-                            /> Air conditioning/heating
-                        </div>
-                        <div className="check">
-                            <input 
-                                type="checkbox"
-                                name="lights"
-                                id="lights"
-                                onChange={this.onChange}
-                                checked={this.state.formData.lights}
-                            /> Lights
-                            </div>
-                            </div>
-                            </div>
-                        <div className="next-btn quiz-item"><button className="new-tab" onClick={()=>this.handleChange("tab3")}>NEXT</button></div>
                     </TabContent>
 
                     <TabContent for="tab3" value="tab3">
@@ -811,7 +591,7 @@ export default class QuizForm extends Component {
                                         checked={this.state.formData.none}
                                     /> Nothing
                                 </div>
-                    
+                            
                         
                         <div className="check">
                             <input
@@ -841,7 +621,7 @@ export default class QuizForm extends Component {
                 </button>
                 {this.state.submitted ? this.renderResponse() : null}
                 </div>
-                    </TabContent>
+                </TabContent>
                 </div>
                 </div>
             </Tabs>
