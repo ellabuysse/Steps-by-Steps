@@ -5,6 +5,7 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import './Response.css';
 import DonutChart from 'react-donut-chart';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
+
 import {
     Link
 } from 'react-router-dom';
@@ -17,9 +18,9 @@ export default class QuizForm extends Component {
         
         super(props);
         this.state = {
+            activeTab: 1,
             formData: { 
                 initialPage: 1,
-                activeTab: 1,
                 transportPoints: 0,
                 dietPoints: 0,
                 shoppingPoints: 0,
@@ -48,19 +49,16 @@ export default class QuizForm extends Component {
                 none: false
             },
             submitted: false,
-            currentTab: "#tab1"
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.renderResponse = this.renderResponse.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (value) => {
-        this.setState ({
-            currentTab: value,
-        });
-    };
+    get currentTab() {
+        const { activeTab } = this.state;
+        return `#tab${activeTab}`;
+    }
 
     onChange(event) {
         let formData = this.state.formData;
@@ -220,7 +218,10 @@ export default class QuizForm extends Component {
             submitted: true
         })
     }
-
+ 
+    handleNextClick = key => {
+        this.props.tab1.push('/${key}')
+    }
     renderCarType() {
         return(
             <div className="quiz-container" id="car-types">
@@ -349,7 +350,7 @@ export default class QuizForm extends Component {
     render() {
        return (
            
-           <Tabs initialPage={this.state.initialPage} page={this.state.activeTab} initialSelectedIndex={this.state.activeTab}>
+           <Tabs defaultActiveKey = "tab1" >
             
         
                 <div className="quiz-item" id="quiz-tabs">
@@ -363,7 +364,8 @@ export default class QuizForm extends Component {
             <div className="quiz">
 
                 <div className="quiz-item" id="quiz">
-                    <TabContent for="tab1" value="tab1">
+                    <div for="tab1">
+                    <TabContent for="tab1" value="tab1" id="tab1" key="tab1">
                         <div className="quiz-container" id="transport-types">
                             <div className="quiz-question">
                                 <span>Select all modes of transport you used this week: </span>
@@ -400,13 +402,11 @@ export default class QuizForm extends Component {
                         </div>
                        
                     
-                    <div className="next-btn">                 
-                    <button className="new-tab"  onClick={() => this.setState({ activeTab: 2 })} >NEXT</button></div>
-</TabContent>
-
-             
-
-                    <TabContent for="tab2" value="tab2">
+                    </TabContent>
+                    <div className="next-btn "> </div>
+                    </div>
+                    <div id="tab2">
+                    <TabContent for="tab2" value="tab2" id="tab2" key="tab2">
                         <div className="quiz-container" id="diet-types">
                             <div className="quiz-question">
                                 <span>Select which box best describes your diet: </span>
@@ -459,10 +459,8 @@ export default class QuizForm extends Component {
                                 </div>
                             </div>
                         </div>
-                    
-                    <div className="next-btn">
-                        <button className="new-tab"  onClick={() => this.setState({ activeTab: 3 })} >NEXT</button></div>
-                    </TabContent>
+                    </TabContent></div>
+                    <div className="next-btn "><TabLink to="tab3">NEXT</TabLink></div>
 
                     <TabContent for="tab3" value="tab3">
                         <div className="quiz-container" id="shop-types">
@@ -499,8 +497,8 @@ export default class QuizForm extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="next-btn "><button className="new-tab" onClick={()=>this.handleChange("tab4")}>NEXT</button></div>
                     </TabContent>
+                    <div className="next-btn "><TabLink to="tab4">NEXT</TabLink></div>
 
                     <TabContent for="tab4" value="tab4">
                         <div className="quiz-container" id="waste-types">
@@ -547,8 +545,9 @@ export default class QuizForm extends Component {
                             </div>
                         </div> 
                         
-                        <div className="next-btn "><button className="new-tab" onClick={()=>this.handleChange("tab5")}>NEXT</button></div>
+                        <div className="next-btn "><button className="new-tab">NEXT</button></div>
                    </TabContent>
+                   <div className="next-btn "><TabLink to="tab5">NEXT</TabLink></div>
 
                     <TabContent for="tab5" value="tab5">
                         <div className="quiz-container" id="waste-types">
