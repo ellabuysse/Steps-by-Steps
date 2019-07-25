@@ -12,10 +12,10 @@
 
 .points{
     color: white;
-    /*background-color: #6ecd9c;*/
+    background-color: #6ecd9c;
     border-radius: 100px;
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
     font-size: 30px;
 
     position: relative;
@@ -32,7 +32,7 @@
 }
 .points span{
     position: absolute;
-    
+    letter-spacing: 2px;
     
     font-weight: 900;
     font-size: 50px;
@@ -89,4 +89,25 @@
 }
 #green-dot{
     color: #6ecd9c;
+}
+
+.donutChart{
+    max-height: 450px;
+    text-align: left;
+}
+.chart-container{
+    text-align: left;
+    
+    padding-top: 50px;
+    width: 40%;
+   
+    
+}
+.breakdown-words{
+    letter-spacing: 6px;
+    font: size 20px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    padding-bottom: 50px;
+    display: flex;
 }
