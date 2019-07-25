@@ -105,6 +105,7 @@ TabContent{
       padding-top: 30px;
       bottom: 0;
       text-align: center;
+
   }
 
   .results-container{
@@ -126,6 +127,7 @@ TabContent{
       font-weight: 100;
       text-align: left;
       padding: 0;
+      margin-top: 0;
       
   }
   #results-link{
@@ -159,5 +161,7 @@ TabContent{
       justify-content: space-between;
       align-items: start;
   }
+  .quiz-question{
+      width: 60%;
+  }
   
-
