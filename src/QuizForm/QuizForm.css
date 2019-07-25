@@ -66,6 +66,7 @@ TabContent{
     outline: none;
     border: none;
     color: #666565;
+    background-color: white;
 }
 .tab-link-active{
     outline: none;
@@ -75,6 +76,7 @@ TabContent{
     padding: 15px;
     width: 120%;
     color: black;
+    background-color: white;
 
 }
 #quiz{
