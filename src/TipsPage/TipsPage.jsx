@@ -43,11 +43,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">Message here about why you should drive. Message here about why you should drive. Message here about why you should
-                drive. Message here about why you should drive. Message here about why you should drive. Message here about why you
-                should drive. Message here about why you should drive. Message here about why you should drive. Message here about
-                why you should drive. Message here about why you should drive. Message here about why you should drive. Message here
-                about why you should drive.</p>
+                <p className="paragraph">Transportation emissions from cars, trucks, planes, trains, ships, and freight accounts for about 30% of US global warming emissions, which is more than any other category of emissions. Although carbon dioxide emissions from transportation have slowed down with the increasing use of electronic vehicles and renewable gas, the emissions are still exponential. We can take steps to reduce our own impact by using fuel-efficient vehicles, cleaner fuels, electric cars, and public transport which all have less impact on the environment. </p>
             </section>
             <section id="food">
                 <div className="bg-image">
@@ -129,7 +125,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">Message here</p>
+                <p className="paragraph">Emissions from utilites and the power sector are particularly significant because they can be reduced with increased electricity instead of fossil fuels from vehicles and factories. The US needs to reduce energy-related CO2 emissions by 3.3% per year in 2019 and 2020, which is more than the 1.2% average reduction in 2005 to 2017. By turning off the lights when you leave the room and aiming for energy-efficient utilities, you are not only reducing your electricity usage, but are saving money on electric bills and extending the life of your light bulbs. The first step is remembering to turn off utilities, and by recognizing the importance of doing so, you are more likely to make it happen.</p>
             </section>
             <Footer/>
         </div>
