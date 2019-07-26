@@ -5,6 +5,11 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import './Response.css';
 import DonutChart from 'react-donut-chart';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
+import TabPageDiet from '../TabPages/TabPageDiet';
+import TabPageTransport from '../TabPages/TabPageTransport';
+import TabPagePower from '../TabPages/TabPagePower';
+import TabPageWaste from '../TabPages/TabPageWaste';
+import TabPageShopping from '../TabPages/TabPageShopping';
 
 import {
     Link
@@ -18,6 +23,7 @@ export default class QuizForm extends Component {
         
         super(props);
         this.state = {
+            selectedIndex: 0,
             activeTab: 1,
             formData: { 
                 initialPage: 1,
@@ -121,7 +127,7 @@ export default class QuizForm extends Component {
             total += 6;
             count++;
             dietPoints++;
-        }
+               }
         if (this.state.formData.vegetarian) {
             total += 8;
             count++;
@@ -218,7 +224,14 @@ export default class QuizForm extends Component {
             submitted: true
         })
     }
- 
+
+    handleSelect = index => {
+        this.setState({ selectedIndex: index });
+    }
+    handleButtonClick = () => {
+        this.setState({ selectedIndex: 2 });
+    }
+
     handleNextClick = key => {
         this.props.tab1.push('/${key}')
     }
@@ -350,7 +363,7 @@ export default class QuizForm extends Component {
     render() {
        return (
            
-           <Tabs defaultActiveKey = "tab1" >
+           <Tabs selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
             
         
                 <div className="quiz-item" id="quiz-tabs">
@@ -362,263 +375,60 @@ export default class QuizForm extends Component {
             </div>
             
             <div className="quiz">
+                <TabContent for="tab1">
+                    <TabPageTransport
+                        onChange={this.onChange}
+                        checkedPublicTransit={this.state.publicTransit}
+                        checkedCar={this.state.car}
+                        checkedWalkingBiking={this.state.walkingBiking}/>
+                        </TabContent>
+                        <TabContent for="tab2">
+        <TabPageDiet 
+            onChange={this.onChange} 
+            checkedMeatLover={this.state.formData.meatLover}
+            checkedOmnivore ={this.state.formData.omnivore}
+            checkedNoRed ={this.state.formData.noRed}
+            checkedVegetarian ={this.state.formData.vegetarian}
+            checkedVegan ={this.state.formData.vegan}
+            /></TabContent>
 
-                <div className="quiz-item" id="quiz">
-                    <div for="tab1">
-                    <TabContent for="tab1" value="tab1" id="tab1" key="tab1">
-                        <div className="quiz-container" id="transport-types">
-                            <div className="quiz-question">
-                                <span>Select all modes of transport you used this week: </span>
-                            </div>
-                            <div className="boxes">
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="publicTransit"
-                                        id="publicTransit"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.publicTransit}
-                                    /> Public transportation/Carpool
-                                </div>
-                                <div className="check">
-                                    <input 
-                                        type="checkbox"
-                                        name="car"
-                                        id="car"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.car}
-                                    /> Car        
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="walkingBiking"
-                                        id="walkingBiking"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.walkingBiking}
-                                    /> Walk/Bike
-                                </div>
-                            </div>
-                        </div>
-                       
-                    
-                    </TabContent>
-                    <div className="next-btn "> </div>
-                    </div>
-                    <div id="tab2">
-                    <TabContent for="tab2" value="tab2" id="tab2" key="tab2">
-                        <div className="quiz-container" id="diet-types">
-                            <div className="quiz-question">
-                                <span>Select which box best describes your diet: </span>
-                            </div>
-                            <div className="boxes">
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="meatLover"
-                                        id="meatLover"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.meatLover}
-                                    /> High meat consumption
-                                </div>
-                                <div className="check">
-                                    <input 
-                                        type="checkbox"
-                                        name="omnivore"
-                                        id="omnivore"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.omnivore}
-                                    /> Average omnivore 
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="noRed"
-                                        id="noRed"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.noRed}
-                                    /> No red meat
-                                </div>
-                                <div className="check">
-                                    <input 
-                                        type="checkbox"
-                                        name="vegetarian"
-                                        id="vegetarian"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.vegetarian}
-                                    /> Vegetarian 
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="vegan"
-                                        id="vegan"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.vegan}
-                                    /> Vegan
-                                </div>
-                            </div>
-                        </div>
-                    </TabContent></div>
-                    <div className="next-btn "><TabLink to="tab3">NEXT</TabLink></div>
+            <TabContent for="tab3">
+                <TabPageShopping
+                    onChange={this.onChange}
+                    checkedThriftStore={this.state.thriftStore}
+                    checkedFarmersMarket={this.state.farmersMarket}
+                    checkedStore={this.state.store}/>
+            </TabContent>
 
-                    <TabContent for="tab3" value="tab3">
-                        <div className="quiz-container" id="shop-types">
-                            <div className="quiz-question">
-                                <span>Select where you shopped this week: </span>
-                            </div>
-                            <div className="boxes">
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="thriftStore"
-                                        id="thriftStore"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.thriftStore}
-                                    /> Thrift store
-                                </div>
-                                <div className="check">
-                                    <input 
-                                        type="checkbox"
-                                        name="farmersMarket"
-                                        id="farmersMarket"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.farmersMarket}
-                                    /> Farmers market
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="store"
-                                        id="store"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.store}
-                                    /> Regular store
-                                </div>
-                            </div>
-                        </div>
-                    </TabContent>
-                    <div className="next-btn "><TabLink to="tab4">NEXT</TabLink></div>
+            <TabContent for="tab4">
+                <TabPageWaste
+                    onChange={this.onChange}
+                    checkedRecycle={this.state.recycle}
+                    checkedCompost={this.state.compost}
+                    checkedReuse={this.state.reuse}
+                    checkedGarbage={this.state.garbage}/>
+            </TabContent>
 
-                    <TabContent for="tab4" value="tab4">
-                        <div className="quiz-container" id="waste-types">
-                            <div className="quiz-question">
-                                <span>Select how you got rid of waste this week: </span>
-                            </div>
-                            <div className="boxes">
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="recycle"
-                                        id="recycle"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.recycle}
-                                    /> Recycle
-                                </div>
-                                <div className="check">
-                                    <input 
-                                        type="checkbox"
-                                        name="compost"
-                                        id="compost"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.compost}
-                                    /> Compost
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="reuse"
-                                        id="reuse"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.reuse}
-                                    /> Reuse
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="garbage"
-                                        id="garbage"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.garbage}
-                                    /> Garbage
-                                </div>
-                            </div>
-                        </div> 
-                        
-                        <div className="next-btn "><button className="new-tab">NEXT</button></div>
-                   </TabContent>
-                   <div className="next-btn "><TabLink to="tab5">NEXT</TabLink></div>
+<TabContent for="tab5">
+    <TabPagePower
+        onChange={this.onChange}
+        checkedAcHeat={this.state.acHeat}
+        checkedLights={this.state.lights}
+        checkedComputer={this.state.computer}
+        checkedWater={this.state.water}
+        checkedNone={this.state.none}/>
+        <div className = "submit">
+<button onClick={this.onSubmit} className="submit-button">
+    <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
+</button>
+</div>
+{this.state.submitted ? this.renderResponse() : null}
 
-                    <TabContent for="tab5" value="tab5">
-                        <div className="quiz-container" id="waste-types">
-                            <div className="quiz-question">
-                                <span>Select what you powered off when you left your house this week: </span>
-                            </div>
-                            <div className="boxes">
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="acHeat"
-                                        id="acHeat"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.acHeat}
-                                    /> Air conditioning/heating
-                                </div>
-                                <div className="check">
-                                    <input 
-                                        type="checkbox"
-                                        name="lights"
-                                        id="lights"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.lights}
-                                    /> Lights
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="computer"
-                                        id="computer"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.computer}
-                                    /> Computer monitor
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="water"
-                                        id="water"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.water}
-                                    /> Water
-                                </div>
-                                <div className="check">
-                                    <input
-                                        type="checkbox"
-                                        name="none"
-                                        id="none"
-                                        onChange={this.onChange}
-                                        checked={this.state.formData.none}
-                                    /> Nothing
-                                </div>
-                        
-                        </div>
-                        </div>
+</TabContent>
+                </div>
     
-           
-                <div className = "submit">
-                <button onClick={this.onSubmit} className="submit-button">
-                    <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
-                </button>
-                </div>
-                </TabContent></div>
-                {this.state.submitted ? this.renderResponse() : null}
                 
-                
-                
-                </div>
             </Tabs>
            
         )}
     }
-
-    
