@@ -3,7 +3,8 @@
 }
 
 .quiz-item{
-    margin: 80px 20% 80px 20%;
+    margin: 50px 20% 50px 20%;
+
 }
 
 #quiz-description{
@@ -11,7 +12,24 @@
     margin-bottom: 40px;
     line-height: 120%;
     font-size: 120%;
-    padding: 50px;
+    padding: 35px;
     text-align: center;
     background-color: rgba(159, 209, 255, 0.36);
+}
+.quiz-photo-container{
+    background-image: url("https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?cs=srgb&dl=beautiful-flowers-bloom-blossom-1115090.jpg&fm=jpg");
+    height: 250px;
+
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-position: center;
 }

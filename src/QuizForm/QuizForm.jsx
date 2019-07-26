@@ -222,13 +222,67 @@ export default class QuizForm extends Component {
         })
     }
 
-    handleSelect = index => {
-        this.setState({ activeTab: index });
-    }
+   
     handleButtonClick = (event) => {
         let newValue = event.target.name;
         this.setState({ page: newValue });
+        
     }
+    renderDiet(){
+        return(
+            <div>
+                <a href="tab2"/>
+            </div>
+            
+        )
+    }
+    renderShopping(){
+        return(
+        <TabContent for="tab3" name="tab3">
+                <TabPageShopping
+                    onChange={this.onChange}
+                    checkedThriftStore={this.state.thriftStore}
+                    checkedFarmersMarket={this.state.farmersMarket}
+                    checkedStore={this.state.store}
+                    onClick={this.handleButtonClick}/>
+            </TabContent>
+        )
+    }
+
+    renderWaste(){
+        return(
+            <TabContent for="tab4" name="tab4">
+                <TabPageWaste
+                    onChange={this.onChange}
+                    checkedRecycle={this.state.recycle}
+                    checkedCompost={this.state.compost}
+                    checkedReuse={this.state.reuse}
+                    checkedGarbage={this.state.garbage}
+                    onClick={this.handleButtonClick}
+                    name="tab4"/>
+            </TabContent>
+        )
+    }
+    renderPower(){
+        return(
+            <TabContent for="tab5" name="tab5">
+    <TabPagePower
+        onChange={this.onChange}
+        checkedAcHeat={this.state.acHeat}
+        checkedLights={this.state.lights}
+        checkedComputer={this.state.computer}
+        checkedWater={this.state.water}
+        checkedNone={this.state.none}/>
+        <div className = "submit">
+<button onClick={this.onSubmit} className="submit-button">
+    <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
+</button>
+</div>
+{this.state.submitted ? this.renderResponse() : null}
+</TabContent>
+        )
+    }
+
 
     
 
@@ -262,6 +316,7 @@ export default class QuizForm extends Component {
             
             <div className="quiz">
                 <TabContent for="tab1" name="tab1">
+
                     <TabPageTransport
                         onChange={this.onChange}
                         checkedPublicTransit={this.state.publicTransit}
@@ -269,6 +324,7 @@ export default class QuizForm extends Component {
                         checkedWalkingBiking={this.state.walkingBiking}
                         onClick={this.handleButtonClick}/>
                         </TabContent>
+<div id="tab2">
                 <TabContent for="tab2" name="tab2">
                     <TabPageDiet 
             onChange={this.onChange} 
@@ -278,7 +334,9 @@ export default class QuizForm extends Component {
             checkedVegetarian ={this.state.formData.vegetarian}
             checkedVegan ={this.state.formData.vegan}
             onClick={this.handleButtonClick}/>
-            /></TabContent>
+            </TabContent>
+</div>
+<div id="tab3">
 
             <TabContent for="tab3" name="tab3">
                 <TabPageShopping
@@ -288,7 +346,8 @@ export default class QuizForm extends Component {
                     checkedStore={this.state.store}
                     onClick={this.handleButtonClick}/>
             </TabContent>
-
+</div>
+<div id="tab4">
             <TabContent for="tab4" name="tab4">
                 <TabPageWaste
                     onChange={this.onChange}
@@ -298,6 +357,9 @@ export default class QuizForm extends Component {
                     checkedGarbage={this.state.garbage}
                     onClick={this.handleButtonClick}/>
             </TabContent>
+</div>
+<div id="tab5">
+
 
 <TabContent for="tab5" name="tab5">
     <TabPagePower
@@ -313,13 +375,19 @@ export default class QuizForm extends Component {
 </button>
 </div>
 {this.state.submitted ? this.renderResponse() : null}
-
 </TabContent>
+</div>
 
-                </div>
+{this.state.page === "tab1" ? this.renderDiet() : null}
+{this.state.page === "tab2" ? this.renderShopping() : null}
+{this.state.page === "tab3" ? this.renderWaste() : null}
+{this.state.page === "tab4" ? this.renderPower() : null}
+
+
+ 
+              </div>
     
                 
             </Tabs>
-           
-        )}
+                  )}
     }
