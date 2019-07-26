@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './QuizForm.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons' 
 import './Response.css';
-import DonutChart from 'react-donut-chart';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 import TabPageDiet from '../TabPages/TabPageDiet';
 import TabPageTransport from '../TabPages/TabPageTransport';
@@ -11,10 +8,6 @@ import TabPagePower from '../TabPages/TabPagePower';
 import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
-
-import {
-    Link
-} from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 // import getResult from '../Data.getResult.js';
  
@@ -24,16 +17,15 @@ export default class QuizForm extends Component {
         
         super(props);
         this.state = {
-            selectedIndex: 0,
-            activeTab: "1",
-            formData: { 
-                initialPage: 1,
-                transportPoints: 0,
+            
+            transportPoints: 0,
                 dietPoints: 0,
                 shoppingPoints: 0,
                 wastePoints: 0,
                 powerPoints: 0,
                 totalPoints: 0,
+            formData: { 
+                
                 publicTransit: false,
                 car: false,
                 walkingBiking: false,
@@ -56,6 +48,7 @@ export default class QuizForm extends Component {
                 none: false
             },
             submitted: false,
+            page: "tab1"
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -72,14 +65,15 @@ export default class QuizForm extends Component {
         let formData = this.state.formData;
         formData[event.target.name] = event.target.checked;
         this.setState({
-            formData: formData
+            formData: formData,
+            page: event.target.name
         })
     }
     
     onSubmit() {
         let total = 0;
         let count = 0;
-
+        
         let transportPoints= 0;
         let dietPoints= 0;
         let shoppingPoints= 0;
@@ -200,13 +194,16 @@ export default class QuizForm extends Component {
            count++;
            powerPoints++;
         }
-
-        this.state.formData.totalPoints = Math.round(total/count);
-        this.state.formData.transportPoints = transportPoints;
-        this.state.formData.dietPoints = dietPoints;
-        this.state.formData.shoppingPoints = shoppingPoints;
-        this.state.formData.wastePoints = wastePoints;
-        this.state.formData.powerPoints = powerPoints;
+    
+        this.setState({
+            totalPoints: Math.round(total/count),
+            transportPoints: transportPoints,
+            dietPoints: dietPoints,
+            shoppingPoints: shoppingPoints,
+            wastePoints: wastePoints,
+            powerPoints: powerPoints
+        });
+        
 
    
         if (this.state.formData.totalPoints <= 3) {
@@ -219,9 +216,7 @@ export default class QuizForm extends Component {
             color="#6ecd9c"
         }
 
-        this.state.formData.dotColor = color;
-
-
+       
         this.setState({
             submitted: true
         })
@@ -230,64 +225,24 @@ export default class QuizForm extends Component {
     handleSelect = index => {
         this.setState({ activeTab: index });
     }
-    handleButtonClick = () => {
-        this.setState({ activeTab: 2 });
+    handleButtonClick = (event) => {
+        let newValue = event.target.name;
+        this.setState({ page: newValue });
     }
 
-    handleNextClick = key => {
-        this.props.tab1.push('/${key}')
-    }
-    renderCarType() {
-        return(
-            <div className="quiz-container" id="car-types">
-                <div className="quiz-question">
-                    <span>Select which model of car you use most often: </span>
-                </div>
-                <div className="boxes">
-                    <div className="check">
-                        <input
-                            type="checkbox"
-                            name="regularCar"
-                            id="regularCar"
-                            onChange={this.onChange}
-                            checked={this.state.formData.regularCar}
-                        /> Standard 
-                    </div>
-                    <div className="check">
-                        <input 
-                            type="checkbox"
-                            name="hybridCar"
-                            id="hybridCar"
-                            onChange={this.onChange}
-                            checked={this.state.formData.hybridCar}
-                        /> Hybrid
-                    </div>
-                    <div className="check">
-                        <input
-                            type="checkbox"
-                            name="electricCar"
-                            id="electricCar"
-                            onChange={this.onChange}
-                            checked={this.state.formData.electricCar}
-                        /> Electric
-                    </div>
-                </div>
-            </div>     
-        )
-    }
+    
 
     renderResponse() {
         return(
             <div className="results-page">
             <Response
-                totalPoints = {this.state.formData.totalPoints}
-                transportPoints = {this.state.formData.transportPoints}
-                dietPoints = {this.state.formData.dietPoints}
-                shoppingPoints = {this.state.formData.shoppingPoints}
-                wastePoints = {this.state.formData.wastePoints}
-                powerPoints = {this.state.formData.powerPoints}/>
+                totalPoints = {this.state.totalPoints}
+                transportPoints = {this.state.transportPoints}
+                dietPoints = {this.state.dietPoints}
+                shoppingPoints = {this.state.shoppingPoints}
+                wastePoints = {this.state.wastePoints}
+                powerPoints = {this.state.powerPoints}/>
             </div>
-            
         )
     }
 
@@ -306,7 +261,7 @@ export default class QuizForm extends Component {
             </div>
             
             <div className="quiz">
-                <TabContent for="tab1">
+                <TabContent for="tab1" name="tab1">
                     <TabPageTransport
                         onChange={this.onChange}
                         checkedPublicTransit={this.state.publicTransit}
@@ -314,7 +269,7 @@ export default class QuizForm extends Component {
                         checkedWalkingBiking={this.state.walkingBiking}
                         onClick={this.handleButtonClick}/>
                         </TabContent>
-                <TabContent for="tab2" value="2">
+                <TabContent for="tab2" name="tab2">
                     <TabPageDiet 
             onChange={this.onChange} 
             checkedMeatLover={this.state.formData.meatLover}
@@ -322,26 +277,29 @@ export default class QuizForm extends Component {
             checkedNoRed ={this.state.formData.noRed}
             checkedVegetarian ={this.state.formData.vegetarian}
             checkedVegan ={this.state.formData.vegan}
+            onClick={this.handleButtonClick}/>
             /></TabContent>
 
-            <TabContent for="tab3">
+            <TabContent for="tab3" name="tab3">
                 <TabPageShopping
                     onChange={this.onChange}
                     checkedThriftStore={this.state.thriftStore}
                     checkedFarmersMarket={this.state.farmersMarket}
-                    checkedStore={this.state.store}/>
+                    checkedStore={this.state.store}
+                    onClick={this.handleButtonClick}/>
             </TabContent>
 
-            <TabContent for="tab4">
+            <TabContent for="tab4" name="tab4">
                 <TabPageWaste
                     onChange={this.onChange}
                     checkedRecycle={this.state.recycle}
                     checkedCompost={this.state.compost}
                     checkedReuse={this.state.reuse}
-                    checkedGarbage={this.state.garbage}/>
+                    checkedGarbage={this.state.garbage}
+                    onClick={this.handleButtonClick}/>
             </TabContent>
 
-<TabContent for="tab5">
+<TabContent for="tab5" name="tab5">
     <TabPagePower
         onChange={this.onChange}
         checkedAcHeat={this.state.acHeat}
@@ -357,6 +315,7 @@ export default class QuizForm extends Component {
 {this.state.submitted ? this.renderResponse() : null}
 
 </TabContent>
+
                 </div>
     
                 

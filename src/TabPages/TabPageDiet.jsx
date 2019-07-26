@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 
 export default class TabPageDiet extends Component {
     render(){
@@ -58,8 +57,9 @@ export default class TabPageDiet extends Component {
                             </div>
                         </div>
                         <div className="next-btn ">
-                            <button className="new-tab">NEXT</button>
-                            </div>
+                        <div className= "next-btn"> 
+                       <button className="new-tab" name="tab2" onClick={this.props.onClick}>NEXT</button>
+                       </div>   </div>
       </div>  )
         
     }

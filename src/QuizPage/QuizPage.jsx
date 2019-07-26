@@ -9,7 +9,7 @@ const QuizPage = (props) => {
     return (
         <div>
             <NavBar/>
-            <h1></h1>
+           
             <div className="bg-image">
                 {
                     <BGImage 

@@ -1,7 +1,45 @@
 import React, { Component } from 'react';
-import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 
 export default class TabPageTransport extends Component {
+    renderCarType() {
+        return(
+            <div className="quiz-container" id="car-types">
+                <div className="quiz-question">
+                    <span>Select which model of car you use most often: </span>
+                </div>
+                <div className="boxes">
+                    <div className="check">
+                        <input
+                            type="checkbox"
+                            name="regularCar"
+                            id="regularCar"
+                            onChange={this.onChange}
+                            checked={this.state.formData.regularCar}
+                        /> Standard 
+                    </div>
+                    <div className="check">
+                        <input 
+                            type="checkbox"
+                            name="hybridCar"
+                            id="hybridCar"
+                            onChange={this.onChange}
+                            checked={this.state.formData.hybridCar}
+                        /> Hybrid
+                    </div>
+                    <div className="check">
+                        <input
+                            type="checkbox"
+                            name="electricCar"
+                            id="electricCar"
+                            onChange={this.onChange}
+                            checked={this.state.formData.electricCar}
+                        /> Electric
+                    </div>
+                </div>
+            </div>     
+        )
+    }
+    
     render(){
         return(
                     <div>
@@ -37,11 +75,15 @@ export default class TabPageTransport extends Component {
                                         checked={this.props.checkedWalkingBiking}
                                     /> Walk/Bike
                                 </div>
+                                <div>
+                                
+                                </div>
                             </div>
                         </div>
-                       <button onClick={this.props.onClick}>Finish</button>
-                        <div className="next-btn "><button className="new-tab" onPress={() => this.props.navigation.navigate("tab2")}>NEXT</button></div>
-</div>
+                        <div className= "next-btn"> 
+                       <button className="new-tab" name="tab1" onClick={this.props.onClick}>NEXT</button>
+                       </div> 
+                       </div>
                     
                     
         )
