@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 
 export default class TabPagePower extends Component {
     render(){
@@ -57,8 +56,7 @@ export default class TabPagePower extends Component {
                     </div>
             </div>
             </div>
-        
-            </div>
+             </div>
             )
             }
             }
