@@ -57,7 +57,9 @@ export default class TabPageDiet extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="next-btn "><button className="new-tab">NEXT</button></div>
+                        <div className="next-btn ">
+                            <button className="new-tab">NEXT</button>
+                            </div>
       </div>  )
         
     }
