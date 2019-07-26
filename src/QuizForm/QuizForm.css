@@ -43,6 +43,7 @@ button{
     text-align: center;
     font-size: 13px;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 .tab {
    display: inline-block;
