@@ -24,11 +24,13 @@ span{
     margin-top: 0;
     font-size: 15px;
     font-weight: 900;
+    
 
 }
 .submit{
     text-align: center;
       padding-top: 30px;
+      padding-bottom: 70px;
 }
 
 button{
@@ -48,16 +50,16 @@ button{
 
 
 }
-TabContent{
-    width: 70%;
+.quiz{
+    width: 80%;
     display: inline-block;
     
 
 
     position: relative;
-    margin-left: 25%;
-    margin-right: 25%;
-    height: 2000px;
+    margin-left: 10%;
+    margin-right: 10%;
+   
 }
 .tab-link{
     height: 50%;
@@ -111,17 +113,17 @@ TabContent{
   }
 
   .results-container{
-      width: 80%;
+      width: 100%;
       display:flex;
       flex-direction: row;
     justify-content: space-between;
-    margin-left: 10%;
-      margin-right: 10%;
+    margin-left: 0%;
+      margin-right: 0%;
   }
   .results-focus{
 
     padding-top: 50px;
-      width: 40%;
+      width: 100%;
       
   }
   .results-description {
@@ -162,8 +164,11 @@ TabContent{
       flex-direction: row;
       justify-content: space-between;
       align-items: start;
+      margin-left: 10%;
+      margin-right: 10%;
   }
   .quiz-question{
       width: 60%;
   }
   
+ 

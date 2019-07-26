@@ -39,7 +39,7 @@ export default class TabPageTransport extends Component {
                                 </div>
                             </div>
                         </div>
-                       <button onClick={this.handleButtonClick}>Finish</button>
+                       <button onClick={this.props.onClick}>Finish</button>
                         <div className="next-btn "><button className="new-tab" onPress={() => this.props.navigation.navigate("tab2")}>NEXT</button></div>
 </div>
                     

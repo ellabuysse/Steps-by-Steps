@@ -10,6 +10,7 @@ import TabPageTransport from '../TabPages/TabPageTransport';
 import TabPagePower from '../TabPages/TabPagePower';
 import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
+import Response from '../QuizForm/Response';
 
 import {
     Link
@@ -24,7 +25,7 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             selectedIndex: 0,
-            activeTab: 1,
+            activeTab: "1",
             formData: { 
                 initialPage: 1,
                 transportPoints: 0,
@@ -59,6 +60,7 @@ export default class QuizForm extends Component {
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.renderResponse = this.renderResponse.bind(this);
+        this.handleButtonClick = this.renderResponse.bind(this);
     }
 
     get currentTab() {
@@ -226,10 +228,10 @@ export default class QuizForm extends Component {
     }
 
     handleSelect = index => {
-        this.setState({ selectedIndex: index });
+        this.setState({ activeTab: index });
     }
     handleButtonClick = () => {
-        this.setState({ selectedIndex: 2 });
+        this.setState({ activeTab: 2 });
     }
 
     handleNextClick = key => {
@@ -276,87 +278,16 @@ export default class QuizForm extends Component {
 
     renderResponse() {
         return(
-            <div>
-            <div className="results-page" id="results-page">
-                <div className="results">
-                    <div className="total-pts-container">
-                        <h3 className="total-pts">Total Impact Points: </h3>
-                    </div>
-                                    
-                <div className="points-container">
-                    <div className="points" style={{backgroundColor: 
-                          this.state.formData.totalPoints < 3 ? 
-                            "rgba(251, 86, 78, 0.62)" : 
-                            this.state.formData.totalPoints < 7 ?
-                             "rgba(251, 170, 109, 0.72)" :
-                             "#6ecd9c"
-                    }}>
-                     
-                        <span>{this.state.formData.totalPoints}</span></div>
-          </div>
-                        </div> 
-                </div>
+            <div className="results-page">
+            <Response
+                totalPoints = {this.state.formData.totalPoints}
+                transportPoints = {this.state.formData.transportPoints}
+                dietPoints = {this.state.formData.dietPoints}
+                shoppingPoints = {this.state.formData.shoppingPoints}
+                wastePoints = {this.state.formData.wastePoints}
+                powerPoints = {this.state.formData.powerPoints}/>
+            </div>
             
-            <div className="categories-container">
-                <FontAwesomeIcon icon={faCircle} id="red-dot"/>
-                <div className="rating-scale" >1-3 indicates poor environmental impact</div>
-                <FontAwesomeIcon icon={faCircle} id="yellow-dot"/>
-                <div className="rating-scale" >4-7 indicates average environmental impact</div>
-                <FontAwesomeIcon icon={faCircle} id="green-dot"/>
-                <div className="rating-scale" >8-10 indicates above average environmental impact</div>
-            </div>
-           
-            <div className="results-container">
-                <div className="chart-container">
-                    <h3 className="breakdown-words">IMPACT BREAKDOWN</h3>
-                
-                <DonutChart className="donutChart"
-                    data={[{
-                        label: 'TRANSPORTATION',
-                        value: this.state.formData.transportPoints
-                        },
-                        {
-                        label: 'DIET',
-                        value: this.state.formData.dietPoints
-                        },
-                        {
-                        label: 'SHOPPING',
-                        value: this.state.formData.shoppingPoints
-                        },
-                        {
-                        label: 'WASTE',
-                        value: this.state.formData.wastePoints
-                        },
-                        {
-                        label: 'POWER', 
-                        value: this.state.formData.powerPoints
-                        }
-                    ]}
-                    colors={[
-                        '#6ecd9c', 'rgb(111, 154, 255)', 'rgba(251, 170, 109, 1)','rgba(251, 60, 54, 0.6)', 'rgba(123, 244, 251, 0.49)'
-                    ]}
-                />
-            </div>
-
-
-            <div className="results-focus">
-
-        <h3 className="breakdown-words">THIS WEEK'S FOCUS</h3>
-        {(this.state.formData.totalPoints < 3) ? 
-            <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so commit to taking one small step a day to lessen your impact. You can do this!</h3> :
-           <div>
-        { (this.state.formData.totalPoints < 7) ? <h3 className="results-description">You are taking some steps to reduce your impact but have room to improve. Focus on one action you can add to your every-day routine and record each time you complete it this week. You've got this!</h3> : 
-            <h3 className="results-description">Look at your largest percentage of impact and commit to changing one aspect of your lifestyle to reduce it. Over this week, evaluate your changes and make an effort to add them to your routine.</h3>}</div> }
-           <div className="learn-more">
-            <Link to="/tips" id="results-link">
-
-                            LEARN MORE
-                    </Link>
-                </div>
-            </div>           
-
-            </div>
-            </div>
         )
     }
 
@@ -380,10 +311,11 @@ export default class QuizForm extends Component {
                         onChange={this.onChange}
                         checkedPublicTransit={this.state.publicTransit}
                         checkedCar={this.state.car}
-                        checkedWalkingBiking={this.state.walkingBiking}/>
+                        checkedWalkingBiking={this.state.walkingBiking}
+                        onClick={this.handleButtonClick}/>
                         </TabContent>
-                        <TabContent for="tab2">
-        <TabPageDiet 
+                <TabContent for="tab2" value="2">
+                    <TabPageDiet 
             onChange={this.onChange} 
             checkedMeatLover={this.state.formData.meatLover}
             checkedOmnivore ={this.state.formData.omnivore}
