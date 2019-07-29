@@ -10,14 +10,14 @@ import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 // import getResult from '../Data.getResult.js';
- 
+
 export default class QuizForm extends Component {
 
     constructor(props) {
         
         super(props);
         this.state = {
-            
+           
             transportPoints: 0,
                 dietPoints: 0,
                 shoppingPoints: 0,
@@ -54,6 +54,7 @@ export default class QuizForm extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.renderResponse = this.renderResponse.bind(this);
         this.handleButtonClick = this.renderResponse.bind(this);
+
     }
 
     get currentTab() {
@@ -85,112 +86,112 @@ export default class QuizForm extends Component {
             
         // ))
         if (this.state.formData.publicTransit) {
-            total += 8;
-            count++;
-            transportPoints++;
-        }
-        if (this.state.formData.regularCar) {
             total += 3;
             count++;
             transportPoints++;
         }
+        if (this.state.formData.regularCar) {
+            total += 9;
+            count++;
+            transportPoints++;
+        }
         if (this.state.formData.hybridCar) {
-            total += 6;
+            total += 7;
             count++;
             transportPoints++;
         }
         if (this.state.formData.electricCar) {
-            total += 6;
+            total += 7;
             count++;
             transportPoints++;
         }
         if (this.state.formData.walkingBiking) {
-            total += 10;
+            total += 1;
             count++;
             transportPoints++;
         }
         if (this.state.formData.meatLover) {
-            total += 1;
+            total += 9;
             count++;
             dietPoints++;
         }
         if (this.state.formData.omnivore) {
-            total += 4;
+            total += 6;
             count++;
             dietPoints++;
         }
         if (this.state.formData.noRed) {
-            total += 6;
+            total += 4;
             count++;
             dietPoints++;
                }
         if (this.state.formData.vegetarian) {
-            total += 8;
+            total += 3;
             count++;
             dietPoints++;
         }
         if (this.state.formData.vegan) {
-            total += 10;
+            total += 1;
             count++;
             dietPoints++;
         }
         if (this.state.formData.thriftStore) {
-            total += 8;
+            total += 5;
             count++;
             shoppingPoints++;
         }
         if (this.state.formData.farmersMarket) {
-            total += 10;
+            total += 3;
             count++;
             shoppingPoints++;
         }
         if (this.state.formData.store) {
-            total += 4;
+            total += 7;
             count++;
             shoppingPoints++;
         }
         if (this.state.formData.recycle) {
-            total += 8;
+            total += 3;
             count++;
             wastePoints++;
         }
         if (this.state.formData.compost) {
-            total += 8;
+            total += 1;
             count++;
             wastePoints++;
         }
         if (this.state.formData.reuse) {
-           total += 10;
+           total += 1;
            count++;
            wastePoints++;
         }
         if (this.state.formData.garbage) {
-           total += 1;
+           total += 8;
            count++;
            wastePoints++;
         }
         if (this.state.formData.acHeat) {
-           total += 8;
+           total += 3;
            count++;
            powerPoints++;
         }
         if (this.state.formData.lights) {
-           total += 8;
+           total += 3;
            count++;
            powerPoints++;
         }
         if (this.state.formData.computer) {
-           total += 8;
+           total += 3;
            count++;
            powerPoints++;
         }
         if (this.state.formData.water) {
-           total += 8;
+           total += 3;
            count++;
            powerPoints++;
         }
         if (this.state.formData.none) {
-           total += 1;
+           total += 10;
            count++;
            powerPoints++;
         }
@@ -207,13 +208,13 @@ export default class QuizForm extends Component {
 
    
         if (this.state.formData.totalPoints <= 3) {
-            color="rgba(251, 86, 78, 0.62)"
+            color="#6ecd9c"
         }
         if (this.state.formData.totalPoints > 3 && this.state.formData.totalPoints <= 7) {
             color="rgba(251, 170, 109, 0.72)"
         }
         if (this.state.formData.totalPoints > 7) {
-            color="#6ecd9c"
+            color="rgba(251, 86, 78, 0.62)"
         }
 
        
@@ -226,32 +227,53 @@ export default class QuizForm extends Component {
     handleButtonClick = (event) => {
         let newValue = event.target.name;
         this.setState({ page: newValue });
-        
+        alert('selected ' + newValue);
     }
+
+    renderTransport(){
+        return(
+           
+        <TabPageTransport name="tab1"
+                        onChange={this.onChange}
+                        checkedPublicTransit={this.state.publicTransit}
+                        checkedCar={this.state.car}
+                        checkedWalkingBiking={this.state.walkingBiking}
+                        onClick={this.handleButtonClick}/>
+                        
+        
+        )}
+     
     renderDiet(){
         return(
-            <div>
-                <a href="tab2"/>
-            </div>
+   
+                <TabPageDiet name="tab2"
+            onChange={this.onChange} 
+            checkedMeatLover={this.state.formData.meatLover}
+            checkedOmnivore ={this.state.formData.omnivore}
+            checkedNoRed ={this.state.formData.noRed}
+            checkedVegetarian ={this.state.formData.vegetarian}
+            checkedVegan ={this.state.formData.vegan}
+            onClick={this.handleButtonClick}/>
+ 
             
         )
     }
     renderShopping(){
         return(
-        <TabContent for="tab3" name="tab3">
+
                 <TabPageShopping
                     onChange={this.onChange}
                     checkedThriftStore={this.state.thriftStore}
                     checkedFarmersMarket={this.state.farmersMarket}
                     checkedStore={this.state.store}
                     onClick={this.handleButtonClick}/>
-            </TabContent>
+  
         )
     }
 
     renderWaste(){
         return(
-            <TabContent for="tab4" name="tab4">
+            
                 <TabPageWaste
                     onChange={this.onChange}
                     checkedRecycle={this.state.recycle}
@@ -260,12 +282,13 @@ export default class QuizForm extends Component {
                     checkedGarbage={this.state.garbage}
                     onClick={this.handleButtonClick}
                     name="tab4"/>
-            </TabContent>
+      
+                   
         )
     }
     renderPower(){
         return(
-            <TabContent for="tab5" name="tab5">
+            
     <TabPagePower
         onChange={this.onChange}
         checkedAcHeat={this.state.acHeat}
@@ -273,13 +296,7 @@ export default class QuizForm extends Component {
         checkedComputer={this.state.computer}
         checkedWater={this.state.water}
         checkedNone={this.state.none}/>
-        <div className = "submit">
-<button onClick={this.onSubmit} className="submit-button">
-    <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
-</button>
-</div>
-{this.state.submitted ? this.renderResponse() : null}
-</TabContent>
+
         )
     }
 
@@ -288,7 +305,7 @@ export default class QuizForm extends Component {
 
     renderResponse() {
         return(
-            <div className="results-page">
+           
             <Response
                 totalPoints = {this.state.totalPoints}
                 transportPoints = {this.state.transportPoints}
@@ -296,14 +313,15 @@ export default class QuizForm extends Component {
                 shoppingPoints = {this.state.shoppingPoints}
                 wastePoints = {this.state.wastePoints}
                 powerPoints = {this.state.powerPoints}/>
-            </div>
+
         )
     }
 
     render() {
+    
        return (
-           
-           <Tabs selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
+       
+           <Tabs selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect} activeKey={this.state.key} onSelect={this.handleSelect}>
             
         
                 <div className="quiz-item" id="quiz-tabs">
@@ -312,63 +330,32 @@ export default class QuizForm extends Component {
                    <div className="tab"><TabLink to="tab3">SHOPPING</TabLink></div>
                    <div className="tab"><TabLink to="tab4">WASTE</TabLink></div>
                    <div className="tab"><TabLink to="tab5">POWER</TabLink></div>
-            </div>
+                </div>
             
             <div className="quiz">
-                <TabContent for="tab1" name="tab1">
-
-                    <TabPageTransport
-                        onChange={this.onChange}
-                        checkedPublicTransit={this.state.publicTransit}
-                        checkedCar={this.state.car}
-                        checkedWalkingBiking={this.state.walkingBiking}
-                        onClick={this.handleButtonClick}/>
+                <TabContent for="tab1" name="tab1" eventKey={1}>
+                    {this.renderTransport()}
+               
+                   
                         </TabContent>
-<div id="tab2">
-                <TabContent for="tab2" name="tab2">
-                    <TabPageDiet 
-            onChange={this.onChange} 
-            checkedMeatLover={this.state.formData.meatLover}
-            checkedOmnivore ={this.state.formData.omnivore}
-            checkedNoRed ={this.state.formData.noRed}
-            checkedVegetarian ={this.state.formData.vegetarian}
-            checkedVegan ={this.state.formData.vegan}
-            onClick={this.handleButtonClick}/>
-            </TabContent>
-</div>
-<div id="tab3">
+
+                <TabContent for="tab2" name="tab2" >
+                    {this.renderDiet()}
+             </TabContent>
+
 
             <TabContent for="tab3" name="tab3">
-                <TabPageShopping
-                    onChange={this.onChange}
-                    checkedThriftStore={this.state.thriftStore}
-                    checkedFarmersMarket={this.state.farmersMarket}
-                    checkedStore={this.state.store}
-                    onClick={this.handleButtonClick}/>
+                {this.renderShopping()}
             </TabContent>
-</div>
-<div id="tab4">
+
             <TabContent for="tab4" name="tab4">
-                <TabPageWaste
-                    onChange={this.onChange}
-                    checkedRecycle={this.state.recycle}
-                    checkedCompost={this.state.compost}
-                    checkedReuse={this.state.reuse}
-                    checkedGarbage={this.state.garbage}
-                    onClick={this.handleButtonClick}/>
+                {this.renderWaste()}
             </TabContent>
-</div>
-<div id="tab5">
+
 
 
 <TabContent for="tab5" name="tab5">
-    <TabPagePower
-        onChange={this.onChange}
-        checkedAcHeat={this.state.acHeat}
-        checkedLights={this.state.lights}
-        checkedComputer={this.state.computer}
-        checkedWater={this.state.water}
-        checkedNone={this.state.none}/>
+    {this.renderPower()}
         <div className = "submit">
 <button onClick={this.onSubmit} className="submit-button">
     <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
@@ -378,16 +365,16 @@ export default class QuizForm extends Component {
 </TabContent>
 </div>
 
-{this.state.page === "tab1" ? this.renderDiet() : null}
+{this.state.page === "tab2" ? this.renderDiet() : null}
 {this.state.page === "tab2" ? this.renderShopping() : null}
 {this.state.page === "tab3" ? this.renderWaste() : null}
 {this.state.page === "tab4" ? this.renderPower() : null}
 
 
  
-              </div>
+              
     
                 
             </Tabs>
-                  )}
+       )}
     }

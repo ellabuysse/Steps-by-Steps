@@ -35,7 +35,7 @@ export default class NavBar extends Component {
         pageName=pageName.substr(1);
 
         return(
-          
+            <header className={pageName}>
                 <nav className= "pages-nav">
                     <div className="nav-title">
                         <Link to="/">Steps by Steps</Link>
@@ -54,7 +54,7 @@ export default class NavBar extends Component {
                       
                     </div>
                 </nav>
-          
+</header>
         )
     }
 }

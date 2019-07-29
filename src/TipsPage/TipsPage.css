@@ -53,6 +53,7 @@ align-self: center;
     padding-bottom: 0;
     position: relative;
     text-align: left; 
+    top: 125px;
     animation: left 1s forwards;
 }
 .underline{
@@ -60,8 +61,11 @@ align-self: center;
     background-color:#5fa8e5;
     width: 10%;
     min-height: 20px;
-    margin-bottom: 125px;
+    margin-bottom: 300px;
     position: relative;
+    top: 125px;
+    margin-bottom: 260px;
+  
     animation: left 1s forwards;
 }
 .WIM-underline{
@@ -72,6 +76,8 @@ align-self: center;
     min-height: 20px;
     margin-bottom: 125px;
     position: relative;
+    top: 125px;
+    margin-bottom: 260px;
     animation: left 1s forwards
 }
 .bg-image .transport .container {

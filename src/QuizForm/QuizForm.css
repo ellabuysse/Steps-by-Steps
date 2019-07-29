@@ -1,10 +1,11 @@
 span{
     font-family: 'Quicksand', sans-serif;
     font-size: 120%;
+    
 }
 
 .boxes{ 
-    width: 40%;
+    width: 30%;
     font-family: 'Quicksand', sans-serif;
     line-height: 160%;
     font-size: 120%;
@@ -51,17 +52,7 @@ button{
 
 
 }
-.quiz{
-    width: 80%;
-    display: inline-block;
-    
 
-
-    position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
-   
-}
 .tab-link{
     height: 50%;
     width: 120%;
@@ -122,9 +113,9 @@ button{
       margin-right: 0%;
   }
   .results-focus{
-
+    display: inline-block;
     padding-top: 50px;
-      width: 100%;
+      width: 40%;
       
   }
   .results-description {
@@ -165,11 +156,11 @@ button{
       flex-direction: row;
       justify-content: space-between;
       align-items: start;
-      margin-left: 10%;
-      margin-right: 10%;
+      margin-left: 20%;
+      margin-right: 20%;
   }
   .quiz-question{
-      width: 60%;
+      width: 70%;
   }
   
  

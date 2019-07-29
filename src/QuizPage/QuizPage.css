@@ -1,5 +1,6 @@
 .page-container{
     width: 100%;
+margin-top: 125px;
 }
 
 .quiz-item{
@@ -32,4 +33,19 @@
     margin-right: 10%;
     margin-left: 10%;
     background-position: center;
+    padding-top: 200xpx;
+   
+}
+
+#quiz-title strong{
+    animation: left 1s forwards;
+}
+.quiz-page{
+    top: 500px;
+   
+}
+.quiz{
+
+   
+   
 }
