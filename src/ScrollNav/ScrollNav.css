@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
     background: none;
-    line-height: 50px;
+    line-height: 40px;
     top: 40%;
     width: 9px;
     right: 4.5%;
@@ -13,6 +12,7 @@
     position: fixed;
     font-size: 5px;
     color: black;
+    transition: opacity .25s ease;
 }
 
 .buttonTrueTips{
@@ -32,4 +32,14 @@
 .buttonFalseWIM{
     color: #6ecd9c;
     padding: 15px;
+}
+
+.scroll-nav > .active {
+    font-size: 10px;
+    transition: all .25s cubic-bezier(.165,.84,.44,1);
+}
+
+.dot:hover {
+    font-size: 10px;
+
 }

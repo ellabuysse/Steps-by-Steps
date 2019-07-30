@@ -24,24 +24,24 @@ width: 5000px;
 align-self: center;  
 }
 .tips-container {
-    column-count: 1;
     display: flex;
-    justify-content: space-evenly;
-    margin-left: 250px;
-    margin-right: 250px;
-   margin-bottom: 20px;
+    justify-content: space-between;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 20px;
     padding-top: 100px;
     flex-wrap: wrap;
 }
 .paragraph{
     font-family: 'Quicksand', sans-serif;
     margin-top: 0;
-    margin-right: 25%;
-    margin-left: 25%;
+    width: 60%;
+    margin-left: 20%;
     column-count: 2;
     line-height: 120%;
     font-size: 120%;
-    padding: 50px;
+    padding: 0 50px 0 50x;
+    padding: 50px 0px 50px 0px;
 }
 .page-title{
     font-family: 'Quicksand', sans-serif;
