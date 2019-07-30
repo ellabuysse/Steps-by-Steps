@@ -11,6 +11,7 @@ import Response from '../QuizForm/Response';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 // import getResult from '../Data.getResult.js';
 
+
 export default class QuizForm extends Component {
 
     constructor(props) {
@@ -320,10 +321,10 @@ export default class QuizForm extends Component {
     render() {
     
        return (
-       
+            
            <Tabs selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect} activeKey={this.state.key} onSelect={this.handleSelect}>
             
-        
+  
                 <div className="quiz-item" id="quiz-tabs">
                    <div className="tab"><TabLink to="tab1">TRANSPORTATION</TabLink></div>
                    <div className="tab"><TabLink to="tab2">DIET</TabLink></div>
@@ -332,6 +333,7 @@ export default class QuizForm extends Component {
                    <div className="tab"><TabLink to="tab5">POWER</TabLink></div>
                 </div>
             
+
             <div className="quiz">
                 <TabContent for="tab1" name="tab1" eventKey={1}>
                     {this.renderTransport()}
@@ -358,7 +360,7 @@ export default class QuizForm extends Component {
     {this.renderPower()}
         <div className = "submit">
 <button onClick={this.onSubmit} className="submit-button">
-    <AnchorLink href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</AnchorLink>
+    <a href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</a>
 </button>
 </div>
 {this.state.submitted ? this.renderResponse() : null}
@@ -375,6 +377,6 @@ export default class QuizForm extends Component {
               
     
                 
-            </Tabs>
+            </Tabs>    
        )}
     }

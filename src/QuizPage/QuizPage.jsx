@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import QuizForm from '../QuizForm/QuizForm';
 import './QuizPage.css';
 
+
 const QuizPage = (props) => {
     return (
      <div>

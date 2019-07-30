@@ -31,6 +31,7 @@ align-self: center;
     margin-right: 250px;
    margin-bottom: 20px;
     padding-top: 100px;
+    flex-wrap: wrap;
 }
 .paragraph{
     font-family: 'Quicksand', sans-serif;

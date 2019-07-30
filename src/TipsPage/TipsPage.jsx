@@ -14,6 +14,7 @@ import './TipsPage.css';
 const TipsPage = (props) => {
     return (
         <div>
+            <a name="top"></a>
             <NavBar/>
             <ScrollNavTips/>
             <div className="animate-title">
