@@ -35,26 +35,31 @@ export default class NavBar extends Component {
         pageName=pageName.substr(1);
 
         return(
-          
+            <header className={pageName}>
                 <nav className= "pages-nav">
                     <div className="nav-title">
                         <Link to="/">Steps by Steps</Link>
                     </div>
                     <div className="nav-menu">
-                        <div className="nav-links">
-                        <Link to="/why-this-matters" id="whyThisMattersPage">
+                        <div className="nav-links" >
+                            <div id="whyThisMattersPage">
+                        <Link to="/why-this-matters" >
                             why it matters 
                         </Link>
-                        </div>
-                        <div className="nav-links">
-                        <Link to="/tips" id="tipsPage">
+                        </div></div>
+                        <div className="nav-links" >
+                            <div  id="tips-page">
+                        <Link to="/tips">
                             what you can do
-                            </Link>  </div>
-                        <Link to="/quiz" class="quiz-box" id="quizPage">take the quiz</Link>
-                      
+                            </Link>  </div></div>
+                            <div className="nav-links-quiz">
+                        <Link to="/quiz" class="quiz-box" id="quizPage">
+                            <div className= "take-quiz">
+                            take the quiz</div></Link>
+                      </div>
                     </div>
                 </nav>
-          
+</header>
         )
     }
 }

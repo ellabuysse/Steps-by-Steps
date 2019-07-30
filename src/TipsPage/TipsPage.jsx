@@ -14,6 +14,7 @@ import './TipsPage.css';
 const TipsPage = (props) => {
     return (
         <div>
+            <a name="top"></a>
             <NavBar/>
             <ScrollNavTips/>
             <div className="animate-title">
@@ -125,7 +126,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">Emissions from utilites and the power sector are particularly significant because they can be reduced with increased electricity instead of fossil fuels from vehicles and factories. The US needs to reduce energy-related CO2 emissions by 3.3% per year in 2019 and 2020, which is more than the 1.2% average reduction in 2005 to 2017. By turning off the lights when you leave the room and aiming for energy-efficient utilities, you are not only reducing your electricity usage, but are saving money on electric bills and extending the life of your light bulbs. The first step is remembering to turn off utilities, and by recognizing the importance of doing so, you are more likely to make it happen.</p>
+                <p className="paragraph">Emissions from utilites and the power sector are particularly significant because they can be reduced with alternatives to fossil fuels from vehicles and factories. The US needs to reduce energy-related CO2 emissions by 3.3% per year in 2019 and 2020, which is more than the 1.2% average reduction in 2005 to 2017. By turning off the lights when you leave the room and aiming for energy-efficient utilities, you are not only reducing your electricity usage, but are saving money on electric bills and extending the life of your light bulbs. The first step is remembering to turn off utilities, and by recognizing the importance of doing so, you are more likely to make it happen.</p>
             </section>
             <Footer/>
         </div>

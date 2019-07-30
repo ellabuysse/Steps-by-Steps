@@ -4,12 +4,11 @@ let array = [
     {
         icon: faGlobeAmericas,
         text: "The United States population makes up less than 5% of the population on " 
-        + "earth, but we consume more than 30% of the earth's resources. We waste many of "
-        + "our resources, even if we don't realize it, from using plastic straws that end "
+        + "earth but consumes more than 30% of the earth's resources. People waste valuable resources without realizing it, from using plastic straws that end "
         + "up in the ocean and can kill animals like sea turtles, to forgetting to turn off " 
-        + "the lights which impacts global carbon emissions. Due to lifestyles that are " 
-        + "detrimental to our earth and its many animals, we need to act now or the earth "
-        + "could have serious affects. Rising sea levels could impact millions of people. "
+        + "the lights which impacts global carbon emissions. Due to these lifestyles that are " 
+        + "detrimental to our earth and its many animals, we need to act now or the global environmental crisis will surmount in "
+        + "serious affects. Rising sea levels could impact millions of people living on the coasts. "
         + "Changes in water temperature cause algae to leave coral reefs, making coral reefs "
         + "vulnerable to death. Heat waves could become more frequent and severe around the "
         + "world. Global warming could increase the risk of more frequent, heaver rain, snow, and "
