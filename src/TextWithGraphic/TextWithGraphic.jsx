@@ -12,7 +12,7 @@ export default class TextWithGraphic extends Component {
                 <div class="icon">
                     <FontAwesomeIcon icon={this.props.graphic} size="7x"/>
                 </div>
-                <div className="text">{this.props.text}</div>
+                <div className="paragraph">{this.props.text}</div>
             </div>
         )
     }
