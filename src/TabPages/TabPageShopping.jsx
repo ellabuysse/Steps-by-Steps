@@ -38,9 +38,7 @@ export default class TabPageShopping extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className= "next-btn"> 
-                       <button className="new-tab" name="tab3" onClick={this.props.onClick}>NEXT</button>
-                       </div>  </div>
+                          </div>
         )
         
         }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import NavBar from '../NavBar/NavBar';
 import FeatureBox from '../FeatureBox/FeatureBox';
 import transportTips from '../Data/transportTips';
@@ -11,10 +11,14 @@ import ScrollNavTips from '../ScrollNav/ScrollNavTips';
 
 import './TipsPage.css';
 
+  
 const TipsPage = (props) => {
+    window.scrollTo(0, 0);
+      
     return (
+        
         <div>
-            <a name="top"></a>
+           
             <NavBar/>
             <ScrollNavTips/>
             <div className="animate-title">

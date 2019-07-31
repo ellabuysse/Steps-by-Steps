@@ -11,7 +11,6 @@ import Response from '../QuizForm/Response';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 // import getResult from '../Data.getResult.js';
 
-
 export default class QuizForm extends Component {
 
     constructor(props) {
@@ -54,8 +53,12 @@ export default class QuizForm extends Component {
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.renderResponse = this.renderResponse.bind(this);
-        this.handleButtonClick = this.renderResponse.bind(this);
-
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.handleClickOne = this.handleClickOne.bind(this);
+        this.handleClickTwo = this.handleClickTwo.bind(this);
+        this.handleClickThree = this.handleClickThree.bind(this);
+        this.handleClickFour = this.handleClickFour.bind(this);
+        this.handleClickFive = this.handleClickFive.bind(this);
     }
 
     get currentTab() {
@@ -231,22 +234,55 @@ export default class QuizForm extends Component {
         alert('selected ' + newValue);
     }
 
+    handleClickOne (event) {
+       
+        this.setState({page: "tab1" }) ;
+
+        
+    }
+    handleClickTwo (event) {
+       
+        this.setState({page: "tab2" }) ;
+
+    }
+    handleClickThree (event) {
+       
+        this.setState({page: "tab3" }) ;
+       
+    }
+    handleClickFour (event) {
+       
+        this.setState({page: "tab4" }) ;
+    
+    }
+    handleClickFive (event) {
+       
+        this.setState({page: "tab5" }) ;
+    
+    }
     renderTransport(){
         return(
-           
-        <TabPageTransport name="tab1"
+     
+            <TabContent for="tab1" name="tab1" >
+              <TabPageTransport name="tab1"
                         onChange={this.onChange}
                         checkedPublicTransit={this.state.publicTransit}
                         checkedCar={this.state.car}
                         checkedWalkingBiking={this.state.walkingBiking}
-                        onClick={this.handleButtonClick}/>
-                        
+                        />
+            
+
+                </TabContent>
+ 
+               
+      
         
         )}
      
     renderDiet(){
         return(
-   
+            <TabContent for="tab2" name="tab2" >
+         
                 <TabPageDiet name="tab2"
             onChange={this.onChange} 
             checkedMeatLover={this.state.formData.meatLover}
@@ -254,35 +290,42 @@ export default class QuizForm extends Component {
             checkedNoRed ={this.state.formData.noRed}
             checkedVegetarian ={this.state.formData.vegetarian}
             checkedVegan ={this.state.formData.vegan}
-            onClick={this.handleButtonClick}/>
- 
-            
-        )
-    }
+            onClick={this.handleClickThree}
+  
+            />
+        
+     </TabContent>
+
+        )}
     renderShopping(){
         return(
-
-                <TabPageShopping
+            <TabContent for="tab3" name="tab3">
+               <TabPageShopping
                     onChange={this.onChange}
                     checkedThriftStore={this.state.thriftStore}
                     checkedFarmersMarket={this.state.farmersMarket}
                     checkedStore={this.state.store}
-                    onClick={this.handleButtonClick}/>
+                    onClick={this.handleClickFour}/>
+        </TabContent>
+             
   
         )
     }
 
     renderWaste(){
         return(
-            
+            <TabContent for="tab4" name="tab4">
                 <TabPageWaste
                     onChange={this.onChange}
                     checkedRecycle={this.state.recycle}
                     checkedCompost={this.state.compost}
                     checkedReuse={this.state.reuse}
                     checkedGarbage={this.state.garbage}
-                    onClick={this.handleButtonClick}
-                    name="tab4"/>
+                    onClick={this.handleClickFive}
+                    />
+            </TabContent>
+
+                
       
                    
         )
@@ -317,43 +360,44 @@ export default class QuizForm extends Component {
 
         )
     }
-
+  
     render() {
     
        return (
             
-           <Tabs selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect} activeKey={this.state.key} onSelect={this.handleSelect}>
+    
+
+
+           <Tabs >
             
   
                 <div className="quiz-item" id="quiz-tabs">
-                   <div className="tab"><TabLink to="tab1">TRANSPORTATION</TabLink></div>
-                   <div className="tab"><TabLink to="tab2">DIET</TabLink></div>
-                   <div className="tab"><TabLink to="tab3">SHOPPING</TabLink></div>
-                   <div className="tab"><TabLink to="tab4">WASTE</TabLink></div>
-                   <div className="tab"><TabLink to="tab5">POWER</TabLink></div>
+                   <div className="tab" ><TabLink to="tab1" onClick={this.handleClickOne}
+                   >
+                       TRANSPORTATION</TabLink></div>
+                   <div className="tab"><TabLink to="tab2" onClick={this.handleClickTwo} >DIET</TabLink></div>
+                   <div className="tab"><TabLink to="tab3" onClick={this.handleClickThree}>SHOPPING</TabLink></div>
+                   <div className="tab"><TabLink to="tab4" onClick={this.handleClickFour}>WASTE</TabLink></div>
+                   <div className="tab"><TabLink to="tab5" onClick={this.handleClickFive}>POWER</TabLink></div>
                 </div>
             
+{this.state.page === "tab1" ? [this.renderTransport(), <div className="next-btn"><TabLink className="new-tab" to="tab2" onClick={this.handleClickTwo} >NEXT</TabLink></div> ]: null}
+
+{this.state.page === "tab2" ? [this.renderDiet(), <div className="next-btn"><TabLink className="new-tab" to="tab3" onClick={this.handleClickThree}>NEXT</TabLink></div>]: null}
+
+{this.state.page === "tab3" ? [this.renderShopping(), <div className="next-btn"><TabLink className="new-tab" to="tab4" onClick={this.handleClickFour}>NEXT</TabLink></div>]: null}
+
+{this.state.page === "tab4" ? [this.renderWaste(), <div className="next-btn"><TabLink className="new-tab" to="tab5" onClick={this.handleClickFive}>NEXT</TabLink></div>]: null}
+                
 
             <div className="quiz">
-                <TabContent for="tab1" name="tab1" eventKey={1}>
-                    {this.renderTransport()}
-               
-                   
-                        </TabContent>
-
-                <TabContent for="tab2" name="tab2" >
-                    {this.renderDiet()}
-             </TabContent>
 
 
-            <TabContent for="tab3" name="tab3">
-                {this.renderShopping()}
-            </TabContent>
+                
 
-            <TabContent for="tab4" name="tab4">
-                {this.renderWaste()}
-            </TabContent>
+           
 
+            
 
 
 <TabContent for="tab5" name="tab5">
@@ -367,16 +411,6 @@ export default class QuizForm extends Component {
 </TabContent>
 </div>
 
-{this.state.page === "tab2" ? this.renderDiet() : null}
-{this.state.page === "tab2" ? this.renderShopping() : null}
-{this.state.page === "tab3" ? this.renderWaste() : null}
-{this.state.page === "tab4" ? this.renderPower() : null}
-
-
- 
-              
-    
-                
-            </Tabs>    
+         </Tabs>    
        )}
     }

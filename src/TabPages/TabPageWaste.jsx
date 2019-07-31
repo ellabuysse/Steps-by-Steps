@@ -48,9 +48,7 @@ export default class TabPageWaste extends Component {
                             </div>
                         </div> 
                         
-                        <div className= "next-btn"> 
-                       <button className="new-tab" name="tab4" onClick={this.props.onClick}>NEXT</button>
-                       </div>  </div>
+                        </div>
         )
     }
 }

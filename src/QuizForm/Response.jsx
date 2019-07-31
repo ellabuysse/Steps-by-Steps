@@ -88,10 +88,12 @@ export default class Response extends Component {
         { (this.props.totalPoints <= 7) ? <h3 className="results-description">You are taking some steps to reduce your impact but have room to improve. Focus on one action you can add to your every-day routine and record each time you complete it this week. You've got this!</h3> : 
             <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so commit to taking one small step a day to lessen your impact. You can do this!</h3>}</div> }
            <div className="learn-more">
+         
            <Link to="/tips" id="results-link" href="#top" ignoreScrollBehavior >
           
 LEARN MORE
 </Link>
+
                 </div>
             </div>
             </div>           
