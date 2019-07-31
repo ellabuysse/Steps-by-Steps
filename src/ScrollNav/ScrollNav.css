@@ -4,8 +4,9 @@
     align-items: center;
     background: none;
     line-height: 40px;
-    top: 40%;
+    top: 37.5%;
     width: 9px;
+    height: 25%;
     right: 4.5%;
     max-width: 10px;
     z-index: 1;
@@ -13,6 +14,7 @@
     font-size: 5px;
     color: black;
     transition: opacity .25s ease;
+    
 }
 
 #tips-scroll{
@@ -24,11 +26,15 @@
 }
 
 .scroll-nav > .active {
-    font-size: 10px;
+    font-size: 12px;
     transition: all .25s cubic-bezier(.165,.84,.44,1);
 }
 
 .dot:hover {
-    font-size: 10px;
+    font-size: 12px;
 
+}
+.dot{
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
