@@ -17,7 +17,7 @@ class App extends React.Component {
           
         return (
             <Router>
-              
+                 
                 <div>
                     <Route exact path="/" render={HomePage}/>
                     <Route exact path="/why-this-matters" render={WIMPage}/>
@@ -25,6 +25,7 @@ class App extends React.Component {
                     <Route exact path="/quiz" render={QuizPage}/>
 
                 </div>
+            
             </Router>
 
         );
