@@ -15,23 +15,12 @@
     transition: opacity .25s ease;
 }
 
-.buttonTrueTips{
-    font-size: 13px;
+#tips-scroll{
     color: #5fa8e5;
-    padding: 15px;
 }
-.buttonFalseTips{
-    color: #5fa8e5;
-    padding: 15px;
-}
-.buttonTrueWIM{
-    font-size: 13px;
+
+#WIM-scroll{
     color: #6ecd9c;
-    padding: 15px;
-}
-.buttonFalseWIM{
-    color: #6ecd9c;
-    padding: 15px;
 }
 
 .scroll-nav > .active {
