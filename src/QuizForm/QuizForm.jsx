@@ -71,7 +71,7 @@ export default class QuizForm extends Component {
         formData[event.target.name] = event.target.checked;
         this.setState({
             formData: formData,
-            page: event.target.name
+          
         })
     }
     
