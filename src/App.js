@@ -19,6 +19,7 @@ class App extends React.Component {
             <Router>
               
                 <div>
+                
                     <Route exact path="/" render={HomePage}/>
                     <Route exact path="/why-this-matters" render={WIMPage}/>
                     <Route exact path="/tips" render={TipsPage}/>

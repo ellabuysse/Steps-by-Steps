@@ -59,6 +59,7 @@ const WIMPage = (props) => {
                 }
                 </div>
             </section>
+
             <section id="partSolution">
                 <div className="bg-image">
                 {
@@ -80,6 +81,7 @@ const WIMPage = (props) => {
                 }
                 </div>
             </section>
+            
             <section id="smallActions">
                 <div className="bg-image">
                 {
