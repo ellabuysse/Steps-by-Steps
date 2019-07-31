@@ -18,7 +18,7 @@ const TipsPage = (props) => {
             <NavBar/>
             <ScrollNavTips/>
             <div className="animate-title">
-                <h1 className="page-title">What You Can Do</h1>
+                <h1 className="page-title" id="wim-page-title">What You Can Do</h1>
                 <div className="underline"/> 
             </div>
             <section id="transport">
@@ -28,6 +28,7 @@ const TipsPage = (props) => {
                     <BGImage 
                         img="https://images.unsplash.com/photo-1500748851664-017ef7f22878?ixlib=rb-1.2.1&auto=format&fit=crop&w=2562&q=80"
                         title="Transportation"
+                        id="transportation-title"
                     />
                     </div>
                 }
@@ -44,7 +45,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">Transportation emissions from cars, trucks, planes, trains, ships, and freight accounts for about 30% of US global warming emissions, which is more than any other category of emissions. Although carbon dioxide emissions from transportation have slowed down with the increasing use of electronic vehicles and renewable gas, the emissions are still exponential. We can take steps to reduce our own impact by using fuel-efficient vehicles, cleaner fuels, electric cars, and public transport which all have less impact on the environment. </p>
+                <p className="tips-paragraph">Transportation emissions from cars, trucks, planes, trains, ships, and freight accounts for about 30% of US global warming emissions, which is more than any other category of emissions. Although carbon dioxide emissions from transportation have slowed down with the increasing use of electronic vehicles and renewable gas, the emissions are still exponential. We can take steps to reduce our own impact by using fuel-efficient vehicles, cleaner fuels, electric cars, and public transport which all have less impact on the environment. </p>
             </section>
             <section id="food">
                 <div className="bg-image">
@@ -68,7 +69,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">Food waste has become a global problem. In fact, over the last 60 years, our annual global food waste has increased
+                <p className="tips-paragraph">Food waste has become a global problem. In fact, over the last 60 years, our annual global food waste has increased
                 by half. With the 2.9 trillion tons of food we waste each year, we could feed all 800 million undernourished people
                 in the world twice. Besides wasting valuable land, fuel, and water resources, food waste contributes to global
                 warming through the fossil fuel-heavy process of growing, harvesting, and shipping food. Currently, the average
@@ -99,7 +100,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">As consumers, we have a responsibility to make conscious choices about our purchases. When buying something, we often
+                <p className="tips-paragraph">As consumers, we have a responsibility to make conscious choices about our purchases. When buying something, we often
                 forget to see the resources and energy that went into manufacturing and shipping that product. For instance, because
                 cotton plants require so much water, a single cotton T-shirt can require up to 713 gallons of water- enough to keep
                 one person well-hydrated for over five years. Consider thrifting some of your clothes to save both money and resources. </p>
@@ -126,7 +127,7 @@ const TipsPage = (props) => {
                     ))
                 } 
                 </div>
-                <p className="paragraph">Emissions from utilites and the power sector are particularly significant because they can be reduced with alternatives to fossil fuels from vehicles and factories. The US needs to reduce energy-related CO2 emissions by 3.3% per year in 2019 and 2020, which is more than the 1.2% average reduction in 2005 to 2017. By turning off the lights when you leave the room and aiming for energy-efficient utilities, you are not only reducing your electricity usage, but are saving money on electric bills and extending the life of your light bulbs. The first step is remembering to turn off utilities, and by recognizing the importance of doing so, you are more likely to make it happen.</p>
+                <p className="tips-paragraph">Emissions from utilites and the power sector are particularly significant because they can be reduced with alternatives to fossil fuels from vehicles and factories. The US needs to reduce energy-related CO2 emissions by 3.3% per year in 2019 and 2020, which is more than the 1.2% average reduction in 2005 to 2017. By turning off the lights when you leave the room and aiming for energy-efficient utilities, you are not only reducing your electricity usage, but are saving money on electric bills and extending the life of your light bulbs. The first step is remembering to turn off utilities, and by recognizing the importance of doing so, you are more likely to make it happen.</p>
             </section>
             <Footer/>
         </div>
