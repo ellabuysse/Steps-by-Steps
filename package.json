@@ -24,6 +24,8 @@
     "react-tabs": "^3.0.0",
     "react-tabs-redux": "^4.0.0",
     "react-visibility-sensor": "^5.1.1",
+    "react-window-size": "^1.2.2",
+    "react-window-size-listener": "^1.4.0",
     "react-wow": "^1.0.0",
     "wowjs": "^1.1.3"
   },

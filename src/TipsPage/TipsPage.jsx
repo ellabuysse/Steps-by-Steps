@@ -10,16 +10,14 @@ import Footer from '../Footer/Footer';
 import ScrollNavTips from '../ScrollNav/ScrollNavTips';
 
 import './TipsPage.css';
-
-  
+ 
 const TipsPage = (props) => {
     window.scrollTo(0, 0);
       
     return (
-        
         <div>
-           
-            <NavBar/>
+        
+       <NavBar/>
             <ScrollNavTips/>
             <div className="animate-title">
                 <h1 className="page-title">What You Can Do</h1>
