@@ -8,24 +8,22 @@ import TabPagePower from '../TabPages/TabPagePower';
 import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-// import getResult from '../Data.getResult.js';
 
 export default class QuizForm extends Component {
 
     constructor(props) {
-        
+
         super(props);
         this.state = {
-           
+
             transportPoints: 0,
-                dietPoints: 0,
-                shoppingPoints: 0,
-                wastePoints: 0,
-                powerPoints: 0,
-                totalPoints: 0,
-            formData: { 
-                
+            dietPoints: 0,
+            shoppingPoints: 0,
+            wastePoints: 0,
+            powerPoints: 0,
+            totalPoints: 0,
+
+            formData: {
                 publicTransit: false,
                 car: false,
                 walkingBiking: false,
@@ -71,24 +69,20 @@ export default class QuizForm extends Component {
         formData[event.target.name] = event.target.checked;
         this.setState({
             formData: formData,
-          
+
         })
     }
-    
+
     onSubmit() {
         let total = 0;
         let count = 0;
-        
-        let transportPoints= 0;
-        let dietPoints= 0;
-        let shoppingPoints= 0;
-        let wastePoints= 0;
-        let powerPoints= 0;
 
-        let color = "";
-        // getResult.map(value => (
-            
-        // ))
+        let transportPoints = 0;
+        let dietPoints = 0;
+        let shoppingPoints = 0;
+        let wastePoints = 0;
+        let powerPoints = 0;
+
         if (this.state.formData.publicTransit) {
             total += 3;
             count++;
@@ -128,7 +122,7 @@ export default class QuizForm extends Component {
             total += 4;
             count++;
             dietPoints++;
-               }
+        }
         if (this.state.formData.vegetarian) {
             total += 3;
             count++;
@@ -165,155 +159,135 @@ export default class QuizForm extends Component {
             wastePoints++;
         }
         if (this.state.formData.reuse) {
-           total += 1;
-           count++;
-           wastePoints++;
+            total += 1;
+            count++;
+            wastePoints++;
         }
         if (this.state.formData.garbage) {
-           total += 8;
-           count++;
-           wastePoints++;
+            total += 8;
+            count++;
+            wastePoints++;
         }
         if (this.state.formData.acHeat) {
-           total += 3;
-           count++;
-           powerPoints++;
+            total += 3;
+            count++;
+            powerPoints++;
         }
         if (this.state.formData.lights) {
-           total += 3;
-           count++;
-           powerPoints++;
+            total += 3;
+            count++;
+            powerPoints++;
         }
         if (this.state.formData.computer) {
-           total += 3;
-           count++;
-           powerPoints++;
+            total += 3;
+            count++;
+            powerPoints++;
         }
         if (this.state.formData.water) {
-           total += 3;
-           count++;
-           powerPoints++;
+            total += 3;
+            count++;
+            powerPoints++;
         }
         if (this.state.formData.none) {
-           total += 10;
-           count++;
-           powerPoints++;
+            total += 10;
+            count++;
+            powerPoints++;
         }
-    
+
         this.setState({
-            totalPoints: Math.round(total/count),
+            totalPoints: Math.round(total / count),
             transportPoints: transportPoints,
             dietPoints: dietPoints,
             shoppingPoints: shoppingPoints,
             wastePoints: wastePoints,
             powerPoints: powerPoints
         });
-        
 
-   
-        if (this.state.formData.totalPoints <= 3) {
-            color="#6ecd9c"
-        }
-        if (this.state.formData.totalPoints > 3 && this.state.formData.totalPoints <= 7) {
-            color="rgba(251, 170, 109, 0.72)"
-        }
-        if (this.state.formData.totalPoints > 7) {
-            color="rgba(251, 86, 78, 0.62)"
-        }
-
-       
         this.setState({
             submitted: true
         })
     }
 
-   
+
     handleButtonClick = (event) => {
         let newValue = event.target.name;
         this.setState({ page: newValue });
         alert('selected ' + newValue);
     }
 
-    handleClickOne (event) {
-       
-        this.setState({page: "tab1" }) ;
+    handleClickOne(event) {
 
-        
-    }
-    handleClickTwo (event) {
-       
-        this.setState({page: "tab2" }) ;
+        this.setState({ page: "tab1" });
+
 
     }
-    handleClickThree (event) {
-       
-        this.setState({page: "tab3" }) ;
-       
+    handleClickTwo(event) {
+
+        this.setState({ page: "tab2" });
+
     }
-    handleClickFour (event) {
-       
-        this.setState({page: "tab4" }) ;
-    
+    handleClickThree(event) {
+
+        this.setState({ page: "tab3" });
+
     }
-    handleClickFive (event) {
-       
-        this.setState({page: "tab5" }) ;
-    
+    handleClickFour(event) {
+
+        this.setState({ page: "tab4" });
+
     }
-    renderTransport(){
-        return(
-     
+    handleClickFive(event) {
+
+        this.setState({ page: "tab5" });
+
+    }
+    renderTransport() {
+        return (
+
             <TabContent for="tab1" name="tab1" >
-              <TabPageTransport name="tab1"
-                        onChange={this.onChange}
-                        checkedPublicTransit={this.state.publicTransit}
-                        checkedCar={this.state.car}
-                        checkedWalkingBiking={this.state.walkingBiking}
-                        />
-            
+                <TabPageTransport name="tab1"
+                    onChange={this.onChange}
+                    checkedPublicTransit={this.state.publicTransit}
+                    checkedCar={this.state.car}
+                    checkedWalkingBiking={this.state.walkingBiking}
+                />
+            </TabContent>
+        )
+    }
 
-                </TabContent>
- 
-               
-      
-        
-        )}
-     
-    renderDiet(){
-        return(
+    renderDiet() {
+        return (
             <TabContent for="tab2" name="tab2" >
-         
-                <TabPageDiet name="tab2"
-            onChange={this.onChange} 
-            checkedMeatLover={this.state.formData.meatLover}
-            checkedOmnivore ={this.state.formData.omnivore}
-            checkedNoRed ={this.state.formData.noRed}
-            checkedVegetarian ={this.state.formData.vegetarian}
-            checkedVegan ={this.state.formData.vegan}
-            onClick={this.handleClickThree}
-  
-            />
-        
-     </TabContent>
 
-        )}
-    renderShopping(){
-        return(
+                <TabPageDiet name="tab2"
+                    onChange={this.onChange}
+                    checkedMeatLover={this.state.formData.meatLover}
+                    checkedOmnivore={this.state.formData.omnivore}
+                    checkedNoRed={this.state.formData.noRed}
+                    checkedVegetarian={this.state.formData.vegetarian}
+                    checkedVegan={this.state.formData.vegan}
+                    onClick={this.handleClickThree}
+
+                />
+
+            </TabContent>
+        )
+    }
+    renderShopping() {
+        return (
             <TabContent for="tab3" name="tab3">
-               <TabPageShopping
+                <TabPageShopping
                     onChange={this.onChange}
                     checkedThriftStore={this.state.thriftStore}
                     checkedFarmersMarket={this.state.farmersMarket}
                     checkedStore={this.state.store}
-                    onClick={this.handleClickFour}/>
-        </TabContent>
-             
-  
+                    onClick={this.handleClickFour} />
+            </TabContent>
         )
     }
 
-    renderWaste(){
-        return(
+    renderWaste() {
+        return (
             <TabContent for="tab4" name="tab4">
                 <TabPageWaste
                     onChange={this.onChange}
@@ -322,95 +296,88 @@ export default class QuizForm extends Component {
                     checkedReuse={this.state.reuse}
                     checkedGarbage={this.state.garbage}
                     onClick={this.handleClickFive}
-                    />
+                />
             </TabContent>
-
-                
-      
-                   
         )
     }
-    renderPower(){
-        return(
-            
-    <TabPagePower
-        onChange={this.onChange}
-        checkedAcHeat={this.state.acHeat}
-        checkedLights={this.state.lights}
-        checkedComputer={this.state.computer}
-        checkedWater={this.state.water}
-        checkedNone={this.state.none}/>
+    renderPower() {
+        return (
+
+            <TabPagePower
+                onChange={this.onChange}
+                checkedAcHeat={this.state.acHeat}
+                checkedLights={this.state.lights}
+                checkedComputer={this.state.computer}
+                checkedWater={this.state.water}
+                checkedNone={this.state.none} />
 
         )
     }
-
-
-    
-
     renderResponse() {
-        return(
-           
+        return (
+
             <Response
-                totalPoints = {this.state.totalPoints}
-                transportPoints = {this.state.transportPoints}
-                dietPoints = {this.state.dietPoints}
-                shoppingPoints = {this.state.shoppingPoints}
-                wastePoints = {this.state.wastePoints}
-                powerPoints = {this.state.powerPoints}/>
+                totalPoints={this.state.totalPoints}
+                transportPoints={this.state.transportPoints}
+                dietPoints={this.state.dietPoints}
+                shoppingPoints={this.state.shoppingPoints}
+                wastePoints={this.state.wastePoints}
+                powerPoints={this.state.powerPoints} />
 
         )
     }
-  
+
     render() {
-    
-       return (
-            
-    
+
+        return (
 
 
-           <Tabs >
-            
-  
+
+
+            <Tabs >
+
+
                 <div className="quiz-item" id="quiz-tabs">
-                   <div className="tab" ><TabLink to="tab1" onClick={this.handleClickOne}
-                   >
-                       TRANSPORTATION</TabLink></div>
-                   <div className="tab"><TabLink to="tab2" onClick={this.handleClickTwo} >DIET</TabLink></div>
-                   <div className="tab"><TabLink to="tab3" onClick={this.handleClickThree}>SHOPPING</TabLink></div>
-                   <div className="tab"><TabLink to="tab4" onClick={this.handleClickFour}>WASTE</TabLink></div>
-                   <div className="tab"><TabLink to="tab5" onClick={this.handleClickFive}>POWER</TabLink></div>
+                    <div className="tab" ><TabLink to="tab1" onClick={this.handleClickOne}
+                    >
+                        TRANSPORTATION</TabLink></div>
+                    <div className="tab"><TabLink to="tab2" onClick={this.handleClickTwo} >DIET</TabLink></div>
+                    <div className="tab"><TabLink to="tab3" onClick={this.handleClickThree}>SHOPPING</TabLink></div>
+                    <div className="tab"><TabLink to="tab4" onClick={this.handleClickFour}>WASTE</TabLink></div>
+                    <div className="tab"><TabLink to="tab5" onClick={this.handleClickFive}>POWER</TabLink></div>
                 </div>
-            
-{this.state.page === "tab1" ? [this.renderTransport(), <div className="next-btn"><TabLink className="new-tab" to="tab2" onClick={this.handleClickTwo} >NEXT</TabLink></div> ]: null}
 
-{this.state.page === "tab2" ? [this.renderDiet(), <div className="next-btn"><TabLink className="new-tab" to="tab3" onClick={this.handleClickThree}>NEXT</TabLink></div>]: null}
+                {this.state.page === "tab1" ? [this.renderTransport(), <div className="next-btn"><TabLink className="new-tab" to="tab2" onClick={this.handleClickTwo} >NEXT</TabLink></div>] : null}
 
-{this.state.page === "tab3" ? [this.renderShopping(), <div className="next-btn"><TabLink className="new-tab" to="tab4" onClick={this.handleClickFour}>NEXT</TabLink></div>]: null}
+                {this.state.page === "tab2" ? [this.renderDiet(), <div className="next-btn"><TabLink className="new-tab" to="tab3" onClick={this.handleClickThree}>NEXT</TabLink></div>] : null}
 
-{this.state.page === "tab4" ? [this.renderWaste(), <div className="next-btn"><TabLink className="new-tab" to="tab5" onClick={this.handleClickFive}>NEXT</TabLink></div>]: null}
-                
+                {this.state.page === "tab3" ? [this.renderShopping(), <div className="next-btn"><TabLink className="new-tab" to="tab4" onClick={this.handleClickFour}>NEXT</TabLink></div>] : null}
 
-            <div className="quiz">
+                {this.state.page === "tab4" ? [this.renderWaste(), <div className="next-btn"><TabLink className="new-tab" to="tab5" onClick={this.handleClickFive}>NEXT</TabLink></div>] : null}
 
 
-                
-
-           
-
-            
+                <div className="quiz">
 
 
-<TabContent for="tab5" name="tab5">
-    {this.renderPower()}
-        <div className = "submit">
-<button onClick={this.onSubmit} className="submit-button">
-    <a href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</a>
-</button>
-</div>
-{this.state.submitted ? this.renderResponse() : null}
-</TabContent>
-</div>
 
-         </Tabs>    
-       )}
+
+
+
+
+
+
+                    <TabContent for="tab5" name="tab5">
+                        {this.renderPower()}
+                        <div className="submit">
+                            <button onClick={this.onSubmit} className="submit-button">
+                                <a href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</a>
+                            </button>
+                        </div>
+                        {this.state.submitted ? this.renderResponse() : null}
+                    </TabContent>
+                </div>
+
+            </Tabs>
+        )
     }
+}

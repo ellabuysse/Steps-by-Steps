@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'  
 import './ScrollNav.css';

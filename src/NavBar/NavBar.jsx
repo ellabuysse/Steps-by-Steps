@@ -53,7 +53,7 @@ export default class NavBar extends Component {
                             what you can do
                             </Link>  </div></div>
                             <div className="nav-links-quiz">
-                        <Link to="/quiz" class="quiz-box" id="quizPage">
+                        <Link to="/quiz" className="quiz-box" id="quizPage">
                             <div className= "take-quiz">
                             take the quiz</div></Link>
                       </div>

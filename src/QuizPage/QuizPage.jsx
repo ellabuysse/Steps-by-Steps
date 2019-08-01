@@ -1,10 +1,8 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
-import BGImage from '../BGImage/BGImage';
 import Footer from '../Footer/Footer';
 import QuizForm from '../QuizForm/QuizForm';
 import './QuizPage.css';
-
 
 const QuizPage = (props) => {
     return (

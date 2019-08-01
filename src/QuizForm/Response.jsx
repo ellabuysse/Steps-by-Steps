@@ -89,7 +89,7 @@ export default class Response extends Component {
             <h3 className="results-description">Take some time this week to think about your environmental impact. Change begins with evaluating your day to day actions and taking small steps to improve them, so commit to taking one small step a day to lessen your impact. You can do this!</h3>}</div> }
            <div className="learn-more">
          
-           <Link to="/tips" id="results-link" href="#top" ignoreScrollBehavior >
+           <Link to="/tips" id="results-link" href="#top" ignorescrollbehavior >
           
 LEARN MORE
 </Link>
