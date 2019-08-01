@@ -8,7 +8,7 @@ export default class BGImage extends Component {
                 backgroundImage: "url(" + this.props.img + ")",
                 backgroundPosition: "("+ this.props.position +")"
             }}>
-                    <div className="title"><strong>{this.props.title}</strong></div>
+                    <div className="title"><strong id={this.props.id}>{this.props.title}</strong></div>
                 
             </div>
         )

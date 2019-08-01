@@ -1,6 +1,5 @@
 .tips-box{
     column-count: 1;
-    
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -8,18 +7,12 @@
     display: flex;
     justify-content: center;
 }
-
-.tip {
-    flex-direction: column;
-}
-
 .tip{
     display: flex;
-    width: 150px;
-    height: 150px;
+    flex-direction: column;
+    width: 100%;
     margin: 1em;
     border: 1px solid black;
-    column-count: 1;
     padding: 50px;
     justify-content: space-between;
     align-items: center;
@@ -27,18 +20,9 @@
 .tip .tip-text{
     width: 150px;
     height: 100px;
-    column-count: 1;
     font-family: 'Quicksand', sans-serif;
     font-size: 10px;
     margin: 0;
     line-height: 120%;
     font-size: 120%;
-    padding: 0;
-    bottom: 0;
-    display: inline-block;
-    vertical-align: baseline;
-
-}
-.icon{
-    padding-bottom: 20px;
 }

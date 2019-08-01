@@ -1,12 +1,8 @@
-.icon{
-    text-align: center;
-    position: relative;
-    vertical-align: top;
- 
-
-}
 .txt-graphic-container{
-    padding-top:80px;
-    padding-bottom:80px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
