@@ -1,9 +1,7 @@
 span{
     font-family: 'Quicksand', sans-serif;
     font-size: 120%;
-    
 }
-
 .boxes{ 
     width: 30%;
     font-family: 'Quicksand', sans-serif;
@@ -11,14 +9,11 @@ span{
     font-size: 120%;
     padding-left: 5%;
 }
-
-
 .new-tab:hover{
     background-color: rgba(56, 191, 167, 0.78);
     color: white;
     font-weight: 900;
 }
-
 .submit-button{
     margin-left: 0;
     padding-top: 30px;
@@ -44,10 +39,7 @@ button{
 .tab {
    display: inline-block;
    padding: 30px;
-
-
 }
-
 .tab-link{
     height: 50%;
     width: 120%;
@@ -72,9 +64,7 @@ button{
     position: relative;
     padding-left: 5%;
 }
-
 .new-tab{
-
     text-align: center;
     outline: none;
     border: none;
@@ -88,18 +78,15 @@ button{
     padding-right: 30px;
     margin-top: 0;
     font-size: 15px;
-
-  }
-  .next-btn{
- 
+}
+.next-btn{
       margin-left: 0;
       padding-top: 30px;
       bottom: 0;
       text-align: center;
 
-  }
-
-  .results-container{
+}
+.results-container{
       width: 100%;
       display:flex;
       flex-wrap: wrap;
@@ -163,7 +150,7 @@ button{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: start;
+      align-items: flex-start;
       margin-left: 20%;
       margin-right: 20%;
   }

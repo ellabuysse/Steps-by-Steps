@@ -7,9 +7,9 @@ export default class TextWithGraphic extends Component {
     render() {
 
         return(
-            <div class="txt-graphic-container">
+            <div className="txt-graphic-container">
                 
-                <div class="icon">
+                <div className="icon">
                     <FontAwesomeIcon icon={this.props.graphic} size="7x"/>
                 </div>
                 <div className="paragraph">{this.props.text}</div>

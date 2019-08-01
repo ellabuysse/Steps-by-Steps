@@ -9,7 +9,7 @@ export default class TextBlock extends Component {
         return(
             <div>
                 
-                <div class="icon">
+                <div className="icon">
                     <FontAwesomeIcon icon={this.props.graphic} size="3x"/>
                 </div>
                 <div className="paragraph">{this.props.text}</div>
