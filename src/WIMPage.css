@@ -5,11 +5,14 @@
     justify-content: space-evenly;
     padding-top: 50px;
     margin-bottom: -100px;
+    width: 65%;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+    padding-bottom: 40px;
+
 }
 
-.text-container{
-    padding-top: 40px;
-}
+
 
 FontAwesomeIcon{
     display: inline-block;
