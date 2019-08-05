@@ -5,7 +5,6 @@ nav {
     font-family: 'Quicksand', sans-serif;
     position: relative;
     display: flex;
-
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 30px;
@@ -16,21 +15,18 @@ nav {
     z-index: 11;
     font-size: 20px;
     margin-top: 0;
-    
 }
 
 .pages-nav {
     background-color: white;
-  
 }
 
 nav a{ 
     color: black;
     text-decoration: none;
     font-size: 20px;  
-
-
 }
+
 .nav-title a{
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +36,7 @@ nav a{
     margin: 0;
     font-weight: 800;
 }
+
 .nav-title {
     font-family: 'Homemade Apple', sans-serif;
     display: flex;
@@ -64,7 +61,6 @@ nav a{
     box-sizing: border-box; 
 }
 
-
 .why-this-matters #whyThisMattersPage{
     border-bottom: 2px solid #6ecd9c;
     padding-bottom: 15px;
@@ -75,16 +71,12 @@ nav a{
     padding: 45px;
     padding-left: 60px;
     padding-right: 60px;
-    
     justify-content: space-between;
-    
-    margin: 0;
-    
+    margin: 0; 
     font-size: 20px;
     z-index: 11;
     height: 100%;
     text-align: center;
-  
 }
 
 .nav-links-quiz{
@@ -92,16 +84,14 @@ nav a{
     padding: 45px;
     padding-left: 45px;
     padding-right: 45px;
-    
     justify-content: space-between;
-    
     margin: 0;
-    
     font-size: 20px;
     z-index: 11;
     height: 100%;
     text-align: center;
 }
+
 .tips #tips-page{
     border-bottom: 2px solid #5fa8e5;
     padding-bottom: 15px;

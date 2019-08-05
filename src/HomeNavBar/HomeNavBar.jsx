@@ -5,7 +5,6 @@ import {
 import './HomeNavBar.css';
 
 export default class HomeNavBar extends Component {
-
     render() {
         return(
             <header>

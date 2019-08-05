@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default class FeatureBox extends Component {
 
     render() {
-
+        let componentStyles = {
+                 backgroundColor: this.props.color
+            } 
+            
         return(
-            <div className="featureBox" style={{backgroundColor: this.props.color}}>
+            <div className="featureBox" style={componentStyles}>
                 <div className="tips-box" >
                     <div className="tip" >
                         <div>

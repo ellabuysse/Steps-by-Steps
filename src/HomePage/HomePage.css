@@ -180,7 +180,6 @@ template {
     display: none;
 }
 
-
 #body{
     background: url("https://images.unsplash.com/photo-1533003265859-b1214e265efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80") no-repeat center center fixed;
     min-height: 1000px;
@@ -191,10 +190,9 @@ template {
     -o-background-size: cover;
     background-size: cover;
     right: 0;
-    left: 0;
-
-    
+    left: 0;  
 }
+
 #words {
     position: absolute;
     top: 40%;
@@ -206,11 +204,13 @@ template {
     height: 100px;
     width: 100%;
 }
+
 h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 85px;
     color: white;
 }
+
 h2 {
     font-family: 'Homemade Apple', cursive;
     font-size: 30px;
