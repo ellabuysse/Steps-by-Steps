@@ -17,11 +17,15 @@ export default class NavBar extends Component {
                         <Link to="/">Steps by Steps</Link>
                     </div>
                     <div className="nav-menu">
-                        <div className="nav-links" id="whyThisMattersPage">
-                            <Link to="/why-this-matters">why it matters </Link>
+                        <div className="nav-links"> 
+                            <div id="whyThisMattersPage">
+                                <Link to="/why-this-matters">why it matters </Link>
+                            </div>
                         </div>
-                        <div className="nav-links" id="tips-page">
-                            <Link to="/tips">what you can do</Link>  
+                        <div className="nav-links">
+                            <div id="tips-page">
+                                <Link to="/tips">what you can do</Link>  
+                            </div>
                         </div>
                         <div className="nav-links-quiz">
                             <Link to="/quiz" className="quiz-box take-quiz" id="quizPage">take the quiz</Link>
