@@ -1,0 +1,54 @@
+.login-box{
+    width: 50%;
+    height: 40px;
+    padding: 6px 12px;
+    margin: 10px;
+    
+
+}
+.login{
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    
+}
+#login-btn{
+    background-color: #6ecd9c;
+
+}
+.submit-login{
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 100px;
+    bottom: 0;
+    text-align: right;
+   
+ }
+ #btn-to-login{
+    
+    width: 50%;
+    margin: 0;
+    color: rgb(111, 154, 255);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    line-height: 120%;
+    font-size: 100%;
+   top: 0;
+    
+ 
+ }
+ #need-login{
+     display: flex;
+     flex-direction: row;
+     width: 225px;
+     margin: 0;
+     font-family: 'Quicksand', sans-serif;
+     font-size: 16px;
+     font-weight: 700;
+ }
+ .have-account{
+     width: 300px;
+     display: flex;
+     justify-content: flex-start;
+     margin: 0 auto;
+ }

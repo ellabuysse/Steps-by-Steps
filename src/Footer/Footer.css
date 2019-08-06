@@ -2,11 +2,12 @@
     width: 100%;
     height: 20px;
     font-family: 'Quicksand', sans-serif;
-    position: relative;
+ 
     text-align: center;
     column-count: 1;
     padding-top: 30px;
-    padding-bottom: 30px;
+    bottom: 0;
+
     
 }
 .donate{
