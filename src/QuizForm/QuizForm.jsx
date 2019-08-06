@@ -370,7 +370,7 @@ export default class QuizForm extends Component {
                         {this.renderPower()}
                         <div className="submit">
                             <button onClick={this.onSubmit} className="submit-button">
-                                <a href="#results-page" onClick={this.onSubmit} className="submit-text">SUBMIT</a>
+                                <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="quiz-submit-btn">SUBMIT</a>
                             </button>
                         </div>
                         {this.state.submitted ? this.renderResponse() : null}
