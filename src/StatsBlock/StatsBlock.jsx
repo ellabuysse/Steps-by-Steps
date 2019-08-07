@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import './StatsBlock.css';
 import Counter from '../Counter.jsx';
 
-
 export default class StatsBlock extends Component {
-
     render() {
-
         return(
-            
                 <div className="stats-block">
                     <mark 
                         className="stats-number" 

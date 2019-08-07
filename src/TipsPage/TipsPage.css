@@ -74,16 +74,14 @@ align-self: center;
     animation: left 1s forwards;
 }
 .WIM-underline{
-    border-right: 60%;
     background-color: #6ecd9c;
     padding: 0;
     width: 10%;
     min-height: 20px;
     margin-bottom: 125px;
     position: relative;
-    top: 125px;
     margin-bottom: 260px;
-    animation: left 1s forwards
+    animation: left 1s forwards;
 }
 .bg-image .transport .container {
     background-position: bottom;

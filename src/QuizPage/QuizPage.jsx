@@ -7,28 +7,26 @@ import Login from '../Login/Login';
 
 const QuizPage = (props) => {
     return (
-     <div>
+        <div>
             <NavBar/>
-           <div className="quiz-page">
-                   
-          <div className="page-container">
-            <div className="bg-image">
-                
-                    <div className="quiz-photo-container" >
-                                    
+            <div className="quiz-page">
+                <div className="page-container">
+                    <div className="bg-image">
+                        <div className="quiz-photo-container" >
                             <div className="title" id="quiz-title"><strong>Environmental Impact Quiz</strong></div>
-                        
+                        </div>
                     </div>
-                    </div>
+
+                
   
                
                 <Login/>
            
+
             </div>
-             
-        <Footer/>
+            <Footer/>
+            </div>
         </div>
-</div>
     );
 };
 export default QuizPage;

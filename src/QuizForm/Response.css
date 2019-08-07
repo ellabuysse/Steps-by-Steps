@@ -1,15 +1,9 @@
 .results {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
-    
     font-size: 120%;
-   
-    width: 60%;
-   
-    margin:100px auto;
-    margin-bottom: 15px;  
-    margin-top: 0;
-
+    width: 80%;
+    margin: 0 auto 15px auto;
 }
 
 .points{
@@ -113,14 +107,15 @@
    
     
 }
-.breakdown-words{
+.breakdown-words, #past-quizzes-header{
     letter-spacing: 6px;
-    font: size 20px;
+    font-size: 20px;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
+    font-weight: bold;
 }
 
 .results-page{
@@ -139,6 +134,15 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+}
+.past-quizzes-container{
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 50px;
+}
+.past-quizzes{
+    display: flex;
+    justify-content: space-between;
 }
 
 
