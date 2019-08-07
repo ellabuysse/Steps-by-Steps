@@ -4,6 +4,8 @@ import QuizForm from '../QuizForm/QuizForm';
 import { runInThisContext } from 'vm';
 import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 import { validate } from '@babel/types';
+import PasswordMask from 'react-password-mask';
+
 
 
 export default class Login extends Component {
@@ -16,7 +18,8 @@ export default class Login extends Component {
             signup: true,
             formData: {
                 username: '',
-                password: ''
+                password: '',
+                submitEnabled: false
                 
             }
            
@@ -80,9 +83,15 @@ export default class Login extends Component {
     }
   
     renderSignup () {
-        const { username,password } = this.state.formData;
-    const isEnabled = username > 0 && password> 0;
     
+        let isEnabled = false;
+        {this.state.formData.username === '' && this.state.formData.password === '' ? isEnabled = "disabled" : isEnabled = ''}
+       
+        if(isEnabled === false)
+            console.log("false")
+            else(
+                console.log("true")
+            )
         return(
             <div>
              
@@ -91,10 +100,21 @@ export default class Login extends Component {
             <div className="login">
                 <form>
                 <input type="text" placeholder="Username" className="login-box" name="username" value={this.state.username} onChange={this.onChangeUsername} required></input>
-                <input type="text" placeholder="Password" className="login-box" name="password" value={this.state.password} onChange={this.onChangePassword} required></input>
+               <PasswordMask
+                            className="login-box"
+                            inputClassName= "login-box"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.onChangePassword}
+                            placeholder="Password"
+                           
+                            required
+                            />
+                            
                 <div className="submit-login">
-                            <button onClick={this.onSubmit} className="submit-button" id="submit-container" disabled={!isEnabled}>
-                                <button className="submit-text"  onClick={this.onSubmit}  disabled={!isEnabled} id="login-btn">SIGN UP</button>
+                        
+                            <button onClick={this.onSubmit} className="submit-button" id="submit-container" disabled= {isEnabled}>
+                                <button className="submit-text"  onClick={this.onSubmit}  disabled={this.state.formData.username === '' || this.state.formData.password === ''} id="login-btn">SIGN UP</button>
                             </button>
                         </div> 
                         </form>
@@ -119,8 +139,17 @@ export default class Login extends Component {
                 
             <div className="login">
                 <input type="text" placeholder="Username" className="login-box"></input>
-                <input type="text" placeholder="Password" className="login-box"></input>
-                <div className="submit-login">
+                <PasswordMask
+                            className="login-box"
+                            inputClassName= "login-box"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.onChangePassword}
+                            placeholder="Password"
+                           
+                            required
+                            />
+                            <div className="submit-login">
                             <button onClick={this.onLogin} className="submit-button" id="submit-container">
                                 <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="login-btn">LOGIN</a>
                             </button>
