@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import QuizForm from '../QuizForm/QuizForm';
 import './QuizPage.css';
 import Login from '../Login/Login';
 
