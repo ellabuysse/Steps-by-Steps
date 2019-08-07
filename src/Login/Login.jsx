@@ -64,7 +64,7 @@ export default class Login extends Component {
         
        
     }
-    
+
     onLoginClick () {
 
         console.log("onloginclick");
@@ -141,10 +141,10 @@ export default class Login extends Component {
         {this.state.formData.username === '' && this.state.formData.password === '' ? isEnabled = "disabled" : isEnabled = ''}
        
         if(isEnabled === false)
-            console.log("false")
-            else(
-                console.log("true")
-            )
+            console.log("false");
+        else
+            console.log("true");
+
         return(
             <div>
              
