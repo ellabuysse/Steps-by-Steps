@@ -293,14 +293,12 @@ export default class QuizForm extends Component {
 
     }
     renderTransport() {
-        let carChecked = this.state.formData.car;
         return (
-
             <TabContent for="tab1" name="tab1" >
                 <TabPageTransport name="tab1"
                     onChange={this.onChange}
                     checkedPublicTransit={this.state.formData.publicTransit}
-                    checkedCar={carChecked}
+                    checkedCar={this.state.formData.car}
                     checkedWalkingBiking={this.state.formData.walkingBiking}
                     hybridCar={this.state.formData.hybridCar}
                 />
