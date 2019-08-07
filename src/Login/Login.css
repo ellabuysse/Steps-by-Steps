@@ -1,15 +1,17 @@
 .login-box{
-    width: 50%;
+    width: 20rem;
     height: 40px;
     padding: 6px 12px;
-    margin: 10px;
+    margin-top: 10px;
+    
     
 
 }
 .login{
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    width: 20rem;
     
 }
 #login-btn{
@@ -17,8 +19,8 @@
 
 }
 .submit-login{
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: auto;
+    margin-right: auto;
     height: 100px;
     bottom: 0;
     text-align: right;
@@ -57,4 +59,16 @@
  }
 input:invalid {
     box-shadow: 0 0 3px red;
+}
+
+.password-mask{
+  
+   
+   
+}
+#password-mask{
+     margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    
 }

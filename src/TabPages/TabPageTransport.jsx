@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 export default class TabPageTransport extends Component {
     constructor(props){ 
         super(props);
-        this.state = {
-            car: this.props.checkedCar
-           
-        }
+       
         this.renderCarType = this.renderCarType.bind(this);
     }
 
@@ -23,7 +20,7 @@ export default class TabPageTransport extends Component {
                             name="regularCar"
                             id="regularCar"
                             onChange={this.onChange}
-                            checked={this.state.formData.regularCar}
+                            checked={this.props.formData.regularCar}
                         /> Standard 
                     </div>
                     <div className="check">
@@ -32,7 +29,7 @@ export default class TabPageTransport extends Component {
                             name="hybridCar"
                             id="hybridCar"
                             onChange={this.onChange}
-                            checked={this.state.formData.hybridCar}
+                            checked={this.props.formData.hybridCar}
                         /> Hybrid
                     </div>
                     <div className="check">
@@ -41,7 +38,7 @@ export default class TabPageTransport extends Component {
                             name="electricCar"
                             id="electricCar"
                             onChange={this.onChange}
-                            checked={this.state.formData.electricCar}
+                            checked={this.props.formData.electricCar}
                         /> Electric
                     </div>
                 </div>
@@ -89,7 +86,7 @@ export default class TabPageTransport extends Component {
                                 </div>
                             </div>
                         </div>
-                        {this.state.car ? this.renderCarType() : null}
+                        {this.props.checkedCar ? this.renderCarType() : null}
                         
                         
                        </div>

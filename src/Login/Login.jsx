@@ -19,8 +19,7 @@ export default class Login extends Component {
             formData: {
                 id: '',
                 username: '',
-                password: '',
-                submitEnabled: false
+                password: ''
                 
             }
            
@@ -54,7 +53,8 @@ export default class Login extends Component {
         
     
 
-    onSubmit () {
+    onSubmit (isEnabled) {
+       console.log(isEnabled);
         this.setState  ({
             login: false,
             signup: false,
@@ -71,14 +71,12 @@ export default class Login extends Component {
         var user_name = this.state.username;
         var pass_word = this.state.password;
         var id;
+        var userURL = "/users/user?userName="+user_name+"&password="+pass_word;
 
         console.log(user_name);
         console.log(pass_word);
 
-        axios.get(this.databaseURL+"/users/user", {
-            userName: user_name,
-            password: pass_word
-        })
+        axios.get(this.databaseURL+userURL)
         .then(function(response) {
             var data = response.data;
         
@@ -134,43 +132,62 @@ export default class Login extends Component {
         )
         
     }
+   isDisabled = () => {
+       if(this.state.formData.username.length > 0 && this.state.formData.password.length > 0){
+           return "";
+       }
+       else{
+           return "disabled";
+       }
+   }
+
   
     renderSignup () {
+        let { username, password } = this.state.formData;
+        let isEnabled = username === '' && password === '';
+        
     
-        let isEnabled = false;
-        {this.state.formData.username === '' && this.state.formData.password === '' ? isEnabled = "disabled" : isEnabled = ''}
-       
-        if(isEnabled === false)
-            console.log("false")
-            else(
-                console.log("true")
-            )
         return(
             <div>
-             
+           
             <p className="quiz-item" id="quiz-description">Take our quiz to determine the impact you have on the environment. Evaluate yourself on the previous week and complete weekly to see how your steps for a reduced impact are making a difference. </p>
                 
             <div className="login">
-                <form>
-                <input type="text" placeholder="Username" className="login-box" name="username" value={this.state.username} onChange={this.onChangeUsername} required></input>
+                
+                <input 
+                    type="text" 
+                    placeholder="Username" 
+                    className="login-box" 
+                    name="username" 
+                    value={this.state.username} 
+                    onChange={this.onChangeUsername} 
+                    required></input>
+        <div id="password-mask">
                <PasswordMask
-                            className="login-box"
+                            
                             inputClassName= "login-box"
+                            
                             name="password"
                             value={this.state.password}
                             onChange={this.onChangePassword}
                             placeholder="Password"
-                           
+
                             required
                             />
-                            
+                   </div>
                 <div className="submit-login">
                         
-                            <button onClick={this.onSubmit} className="submit-button" id="submit-container" disabled= {isEnabled}>
-                                <button className="submit-text"  onClick={this.onSubmit}  disabled={this.state.formData.username === '' || this.state.formData.password === ''} id="login-btn">SIGN UP</button>
-                            </button>
+                            
+                                <button 
+                                    className="submit-text" 
+                                    onClick={this.onSubmit}  
+                                    id="login-btn" disabled={!isEnabled}
+                                >
+                                    SIGN UP
+                                </button>
+                           
                         </div> 
-                        </form>
+                       
                         <div className = "have-account">
                         <p id="need-login">Already have an account?</p>
                         <div >

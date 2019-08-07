@@ -9,6 +9,7 @@ import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
 
+
 export default class QuizForm extends Component {
 
     constructor(props) {
@@ -242,13 +243,15 @@ export default class QuizForm extends Component {
 
     }
     renderTransport() {
+        console.log(this.state.formData);
+        let carChecked = this.state.formData.car;
         return (
 
             <TabContent for="tab1" name="tab1" >
                 <TabPageTransport name="tab1"
                     onChange={this.onChange}
                     checkedPublicTransit={this.state.publicTransit}
-                    checkedCar={this.state.car}
+                    checkedCar={carChecked}
                     checkedWalkingBiking={this.state.walkingBiking}
                 />
             </TabContent>
