@@ -66,19 +66,19 @@ export default class Login extends Component {
     }
     
     onLoginClick () {
+
         console.log("onloginclick");
 
         var user_name = this.state.username;
         var pass_word = this.state.password;
         var id;
+        var userURL = "/users/user?userName="+user_name+"&password="+pass_word;
 
-        console.log(user_name);
-        console.log(pass_word);
+        console.log(userURL);
+        console.log(this.state.username);
+        console.log(this.state.password);
 
-        axios.get(this.databaseURL+"/users/user", {
-            userName: user_name,
-            password: pass_word
-        })
+        axios.get(this.databaseURL+userURL)
         .then(function(response) {
             var data = response.data;
         
