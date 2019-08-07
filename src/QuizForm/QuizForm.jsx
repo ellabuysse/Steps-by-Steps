@@ -294,13 +294,13 @@ export default class QuizForm extends Component {
     }
     renderTransport() {
         return (
-
             <TabContent for="tab1" name="tab1" >
                 <TabPageTransport name="tab1"
                     onChange={this.onChange}
-                    checkedPublicTransit={this.state.publicTransit}
-                    checkedCar={this.state.car}
-                    checkedWalkingBiking={this.state.walkingBiking}
+                    checkedPublicTransit={this.state.formData.publicTransit}
+                    checkedCar={this.state.formData.car}
+                    checkedWalkingBiking={this.state.formData.walkingBiking}
+                    hybridCar={this.state.formData.hybridCar}
                 />
             </TabContent>
         )
@@ -329,9 +329,9 @@ export default class QuizForm extends Component {
             <TabContent for="tab3" name="tab3">
                 <TabPageShopping
                     onChange={this.onChange}
-                    checkedThriftStore={this.state.thriftStore}
-                    checkedFarmersMarket={this.state.farmersMarket}
-                    checkedStore={this.state.store}
+                    checkedThriftStore={this.state.formData.thriftStore}
+                    checkedFarmersMarket={this.state.formData.farmersMarket}
+                    checkedStore={this.state.formData.store}
                     onClick={this.handleClickFour} />
             </TabContent>
         )
@@ -342,10 +342,10 @@ export default class QuizForm extends Component {
             <TabContent for="tab4" name="tab4">
                 <TabPageWaste
                     onChange={this.onChange}
-                    checkedRecycle={this.state.recycle}
-                    checkedCompost={this.state.compost}
-                    checkedReuse={this.state.reuse}
-                    checkedGarbage={this.state.garbage}
+                    checkedRecycle={this.state.formData.recycle}
+                    checkedCompost={this.state.formData.compost}
+                    checkedReuse={this.state.formData.reuse}
+                    checkedGarbage={this.state.formData.garbage}
                     onClick={this.handleClickFive}
                 />
             </TabContent>
@@ -356,11 +356,11 @@ export default class QuizForm extends Component {
 
             <TabPagePower
                 onChange={this.onChange}
-                checkedAcHeat={this.state.acHeat}
-                checkedLights={this.state.lights}
-                checkedComputer={this.state.computer}
-                checkedWater={this.state.water}
-                checkedNone={this.state.none} />
+                checkedAcHeat={this.state.formData.acHeat}
+                checkedLights={this.state.formData.lights}
+                checkedComputer={this.state.formData.computer}
+                checkedWater={this.state.formData.water}
+                checkedNone={this.state.formData.none} />
 
         )
     }
