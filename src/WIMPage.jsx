@@ -10,7 +10,6 @@ import BGImage from './BGImage/BGImage';
 import NavBar from './NavBar/NavBar';
 import ScrollNav from './ScrollNav/ScrollNavWIM';
 
-
 import './WIMPage.css';
 
 const WIMPage = (props) => {
