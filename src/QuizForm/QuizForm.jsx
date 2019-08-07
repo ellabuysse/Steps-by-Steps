@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './QuizForm.css';
 import './Response.css';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
@@ -8,6 +9,8 @@ import TabPagePower from '../TabPages/TabPagePower';
 import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
+// import console from 'console';
+import { thisExpression } from '@babel/types';
 
 export default class QuizForm extends Component {
 
@@ -15,6 +18,7 @@ export default class QuizForm extends Component {
 
         super(props);
         this.state = {
+            quizzes: [],
 
             transportPoints: 0,
             dietPoints: 0,
@@ -203,6 +207,53 @@ export default class QuizForm extends Component {
             powerPoints: powerPoints
         });
 
+        var databaseURL = "https://stepsbysteps-backend.herokuapp.com";
+
+        axios.post(databaseURL + "/quizzes", { 
+            userID: "1",
+            totalPoints: this.state.totalPoints,
+            transportPoints: this.state.transportPoints,
+            dietPoints: this.state.dietPoints,
+            shoppingPoints: this.state.shoppingPoints,
+            wastePoints: this.state.wastePoints,
+            powerPoints: this.state.powerPoints
+        })
+
+        .then(function(response) {
+            console.log('success');
+        })
+
+        .catch(function(error) {
+            console.log("****\nERROR\n****");
+            console.log(error);
+        })
+        
+        axios.get(databaseURL + "/quizzes/user/1")
+
+        .then(function(response) {
+            console.log('success');
+            // console.log(response.data);
+
+            this.state.quizzes = [];
+            var quizzes = response.data;
+            for (let i = 0; i < quizzes.length; i++) {
+                console.log(quizzes[i])
+                // var joinedQuizzes = this.state.quizzes.concat(quizzes[i]);
+                // this.setState({quizzes: joinedQuizzes});
+                this.setState(prevState => ({
+                    quizzes: [prevState.quizzes, quizzes[i]]
+                }));
+            }
+
+            console.log(this.state.quizzes);
+            // id = data[0]['id'];
+        })
+        
+        .catch(function(error) {
+            console.log("****\nERROR\n****");
+            console.log(error);
+        })
+
         this.setState({
             submitted: true
         })
@@ -313,16 +364,19 @@ export default class QuizForm extends Component {
 
         )
     }
-    renderResponse() {
+
+    renderResponse = (value) => {
         return (
 
             <Response
+                // quiz={this.state.quizzes[value]}
                 totalPoints={this.state.totalPoints}
-                transportPoints={this.state.transportPoints}
-                dietPoints={this.state.dietPoints}
-                shoppingPoints={this.state.shoppingPoints}
-                wastePoints={this.state.wastePoints}
-                powerPoints={this.state.powerPoints} />
+                transportPoints={this.state.quizzes[value].transportPoints}
+                dietPoints={this.state.quizzes[value].dietPoints}
+                shoppingPoints={this.state.quizzes[value].shoppingPoints}
+                wastePoints={this.state.quizzes[value].wastePoints}
+                powerPoints={this.state.quizzes[value].powerPoints} 
+            />
 
         )
     }
@@ -358,14 +412,6 @@ export default class QuizForm extends Component {
 
                 <div className="quiz">
 
-
-
-
-
-
-
-
-
                     <TabContent for="tab5" name="tab5">
                         {this.renderPower()}
                         <div className="submit">
@@ -373,7 +419,7 @@ export default class QuizForm extends Component {
                                 <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="quiz-submit-btn">SUBMIT</a>
                             </button>
                         </div>
-                        {this.state.submitted ? this.renderResponse() : null}
+                        {this.state.submitted ? this.renderResponse(0) : null}
                     </TabContent>
                 </div>
 
