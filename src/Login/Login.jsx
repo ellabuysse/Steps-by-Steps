@@ -5,7 +5,7 @@ import { runInThisContext } from 'vm';
 import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 import { validate } from '@babel/types';
 import PasswordMask from 'react-password-mask';
-
+import axios from 'axios';
 
 
 export default class Login extends Component {
@@ -17,6 +17,7 @@ export default class Login extends Component {
             isHidden: false,
             signup: true,
             formData: {
+                id: '',
                 username: '',
                 password: '',
                 submitEnabled: false
@@ -33,7 +34,9 @@ export default class Login extends Component {
         this.onSignupClick = this.onSignupClick.bind(this);
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
-        }
+
+        this.databaseURL = "https://stepsbysteps-backend.herokuapp.com";
+    }
     
     onChangeUsername (event){
         this.setState({
@@ -63,15 +66,65 @@ export default class Login extends Component {
     }
     
     onLoginClick () {
+        console.log("onloginclick");
+
+        var user_name = this.state.username;
+        var pass_word = this.state.password;
+        var id;
+
+        console.log(user_name);
+        console.log(pass_word);
+
+        axios.get(this.databaseURL+"/users/user", {
+            userName: user_name,
+            password: pass_word
+        })
+        .then(function(response) {
+            var data = response.data;
+        
+            console.log("success");
+            console.log(data);
+            console.log(data['id']);
+            console.log(data['userName']);
+            console.log(data['password']);
+
+            id = data['id'];
+        })
+        .catch(function(error) {
+            console.log("******\nERROR\n******");
+            console.log(error);
+        });
+
         this.setState({
             login: true,
             signup: false
         })
     }
     onSignupClick() {
+        var user_name = this.state.username;
+        var pass_word = this.state.password;
+        var id;
+
+        axios.post(this.databaseURL+"/users", {
+            userName: user_name,
+            password: pass_word
+        })
+        .then(function(response) {
+            var data = response.data;
+        
+            id = data['id'];
+        })
+        .catch(function(error) {
+            console.log("******\nERROR\n******");
+            console.log(error);
+        });
+
         this.setState({
             login: false,
-            signup: true
+            signup: true,
+            formData: {
+                id: id
+            }
         })
     }
     renderQuiz () {
