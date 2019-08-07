@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './Login.css';
 import QuizForm from '../QuizForm/QuizForm';
 import { runInThisContext } from 'vm';
+import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
+import { validate } from '@babel/types';
+
 
 export default class Login extends Component {
    
@@ -10,7 +13,12 @@ export default class Login extends Component {
         this.state = {
             submit: false,
             isHidden: false,
-            signup: true
+            signup: true,
+            formData: {
+                username: '',
+                password: ''
+                
+            }
            
         }
        
@@ -20,14 +28,35 @@ export default class Login extends Component {
         this.renderSignup = this.renderSignup.bind(this);
         this.renderLogin = this.renderLogin.bind(this);
         this.onSignupClick = this.onSignupClick.bind(this);
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
         }
     
+    onChangeUsername (event){
+        this.setState({
+            username: event.target.value
+         
+        })
+        }
+
+        onChangePassword (event){
+            this.setState({
+                password: event.target.value
+                
+            })
+            }
+        
+    
+
     onSubmit () {
         this.setState  ({
             login: false,
             signup: false,
             submit: true
         })
+        
+        
+       
     }
     
     onLoginClick () {
@@ -49,30 +78,37 @@ export default class Login extends Component {
         )
         
     }
+  
     renderSignup () {
-        
+        const { username,password } = this.state.formData;
+    const isEnabled = username > 0 && password> 0;
+    
         return(
             <div>
              
-            <p className="quiz-item" id="quiz-description">Sign up or login to take our quiz and determine the impact you have on the environment. Evaluate yourself on the previous week and complete weekly to see how your steps for a reduced impact are making a difference. </p>
+            <p className="quiz-item" id="quiz-description">Take our quiz to determine the impact you have on the environment. Evaluate yourself on the previous week and complete weekly to see how your steps for a reduced impact are making a difference. </p>
                 
             <div className="login">
-            <input type="text" placeholder="Name" className="login-box"></input>
-                <input type="text" placeholder="Username" className="login-box"></input>
-                <input type="text" placeholder="Password" className="login-box"></input>
+                <form>
+                <input type="text" placeholder="Username" className="login-box" name="username" value={this.state.username} onChange={this.onChangeUsername} required></input>
+                <input type="text" placeholder="Password" className="login-box" name="password" value={this.state.password} onChange={this.onChangePassword} required></input>
                 <div className="submit-login">
-                            <button onClick={this.onSubmit} className="submit-button" id="submit-container">
-                                <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="login-btn">SIGN UP</a>
+                            <button onClick={this.onSubmit} className="submit-button" id="submit-container" disabled={!isEnabled}>
+                                <button className="submit-text"  onClick={this.onSubmit}  disabled={!isEnabled} id="login-btn">SIGN UP</button>
                             </button>
                         </div> 
+                        </form>
                         <div className = "have-account">
                         <p id="need-login">Already have an account?</p>
                         <div >
                             
                                 <a onClick={this.onLoginClick}  id="btn-to-login">LOGIN</a>
        
-                        </div></div></div></div>
+                        </div></div></div>
+                        </div>
+                       
         )
+        
     }
     renderLogin() {
        
@@ -105,9 +141,11 @@ export default class Login extends Component {
     }
 
     render() {
-        return(
+        return(  
+            
             <div>
                  
+      
                 {this.state.signup ? this.renderSignup() : null}
                 {this.state.login ? this.renderLogin() : null}
                 {this.state.submit ? this.renderQuiz() : null}

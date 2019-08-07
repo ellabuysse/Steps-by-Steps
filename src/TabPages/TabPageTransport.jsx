@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 export default class TabPageTransport extends Component {
+    constructor(props){ 
+        super(props);
+        this.state = {
+            car: this.props.checkedCar
+           
+        }
+        this.renderCarType = this.renderCarType.bind(this);
+    }
+
     renderCarType() {
         return(
             <div className="quiz-container" id="car-types">
@@ -80,6 +89,7 @@ export default class TabPageTransport extends Component {
                                 </div>
                             </div>
                         </div>
+                        {this.state.car ? this.renderCarType() : null}
                         
                         
                        </div>

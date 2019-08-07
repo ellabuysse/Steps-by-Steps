@@ -52,3 +52,9 @@
      justify-content: flex-start;
      margin: 0 auto;
  }
+ input:required {
+     box-shadow: none;
+ }
+input:invalid {
+    box-shadow: 0 0 3px red;
+}
