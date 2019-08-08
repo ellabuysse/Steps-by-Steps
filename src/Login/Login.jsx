@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
 import QuizForm from '../QuizForm/QuizForm';
+import userInfo from '../Data/userInfo';
 import { runInThisContext } from 'vm';
 import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 import { validate } from '@babel/types';
@@ -9,8 +10,8 @@ import axios from 'axios';
 
 
 export default class Login extends Component {
-   
-    constructor(props){ 
+
+    constructor(props) {
         super(props);
         this.state = {
             submit: false,
@@ -19,14 +20,16 @@ export default class Login extends Component {
             formData: {
                 id: '',
                 username: '',
+
                 password: '',
                 isUsernameEnabled: false,
                 isPasswordEnabled: false
                 
+
             }
-           
+
         }
-       
+
         this.onLoginClick = this.onLoginClick.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.renderQuiz = this.renderQuiz.bind(this);
@@ -35,6 +38,7 @@ export default class Login extends Component {
         this.onSignupClick = this.onSignupClick.bind(this);
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
+
 
         this.databaseURL = "https://stepsbysteps-backend.herokuapp.com";
     }
@@ -46,8 +50,10 @@ export default class Login extends Component {
             username: event.target.value,
             isUsernameEnabled: isText
      
+
         })
-        }
+    }
+
 
         onChangePassword (event){
             
@@ -64,14 +70,13 @@ export default class Login extends Component {
        console.log(isEnabled);
        console.log("button clicked");
         this.setState  ({
+
             login: false,
             signup: false,
             submit: true
         })
-        
-        
-       
     }
+
     
     onLoginClick () {
         console.log("onloginclick");
@@ -101,11 +106,13 @@ export default class Login extends Component {
             console.log(error);
         });
 
+
         this.setState({
             login: true,
             signup: false
         })
     }
+
     onSignupClick() {
         var user_name = this.state.username;
         var pass_word = this.state.password;
@@ -133,6 +140,7 @@ export default class Login extends Component {
             }
         })
     }
+
     renderQuiz () {
         return(
             
@@ -141,9 +149,11 @@ export default class Login extends Component {
                 password = {this.state.formData.password}
                 id = {this.state.formData.id}
                 />
+
         )
-        
+
     }
+
  
     renderSignup () {
        
@@ -191,21 +201,19 @@ export default class Login extends Component {
                         </div> 
                        
                         <div className = "have-account">
+
                         <p id="need-login">Already have an account?</p>
                         <div >
-                            
-                                <a onClick={this.onLoginClick}  id="btn-to-login">LOGIN</a>
-       
+                            <a onClick={this.onLoginClick} id="btn-to-login">LOGIN</a>
                         </div></div></div>
-                        </div>
-                       
+            </div>
         )
-        
     }
+
     renderLogin() {
-       
-        return(
+        return (
             <div>
+
              
             <p className="quiz-item" id="quiz-description">Take our quiz to determine the impact you have on the environment. Evaluate yourself on the previous week and complete weekly to see how your steps for a reduced impact are making a difference. </p>
                 
@@ -236,30 +244,22 @@ export default class Login extends Component {
 
                             
                         <div className = "have-account">
+
                         <p id="need-login">Need to create an account?</p>
                         <div >
-                            
-                                <a onClick={this.onSignupClick}  id="btn-to-login">SIGN UP</a>
-       
+                            <a onClick={this.onSignupClick} id="btn-to-login">SIGN UP</a>
                         </div></div>
-                        </div>
-   
-                        
-         
+                </div>
             </div>
         )
     }
 
     render() {
-        return(  
-            
+        return (
             <div>
-                 
-      
                 {this.state.signup ? this.renderSignup() : null}
                 {this.state.login ? this.renderLogin() : null}
                 {this.state.submit ? this.renderQuiz() : null}
-        </div>)
-
+            </div>)
     }
 }

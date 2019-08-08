@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './QuizForm.css';
 import './Response.css';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
@@ -8,6 +9,7 @@ import TabPagePower from '../TabPages/TabPagePower';
 import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
+import { thisExpression } from '@babel/types';
 
 
 export default class QuizForm extends Component {
@@ -16,13 +18,7 @@ export default class QuizForm extends Component {
 
         super(props);
         this.state = {
-
-            transportPoints: 0,
-            dietPoints: 0,
-            shoppingPoints: 0,
-            wastePoints: 0,
-            powerPoints: 0,
-            totalPoints: 0,
+            quizzes: [],
 
             formData: {
                 publicTransit: false,
@@ -46,6 +42,7 @@ export default class QuizForm extends Component {
                 water: false,
                 none: false
             },
+            databaseURL: "https://stepsbysteps-backend.herokuapp.com",
             submitted: false,
             page: "tab1"
         };
@@ -58,6 +55,28 @@ export default class QuizForm extends Component {
         this.handleClickThree = this.handleClickThree.bind(this);
         this.handleClickFour = this.handleClickFour.bind(this);
         this.handleClickFive = this.handleClickFive.bind(this);
+    }
+
+    componentDidMount() {
+        //
+        // TODO
+        // Get user login information from login
+
+        axios.get(this.state.databaseURL + "/quizzes/user/1")
+        .then((response) => {
+            var quizzes = response.data;
+            if (quizzes.length > 0) {
+                for (let i = 0; i < quizzes.length; i++) {
+                    this.setState(prevState => ({
+                        quizzes: [...prevState.quizzes, quizzes[i]]
+                    }));
+                }
+            }
+        })
+        .catch(function(error) {
+            console.log("****\nERROR\n****");
+            console.log(error);
+        });
     }
 
     get currentTab() {
@@ -195,18 +214,30 @@ export default class QuizForm extends Component {
             powerPoints++;
         }
 
-        this.setState({
+        axios.post(this.state.databaseURL + "/quizzes", {
+            // TODO
+            //
+            // Get user login information from login
+
+            userID: "1",
             totalPoints: Math.round(total / count),
             transportPoints: transportPoints,
             dietPoints: dietPoints,
             shoppingPoints: shoppingPoints,
             wastePoints: wastePoints,
             powerPoints: powerPoints
-        });
-
-        this.setState({
-            submitted: true
         })
+        .then((response) => {
+            var newQuiz = response.data;
+            this.setState(prevState => ({
+                submitted: true,
+                quizzes: [...prevState.quizzes, newQuiz]
+            }))
+        })
+        .catch(function(error) {
+            console.log("****\nERROR\n****");
+            console.log(error);
+        });
     }
 
 
@@ -246,13 +277,14 @@ export default class QuizForm extends Component {
         console.log(this.state.formData);
         let carChecked = this.state.formData.car;
         return (
-
             <TabContent for="tab1" name="tab1" >
                 <TabPageTransport name="tab1"
                     onChange={this.onChange}
+
                     checkedPublicTransit={this.state.publicTransit}
                     checkedCar={carChecked}
                     checkedWalkingBiking={this.state.walkingBiking}
+
                 />
             </TabContent>
         )
@@ -281,9 +313,9 @@ export default class QuizForm extends Component {
             <TabContent for="tab3" name="tab3">
                 <TabPageShopping
                     onChange={this.onChange}
-                    checkedThriftStore={this.state.thriftStore}
-                    checkedFarmersMarket={this.state.farmersMarket}
-                    checkedStore={this.state.store}
+                    checkedThriftStore={this.state.formData.thriftStore}
+                    checkedFarmersMarket={this.state.formData.farmersMarket}
+                    checkedStore={this.state.formData.store}
                     onClick={this.handleClickFour} />
             </TabContent>
         )
@@ -294,10 +326,10 @@ export default class QuizForm extends Component {
             <TabContent for="tab4" name="tab4">
                 <TabPageWaste
                     onChange={this.onChange}
-                    checkedRecycle={this.state.recycle}
-                    checkedCompost={this.state.compost}
-                    checkedReuse={this.state.reuse}
-                    checkedGarbage={this.state.garbage}
+                    checkedRecycle={this.state.formData.recycle}
+                    checkedCompost={this.state.formData.compost}
+                    checkedReuse={this.state.formData.reuse}
+                    checkedGarbage={this.state.formData.garbage}
                     onClick={this.handleClickFive}
                 />
             </TabContent>
@@ -308,27 +340,27 @@ export default class QuizForm extends Component {
 
             <TabPagePower
                 onChange={this.onChange}
-                checkedAcHeat={this.state.acHeat}
-                checkedLights={this.state.lights}
-                checkedComputer={this.state.computer}
-                checkedWater={this.state.water}
-                checkedNone={this.state.none} />
+                checkedAcHeat={this.state.formData.acHeat}
+                checkedLights={this.state.formData.lights}
+                checkedComputer={this.state.formData.computer}
+                checkedWater={this.state.formData.water}
+                checkedNone={this.state.formData.none} />
 
         )
     }
-    renderResponse() {
+
+    renderResponse = (value) => {
         return (
-
             <Response
-                totalPoints={this.state.totalPoints}
-                transportPoints={this.state.transportPoints}
-                dietPoints={this.state.dietPoints}
-                shoppingPoints={this.state.shoppingPoints}
-                wastePoints={this.state.wastePoints}
-                powerPoints={this.state.powerPoints} />
-
+                totalPoints={this.state.quizzes[value-1].totalPoints}
+                transportPoints={this.state.quizzes[value-1].transportPoints}
+                dietPoints={this.state.quizzes[value-1].dietPoints}
+                shoppingPoints={this.state.quizzes[value-1].shoppingPoints}
+                wastePoints={this.state.quizzes[value-1].wastePoints}
+                powerPoints={this.state.quizzes[value-1].powerPoints}
+            />
         )
-    }
+    };
 
     render() {
 
@@ -361,22 +393,14 @@ export default class QuizForm extends Component {
 
                 <div className="quiz">
 
-
-
-
-
-
-
-
-
                     <TabContent for="tab5" name="tab5">
                         {this.renderPower()}
                         <div className="submit">
                             <button onClick={this.onSubmit} className="submit-button">
-                                <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="quiz-submit-btn">SUBMIT</a>
+                                <a href="#results-page" className="submit-text" id="quiz-submit-btn">SUBMIT</a>
                             </button>
                         </div>
-                        {this.state.submitted ? this.renderResponse() : null}
+                        {this.state.submitted ? this.renderResponse(this.state.quizzes.length) : null}
                     </TabContent>
                 </div>
 
