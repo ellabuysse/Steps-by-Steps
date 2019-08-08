@@ -31,7 +31,9 @@ export default class Login extends Component {
         }
 
         this.onLoginClick = this.onLoginClick.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.onLoginSubmit = this.onLoginSubmit.bind(this);
+        this.onSignupClick = this.onSignupClick.bind(this);
+        this.onSignupSubmit = this.onSignupSubmit.bind(this);
         this.renderQuiz = this.renderQuiz.bind(this);
         this.renderSignup = this.renderSignup.bind(this);
         this.renderLogin = this.renderLogin.bind(this);
@@ -66,45 +68,37 @@ export default class Login extends Component {
         
     
 
-    onSubmit (isEnabled) {
-       console.log(isEnabled);
-       console.log("button clicked");
-        this.setState  ({
+    onLoginSubmit (isEnabled) {
+        console.log("logging in existing user");
 
-            login: false,
-            signup: false,
-            submit: true
-        })
-    }
-
-    
-    onLoginClick () {
-        console.log("onloginclick");
 
         var user_name = this.state.username;
         var pass_word = this.state.password;
         var id;
         var userURL = "/users/user?userName="+user_name+"&password="+pass_word;
 
-        console.log(user_name);
-        console.log(pass_word);
-
         axios.get(this.databaseURL+userURL)
-        .then(function(response) {
-            var data = response.data;
-        
-            console.log("success");
-            console.log(data);
-            console.log(data['id']);
-            console.log(data['userName']);
-            console.log(data['password']);
-
-            id = data['id'];
-        })
-        .catch(function(error) {
-            console.log("******\nERROR\n******");
-            console.log(error);
+            .then(function(response) {
+                var data = response.data;
+                id = data['id'];
+            })
+            .catch(function(error) {
+                console.log("******\nERROR\n******");
+                console.log(error);
         });
+
+        this.setState({
+            login: false,
+            signup: false,
+            submit: true,
+            formData: {
+                id: id
+            }
+        })
+    }
+
+    onLoginClick () {
+        console.log("change to login view");
 
 
         this.setState({
@@ -113,7 +107,12 @@ export default class Login extends Component {
         })
     }
 
-    onSignupClick() {
+
+
+    onSignupSubmit (isEnabled) {
+        console.log("creating new user");
+
+
         var user_name = this.state.username;
         var pass_word = this.state.password;
         var id;
@@ -122,24 +121,36 @@ export default class Login extends Component {
             userName: user_name,
             password: pass_word
         })
-        .then(function(response) {
-            var data = response.data;
-        
-            id = data['id'];
-        })
-        .catch(function(error) {
-            console.log("******\nERROR\n******");
-            console.log(error);
-        });
+            .then(function(response) {
+                var data = response.data;
+                id = data['id'];
+            })
+            .catch(function(error) {
+                console.log("******\nERROR\n******");
+                console.log(error);
+            });
+
 
         this.setState({
             login: false,
-            signup: true,
+            signup: false,
+            submit: true,
             formData: {
                 id: id
             }
         })
     }
+
+    onSignupClick() {
+        console.log("change to signup view");
+
+        this.setState({
+            login: false,
+            signup: true,
+        })
+    }
+
+
 
     renderQuiz () {
         return(
@@ -156,8 +167,6 @@ export default class Login extends Component {
 
  
     renderSignup () {
-       
-    
         return(
             <div>
            
@@ -192,7 +201,7 @@ export default class Login extends Component {
                             
                                 <button 
                                     className="submit-text" 
-                                    onClick={this.onSubmit}  
+                                    onClick={this.onSignupSubmit}
                                     id="login-btn" disabled={!(this.state.isUsernameEnabled && this.state.isPasswordEnabled)}
                                 >
                                     SIGN UP
@@ -211,7 +220,10 @@ export default class Login extends Component {
     }
 
     renderLogin() {
-        return (
+
+        
+        return(
+
             <div>
 
              
@@ -229,12 +241,14 @@ export default class Login extends Component {
                             placeholder="Password"
                            
                             required
-                            />
+                />
                             </div>
                             <div className="submit-login">   
                         <button 
                             className="submit-text" 
-                            onClick={this.onSubmit}  
+
+                            onClick={this.onLoginSubmit}
+
                             id="login-btn" disabled={!(this.state.isUsernameEnabled && this.state.isPasswordEnabled)}
                         >
                             LOGIN

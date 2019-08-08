@@ -372,7 +372,7 @@ export default class QuizForm extends Component {
             <Tabs >
 
 
-                <div className="quiz-item" id="quiz-tabs">
+                <div className="quiz-item" id="quiz-tabs">l
                     <div className="tab" ><TabLink to="tab1" onClick={this.handleClickOne}
                     >
                         TRANSPORTATION</TabLink></div>
