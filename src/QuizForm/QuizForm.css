@@ -42,10 +42,7 @@ button{
 }
 .tab-link{
     height: 50%;
-    width: 120%;
     padding: 15px;
-    outline: none;
-    border: none;
     color: #666565;
     background-color: white;
 }
