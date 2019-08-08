@@ -28,11 +28,11 @@ export default class NavBar extends Component {
                             </div>
                         </div>
                         <div className="nav-links-quiz">
-                            <Link to="/quiz" className="quiz-box take-quiz" id="quizPage">take the quiz</Link>
+                            <Link to="/quiz" className="quiz-box" id="quizPage">take the quiz</Link>
                         </div>
                     </div>
                 </nav>
-</header>
+            </header>
         )
     }
 }

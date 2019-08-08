@@ -1,29 +1,22 @@
-.tips-box{
-    column-count: 1;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    column-count: 1;
-    display: flex;
-    justify-content: center;
-}
 .tip{
+    width: 15vw;
+    height: 15vw;
     display: flex;
     flex-direction: column;
-    width: 8vw;
-    height: 8vw;
-    margin: 1vw;
-    border: 1px solid black;
-    padding: 50px;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: center;
     align-items: center;
+    border: 1px solid black;
 }
 .tip .tip-text{
     width: 150px;
     height: 100px;
     font-family: 'Quicksand', sans-serif;
     font-size: 10px;
-    margin: 0;
+    margin-top: 0.5rem;
     line-height: 120%;
     font-size: 120%;
+}
+.tip-icon{
+    margin-bottom: 0.5rem;
 }
