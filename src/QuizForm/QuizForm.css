@@ -167,3 +167,11 @@ button{
     bottom: 0;
     text-align: center;
  }
+
+ #car-types{
+    width: 60%;
+    background-color: rgba(159, 209, 255, 0.36);
+    padding: 3%;
+    margin-left: 17%;
+    margin-right: 20%;
+ }
