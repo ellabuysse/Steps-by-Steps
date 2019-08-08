@@ -355,7 +355,6 @@ export default class QuizForm extends Component {
                 wastePoints={this.state.quizzes[value-1].wastePoints}
                 powerPoints={this.state.quizzes[value-1].powerPoints}
             />
-
         )
     };
 
