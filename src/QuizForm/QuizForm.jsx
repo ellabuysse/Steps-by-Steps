@@ -10,6 +10,7 @@ import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
 import { thisExpression } from '@babel/types';
+import PastResult from "../StoreInfo/PastResult";
 
 
 export default class QuizForm extends Component {
@@ -19,6 +20,7 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             quizzes: [],
+            currentQuiz: 0,
             formData: {
                 publicTransit: false,
                 car: false,
@@ -222,6 +224,7 @@ export default class QuizForm extends Component {
             var newQuiz = response.data;
             this.setState(prevState => ({
                 submitted: true,
+                currentQuiz: newQuiz['id'],
                 quizzes: [...prevState.quizzes, newQuiz]
             }))
         })
@@ -339,16 +342,35 @@ export default class QuizForm extends Component {
         )
     }
 
-    renderResponse = (value) => {
+    renderResponse = () => {
+        let quiz = this.state.quizzes.find(object => object.id === this.state.currentQuiz);
+
+        console.log(this.state.quizzes)
         return (
-            <Response
-                totalPoints={this.state.quizzes[value-1].totalPoints}
-                transportPoints={this.state.quizzes[value-1].transportPoints}
-                dietPoints={this.state.quizzes[value-1].dietPoints}
-                shoppingPoints={this.state.quizzes[value-1].shoppingPoints}
-                wastePoints={this.state.quizzes[value-1].wastePoints}
-                powerPoints={this.state.quizzes[value-1].powerPoints}
-            />
+            <React.Fragment>
+                <Response
+                    totalPoints={quiz.totalPoints}
+                    transportPoints={quiz.transportPoints}
+                    dietPoints={quiz.dietPoints}
+                    shoppingPoints={quiz.shoppingPoints}
+                    wastePoints={quiz.wastePoints}
+                    powerPoints={quiz.powerPoints}
+                />
+
+                <div className="past-quizzes-container">
+                    <div id="past-quizzes-header">YOUR RECENT SCORES:</div>
+                </div>
+
+                <div className="past-quizzes">
+                    {
+                        this.state.quizzes.map(value => (
+                            <PastResult
+                                totalPoints={value.totalPoints}
+                            />
+                        ))
+                    }
+                </div>
+            </React.Fragment>
         )
     };
 
@@ -381,7 +403,7 @@ export default class QuizForm extends Component {
                                 <a href="#results-page" className="submit-text" id="quiz-submit-btn">SUBMIT</a>
                             </button>
                         </div>
-                        {this.state.submitted ? this.renderResponse(this.state.quizzes.length) : null}
+                        {this.state.submitted ? this.renderResponse() : null}
                     </TabContent>
                 </div>
 
