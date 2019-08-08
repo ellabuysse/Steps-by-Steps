@@ -95,7 +95,10 @@ export default class Response extends Component {
                 </div>
                 <div className="past-quizzes-container">
                     <div id="past-quizzes-header">YOUR RECENT SCORES:</div>
-                    <PastQuizzes className="past-quizzes"/>
+                    <PastQuizzes 
+                        className="past-quizzes"
+                        test="test"
+                    />
                 </div>
             </div>
         )
