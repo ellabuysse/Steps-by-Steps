@@ -62,26 +62,19 @@ align-self: center;
     animation: left 1s forwards;
 }
 .underline{
-    border-right: 60%;
-    background-color:#5fa8e5;
     width: 10%;
-    min-height: 20px;
+    height: 12px;
     margin-bottom: 300px;
     position: relative;
     top: 125px;
     margin-bottom: 260px;
-  
     animation: left 1s forwards;
 }
-.WIM-underline{
+#WIM-underline{
     background-color: #6ecd9c;
-    padding: 0;
-    width: 10%;
-    min-height: 20px;
-    margin-bottom: 125px;
-    position: relative;
-    margin-bottom: 260px;
-    animation: left 1s forwards;
+}
+#tips-underline{
+    background-color:#5fa8e5;
 }
 .bg-image .transport .container {
     background-position: bottom;

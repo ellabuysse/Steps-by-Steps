@@ -21,7 +21,7 @@ const TipsPage = (props) => {
             <ScrollNavTips/>
             <div className="animate-title">
                 <h1 className="page-title" id="wim-page-title">What You Can Do</h1>
-                <div className="underline"/> 
+                <div className="underline" id="tips-underline"/> 
             </div>
             <section id="transport">
                 <div className="bg-image"> 

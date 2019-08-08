@@ -19,7 +19,7 @@ const WIMPage = (props) => {
             <NavBar/>
             <div className="animate-title">
                 <h1 className="page-title">Why It Matters</h1>
-                <div className="WIM-underline"/> 
+                <div className="underline" id="WIM-underline"/> 
             </div>
             <section id="earthNeedsHelp">
                 <div className="bg-image">
