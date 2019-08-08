@@ -5,7 +5,6 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import './QuizForm.css';
 import './Response.css';
-import PastQuizzes from '../StoreInfo/PastQuizzes';
 
 export default class Response extends Component {
     render() {
@@ -92,13 +91,6 @@ export default class Response extends Component {
                             <Link to="/tips" id="results-link" href="#top" ignorescrollbehavior>LEARN MORE</Link>  
                         </div>
                     </div>
-                </div>
-                <div className="past-quizzes-container">
-                    <div id="past-quizzes-header">YOUR RECENT SCORES:</div>
-                    <PastQuizzes 
-                        className="past-quizzes"
-                        test="test"
-                    />
                 </div>
             </div>
         )
