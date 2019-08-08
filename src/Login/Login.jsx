@@ -136,7 +136,11 @@ export default class Login extends Component {
     renderQuiz () {
         return(
             
-            <QuizForm/>
+            <QuizForm
+                username = {this.state.formData.username}
+                password = {this.state.formData.password}
+                id = {this.state.formData.id}
+                />
         )
         
     }
@@ -199,9 +203,7 @@ export default class Login extends Component {
         
     }
     renderLogin() {
-        let { username, password } = this.state.formData;
-        let isEnabled = username === '' && password === '';
-        
+       
         return(
             <div>
              
@@ -225,7 +227,7 @@ export default class Login extends Component {
                         <button 
                             className="submit-text" 
                             onClick={this.onSubmit}  
-                            id="login-btn" disabled={!isEnabled}
+                            id="login-btn" disabled={!(this.state.isUsernameEnabled && this.state.isPasswordEnabled)}
                         >
                             LOGIN
                         </button>
