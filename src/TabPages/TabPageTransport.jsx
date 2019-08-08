@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class TabPageTransport extends Component {
     constructor(props){ 
         super(props);
+
         this.renderCarType = this.renderCarType.bind(this);
     }
 
