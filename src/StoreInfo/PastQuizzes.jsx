@@ -13,9 +13,10 @@ export default class PastQuizzes extends Component {
                 {
                 userInfo.map(value => (
                         <PastResult
+                            quizName={value.name}
                             resultScore={value.score}
-                            resultTime={value.time}
-                            key={value.time}   
+                            resultNum={value.num}
+                            key={value.num}   
                         />
                     ))
                 }
