@@ -20,7 +20,7 @@ export default class TabPageTransport extends Component {
                             name="regularCar"
                             id="regularCar"
                             onChange={this.onChange}
-                            checked={this.props.formData.regularCar}
+                            checked={this.props.regularCar}
                         /> Standard 
                     </div>
                     <div className="check">
@@ -29,7 +29,7 @@ export default class TabPageTransport extends Component {
                             name="hybridCar"
                             id="hybridCar"
                             onChange={this.onChange}
-                            checked={this.props.formData.hybridCar}
+                            checked={this.props.hybridCar}
                         /> Hybrid
                     </div>
                     <div className="check">
@@ -38,7 +38,7 @@ export default class TabPageTransport extends Component {
                             name="electricCar"
                             id="electricCar"
                             onChange={this.onChange}
-                            checked={this.props.formData.electricCar}
+                            checked={this.props.electricCar}
                         /> Electric
                     </div>
                 </div>

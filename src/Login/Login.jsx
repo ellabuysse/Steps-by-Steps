@@ -19,7 +19,9 @@ export default class Login extends Component {
             formData: {
                 id: '',
                 username: '',
-                password: ''
+                password: '',
+                isUsernameEnabled: false,
+                isPasswordEnabled: false
                 
             }
            
@@ -38,16 +40,21 @@ export default class Login extends Component {
     }
     
     onChangeUsername (event){
+       
+        let isText = event.target.value.length !== '' 
         this.setState({
-            username: event.target.value
-         
+            username: event.target.value,
+            isUsernameEnabled: isText
+     
         })
         }
 
         onChangePassword (event){
+            
+            let isText = event.target.value.length !== '' 
             this.setState({
-                password: event.target.value
-                
+                password: event.target.value,
+                isPasswordEnabled: isText
             })
             }
         
@@ -55,6 +62,7 @@ export default class Login extends Component {
 
     onSubmit (isEnabled) {
        console.log(isEnabled);
+       console.log("button clicked");
         this.setState  ({
             login: false,
             signup: false,
@@ -132,20 +140,9 @@ export default class Login extends Component {
         )
         
     }
-   isDisabled = () => {
-       if(this.state.formData.username.length > 0 && this.state.formData.password.length > 0){
-           return "";
-       }
-       else{
-           return "disabled";
-       }
-   }
-
-  
+ 
     renderSignup () {
-        let { username, password } = this.state.formData;
-        let isEnabled = username === '' && password === '';
-        
+       
     
         return(
             <div>
@@ -175,13 +172,14 @@ export default class Login extends Component {
                             required
                             />
                    </div>
+                   
                 <div className="submit-login">
                         
                             
                                 <button 
                                     className="submit-text" 
                                     onClick={this.onSubmit}  
-                                    id="login-btn" disabled={!isEnabled}
+                                    id="login-btn" disabled={!(this.state.isUsernameEnabled && this.state.isPasswordEnabled)}
                                 >
                                     SIGN UP
                                 </button>
@@ -201,7 +199,9 @@ export default class Login extends Component {
         
     }
     renderLogin() {
-       
+        let { username, password } = this.state.formData;
+        let isEnabled = username === '' && password === '';
+        
         return(
             <div>
              
@@ -209,8 +209,9 @@ export default class Login extends Component {
                 
             <div className="login">
                 <input type="text" placeholder="Username" className="login-box"></input>
+                <div id="password-mask">
                 <PasswordMask
-                            className="login-box"
+                            
                             inputClassName= "login-box"
                             name="password"
                             value={this.state.password}
@@ -219,11 +220,19 @@ export default class Login extends Component {
                            
                             required
                             />
-                            <div className="submit-login">
-                            <button onClick={this.onLogin} className="submit-button" id="submit-container">
-                                <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="login-btn">LOGIN</a>
-                            </button>
-                        </div>
+                            </div>
+                            <div className="submit-login">   
+                        <button 
+                            className="submit-text" 
+                            onClick={this.onSubmit}  
+                            id="login-btn" disabled={!isEnabled}
+                        >
+                            LOGIN
+                        </button>
+                   
+                </div> 
+
+                            
                         <div className = "have-account">
                         <p id="need-login">Need to create an account?</p>
                         <div >
