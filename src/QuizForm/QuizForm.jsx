@@ -19,7 +19,6 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             quizzes: [],
-
             formData: {
                 publicTransit: false,
                 car: false,
@@ -58,11 +57,7 @@ export default class QuizForm extends Component {
     }
 
     componentDidMount() {
-        //
-        // TODO
-        // Get user login information from login
-
-        axios.get(this.state.databaseURL + "/quizzes/user/1")
+        axios.get(this.state.databaseURL + "/quizzes/user/" + this.props.userID)
         .then((response) => {
             var quizzes = response.data;
             if (quizzes.length > 0) {
@@ -215,11 +210,7 @@ export default class QuizForm extends Component {
         }
 
         axios.post(this.state.databaseURL + "/quizzes", {
-            // TODO
-            //
-            // Get user login information from login
-
-            userID: "1",
+            userID: this.props.userID,
             totalPoints: Math.round(total / count),
             transportPoints: transportPoints,
             dietPoints: dietPoints,
@@ -274,7 +265,6 @@ export default class QuizForm extends Component {
 
     }
     renderTransport() {
-        console.log(this.state.formData);
         let carChecked = this.state.formData.car;
         return (
             <TabContent for="tab1" name="tab1" >
@@ -363,19 +353,10 @@ export default class QuizForm extends Component {
     };
 
     render() {
-
         return (
-
-
-
-
             <Tabs >
-
-
-                <div className="quiz-item" id="quiz-tabs">l
-                    <div className="tab" ><TabLink to="tab1" onClick={this.handleClickOne}
-                    >
-                        TRANSPORTATION</TabLink></div>
+                <div className="quiz-item" id="quiz-tabs">
+                    <div className="tab"><TabLink to="tab1" onClick={this.handleClickOne}>TRANSPORTATION</TabLink></div>
                     <div className="tab"><TabLink to="tab2" onClick={this.handleClickTwo} >DIET</TabLink></div>
                     <div className="tab"><TabLink to="tab3" onClick={this.handleClickThree}>SHOPPING</TabLink></div>
                     <div className="tab"><TabLink to="tab4" onClick={this.handleClickFour}>WASTE</TabLink></div>

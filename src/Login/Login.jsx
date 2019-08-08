@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
 import QuizForm from '../QuizForm/QuizForm';
-import userInfo from '../Data/userInfo';
-import { runInThisContext } from 'vm';
-import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
-import { validate } from '@babel/types';
 import PasswordMask from 'react-password-mask';
 import axios from 'axios';
 
@@ -17,18 +13,12 @@ export default class Login extends Component {
             submit: false,
             isHidden: false,
             signup: true,
-            formData: {
-                id: '',
-                username: '',
-
-                password: '',
-                isUsernameEnabled: false,
-                isPasswordEnabled: false
-                
-
-            }
-
-        }
+            id: '',
+            username: '',
+            password: '',
+            isUsernameEnabled: false,
+            isPasswordEnabled: false
+        };
 
         this.onLoginClick = this.onLoginClick.bind(this);
         this.onLoginSubmit = this.onLoginSubmit.bind(this);
@@ -46,99 +36,72 @@ export default class Login extends Component {
     }
     
     onChangeUsername (event){
-       
-        let isText = event.target.value.length !== '' 
+
+        let isText = event.target.value.length !== ''
         this.setState({
             username: event.target.value,
             isUsernameEnabled: isText
-     
-
         })
     }
 
-
         onChangePassword (event){
-            
-            let isText = event.target.value.length !== '' 
+
+            let isText = event.target.value.length !== ''
             this.setState({
                 password: event.target.value,
                 isPasswordEnabled: isText
             })
-            }
+        }
         
-    
-
-    onLoginSubmit (isEnabled) {
-        console.log("logging in existing user");
 
 
+    onLoginSubmit () {
         var user_name = this.state.username;
         var pass_word = this.state.password;
-        var id;
         var userURL = "/users/user?userName="+user_name+"&password="+pass_word;
 
         axios.get(this.databaseURL+userURL)
-            .then(function(response) {
-                var data = response.data;
-                id = data['id'];
-            })
-            .catch(function(error) {
-                console.log("******\nERROR\n******");
-                console.log(error);
-        });
-
-        this.setState({
-            login: false,
-            signup: false,
-            submit: true,
-            formData: {
-                id: id
-            }
+        .then((response) => {
+            this.setState({
+                login: false,
+                signup: false,
+                submit: true,
+                id: response.data['id']
+            });
         })
+        .catch(function(error) {
+            console.log("******\nERROR\n******");
+            console.log(error);
+        });
     }
 
     onLoginClick () {
-        console.log("change to login view");
-
-
         this.setState({
             login: true,
             signup: false
         })
     }
 
-
-
-    onSignupSubmit (isEnabled) {
-        console.log("creating new user");
-
-
+    onSignupSubmit () {
         var user_name = this.state.username;
         var pass_word = this.state.password;
-        var id;
 
         axios.post(this.databaseURL+"/users", {
             userName: user_name,
             password: pass_word
         })
-            .then(function(response) {
-                var data = response.data;
-                id = data['id'];
+        .then((response) => {
+            this.setState({
+                login: false,
+                signup: false,
+                submit: true,
+                id: response.data['id']
             })
-            .catch(function(error) {
-                console.log("******\nERROR\n******");
-                console.log(error);
-            });
-
-
-        this.setState({
-            login: false,
-            signup: false,
-            submit: true,
-            formData: {
-                id: id
-            }
         })
+        .catch(function(error) {
+            console.log("******\nERROR\n******");
+            console.log(error);
+        });
     }
 
     onSignupClick() {
@@ -156,9 +119,9 @@ export default class Login extends Component {
         return(
             
             <QuizForm
-                username = {this.state.formData.username}
-                password = {this.state.formData.password}
-                id = {this.state.formData.id}
+                username={this.state.username}
+                password={this.state.password}
+                userID={this.state.id}
                 />
 
         )
@@ -179,7 +142,7 @@ export default class Login extends Component {
                     placeholder="Username" 
                     className="login-box" 
                     name="username" 
-                    value={this.state.username} 
+                    value={this.state.username}
                     onChange={this.onChangeUsername} 
                     required></input>
         <div id="password-mask">
@@ -220,8 +183,6 @@ export default class Login extends Component {
     }
 
     renderLogin() {
-
-        
         return(
 
             <div>
@@ -230,7 +191,14 @@ export default class Login extends Component {
             <p className="quiz-item" id="quiz-description">Take our quiz to determine the impact you have on the environment. Evaluate yourself on the previous week and complete weekly to see how your steps for a reduced impact are making a difference. </p>
                 
             <div className="login">
-                <input type="text" placeholder="Username" className="login-box"></input>
+                <input
+                    type="text"
+                    placeholder="Username"
+                    className="login-box"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.onChangeUsername}
+                    required></input>
                 <div id="password-mask">
                 <PasswordMask
                             
