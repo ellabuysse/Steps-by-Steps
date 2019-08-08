@@ -3,11 +3,10 @@ span{
     font-size: 120%;
 }
 .boxes{ 
-    width: 30%;
+    width: 100%;
     font-family: 'Quicksand', sans-serif;
     line-height: 160%;
     font-size: 120%;
-    padding-left: 5%;
 }
 .new-tab:hover{
     background-color: rgba(56, 191, 167, 0.78);
@@ -148,17 +147,20 @@ button{
 #quiz-submit-btn{
     background-color: rgba(56, 191, 167, 0.78);
 }
-  .quiz-container{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-left: 20%;
-      margin-right: 20%;
-      margin-bottom: 30px;
+.quiz-container {
+        display: grid;
+        grid-template-columns: 67% 30%;
+        grid-gap: 3%;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 30px;
   }
   .quiz-question{
-      width: 70%;
+      width: 100%;
+      line-height: 160%;
+  }
+  .check{
+      margin-bottom: 0.3rem;
   }
   
  .submit{
