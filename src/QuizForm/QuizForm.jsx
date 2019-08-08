@@ -20,7 +20,17 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             quizzes: [],
-            currentQuiz: 0,
+            currentQuiz: {
+                id: 0,
+                userID: "",
+                totalPoints: 0,
+                transportPoints: 0,
+                dietPoints: 0,
+                shoppingPoints: 0,
+                wastePoints: 0,
+                powerPoints: 0,
+                timestamp: 0
+            },
             formData: {
                 publicTransit: false,
                 car: false,
@@ -60,20 +70,20 @@ export default class QuizForm extends Component {
 
     componentDidMount() {
         axios.get(this.state.databaseURL + "/quizzes/user/" + this.props.userID)
-        .then((response) => {
-            var quizzes = response.data;
-            if (quizzes.length > 0) {
-                for (let i = 0; i < quizzes.length; i++) {
-                    this.setState(prevState => ({
-                        quizzes: [...prevState.quizzes, quizzes[i]]
-                    }));
+            .then((response) => {
+                var quizzes = response.data;
+                if (quizzes.length > 0) {
+                    for (let i = 0; i < quizzes.length; i++) {
+                        this.setState(prevState => ({
+                            quizzes: [...prevState.quizzes, quizzes[i]]
+                        }));
+                    }
                 }
-            }
-        })
-        .catch(function(error) {
-            console.log("****\nERROR\n****");
-            console.log(error);
-        });
+            })
+            .catch(function (error) {
+                console.log("****\nERROR\n****");
+                console.log(error);
+            });
     }
 
     get currentTab() {
@@ -220,18 +230,28 @@ export default class QuizForm extends Component {
             wastePoints: wastePoints,
             powerPoints: powerPoints
         })
-        .then((response) => {
-            var newQuiz = response.data;
-            this.setState(prevState => ({
-                submitted: true,
-                currentQuiz: newQuiz['id'],
-                quizzes: [...prevState.quizzes, newQuiz]
-            }))
-        })
-        .catch(function(error) {
-            console.log("****\nERROR\n****");
-            console.log(error);
-        });
+            .then((response) => {
+                var newQuiz = response.data;
+                this.setState(prevState => ({
+                    submitted: true,
+                    currentQuiz: {
+                        id: newQuiz['id'],
+                        userID: newQuiz['userID'],
+                        totalPoints: newQuiz['totalPoints'],
+                        transportPoints: newQuiz['transportPoints'],
+                        dietPoints: newQuiz['dietPoints'],
+                        shoppingPoints: newQuiz['shoppingPoints'],
+                        wastePoints: newQuiz['wastePoints'],
+                        powerPoints: newQuiz['powerPoints'],
+                        timestamp: newQuiz['timestamp']
+                    },
+                    quizzes: [...prevState.quizzes, newQuiz]
+                }))
+            })
+            .catch(function (error) {
+                console.log("****\nERROR\n****");
+                console.log(error);
+            });
     }
 
 
@@ -342,6 +362,23 @@ export default class QuizForm extends Component {
         )
     }
 
+    changeQuiz = (id) => {
+        let newQuiz = this.state.quizzes.find(object => object.id === id);
+        this.setState(prevState => ({
+            currentQuiz: {
+                id: newQuiz['id'],
+                userID: newQuiz['userID'],
+                totalPoints: newQuiz['totalPoints'],
+                transportPoints: newQuiz['transportPoints'],
+                dietPoints: newQuiz['dietPoints'],
+                shoppingPoints: newQuiz['shoppingPoints'],
+                wastePoints: newQuiz['wastePoints'],
+                powerPoints: newQuiz['powerPoints'],
+                timestamp: newQuiz['timestamp']
+            }
+        }))
+    }
+
     renderResponse = () => {
         let quiz = this.state.quizzes.find(object => object.id === this.state.currentQuiz);
 
@@ -349,12 +386,12 @@ export default class QuizForm extends Component {
         return (
             <React.Fragment>
                 <Response
-                    totalPoints={quiz.totalPoints}
-                    transportPoints={quiz.transportPoints}
-                    dietPoints={quiz.dietPoints}
-                    shoppingPoints={quiz.shoppingPoints}
-                    wastePoints={quiz.wastePoints}
-                    powerPoints={quiz.powerPoints}
+                    totalPoints={this.state.currentQuiz.totalPoints}
+                    transportPoints={this.state.currentQuiz.transportPoints}
+                    dietPoints={this.state.currentQuiz.dietPoints}
+                    shoppingPoints={this.state.currentQuiz.shoppingPoints}
+                    wastePoints={this.state.currentQuiz.wastePoints}
+                    powerPoints={this.state.currentQuiz.powerPoints}
                 />
 
                 <div className="past-quizzes-container">
@@ -365,7 +402,9 @@ export default class QuizForm extends Component {
                     {
                         this.state.quizzes.map(value => (
                             <PastResult
+                                id={value.id}
                                 totalPoints={value.totalPoints}
+                                changeQuiz={this.changeQuiz}
                             />
                         ))
                     }
