@@ -3,7 +3,7 @@ import './Login.css';
 import QuizForm from '../QuizForm/QuizForm';
 import PasswordMask from 'react-password-mask';
 import axios from 'axios';
-
+import { useValidateAll, onError, onSuccess } from 'react-indicative-hooks';
 
 export default class Login extends Component {
 
@@ -35,6 +35,13 @@ export default class Login extends Component {
         this.databaseURL = "https://stepsbysteps-backend.herokuapp.com";
     }
     
+    validate(){
+        const errors = [];
+        if(this.state.username === '' || this.state.password === ''){
+            errors.push("Name can't be empty");}
+            return errors;
+    }
+      
     onChangeUsername (event){
 
         let isText = event.target.value.length !== ''
@@ -56,6 +63,12 @@ export default class Login extends Component {
 
 
     onLoginSubmit () {
+       
+        
+        
+        
+
+        
         var user_name = this.state.username;
         var pass_word = this.state.password;
         var userURL = "/users/user?userName="+user_name+"&password="+pass_word;
@@ -72,6 +85,7 @@ export default class Login extends Component {
         .catch(function(error) {
             console.log("******\nERROR\n******");
             console.log(error);
+            alert("Username or password doesn't match an account. Please try again.")
         });
     }
 
@@ -101,6 +115,7 @@ export default class Login extends Component {
         .catch(function(error) {
             console.log("******\nERROR\n******");
             console.log(error);
+            alert("Username taken. Please try again.")
         });
     }
 
@@ -183,8 +198,9 @@ export default class Login extends Component {
     }
 
     renderLogin() {
+        
         return(
-
+           
             <div>
 
              
@@ -209,8 +225,9 @@ export default class Login extends Component {
                             placeholder="Password"
                            
                             required
-                />
+                /> 
                             </div>
+                           
                             <div className="submit-login">   
                         <button 
                             className="submit-text" 
