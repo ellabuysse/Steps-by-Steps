@@ -44,8 +44,10 @@ margin-top: 125px;
     top: 500px;
    
 }
-.quiz{
-
-   
-   
+@media only screen and (max-width: 855px) {
+    #quiz-description{
+        width: 70%;
+        margin-left: 10%;
+    }
 }
+
