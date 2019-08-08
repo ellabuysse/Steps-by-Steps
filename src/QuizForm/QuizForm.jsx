@@ -377,6 +377,7 @@ export default class QuizForm extends Component {
     render() {
         return (
             <Tabs >
+               
                 <div className="quiz-item" id="quiz-tabs">
                     <div className="tab"><TabLink to="tab1" onClick={this.handleClickOne}>TRANSPORTATION</TabLink></div>
                     <div className="tab"><TabLink to="tab2" onClick={this.handleClickTwo} >DIET</TabLink></div>
@@ -406,7 +407,7 @@ export default class QuizForm extends Component {
                         {this.state.submitted ? this.renderResponse() : null}
                     </TabContent>
                 </div>
-
+             
             </Tabs>
         )
     }

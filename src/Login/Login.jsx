@@ -154,7 +154,7 @@ export default class Login extends Component {
                 
                 <input 
                     type="text" 
-                    placeholder="Username" 
+                    placeholder="Username (required)" 
                     className="login-box" 
                     name="username" 
                     value={this.state.username}
@@ -168,7 +168,7 @@ export default class Login extends Component {
                             name="password"
                             value={this.state.password}
                             onChange={this.onChangePassword}
-                            placeholder="Password"
+                            placeholder="Password (required)"
 
                             required
                             />
@@ -209,7 +209,7 @@ export default class Login extends Component {
             <div className="login">
                 <input
                     type="text"
-                    placeholder="Username"
+                    placeholder="Username (required)"
                     className="login-box"
                     name="username"
                     value={this.state.username}
@@ -222,7 +222,7 @@ export default class Login extends Component {
                             name="password"
                             value={this.state.password}
                             onChange={this.onChangePassword}
-                            placeholder="Password"
+                            placeholder="Password (required)"
                            
                             required
                 /> 
