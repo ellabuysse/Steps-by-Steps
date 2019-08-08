@@ -9,7 +9,6 @@ import TabPagePower from '../TabPages/TabPagePower';
 import TabPageWaste from '../TabPages/TabPageWaste';
 import TabPageShopping from '../TabPages/TabPageShopping';
 import Response from '../QuizForm/Response';
-// import console from 'console';
 import { thisExpression } from '@babel/types';
 
 export default class QuizForm extends Component {
@@ -19,13 +18,6 @@ export default class QuizForm extends Component {
         super(props);
         this.state = {
             quizzes: [],
-
-            transportPoints: 0,
-            dietPoints: 0,
-            shoppingPoints: 0,
-            wastePoints: 0,
-            powerPoints: 0,
-            totalPoints: 0,
 
             formData: {
                 publicTransit: false,
@@ -49,6 +41,7 @@ export default class QuizForm extends Component {
                 water: false,
                 none: false
             },
+            databaseURL: "https://stepsbysteps-backend.herokuapp.com",
             submitted: false,
             page: "tab1"
         };
@@ -61,6 +54,28 @@ export default class QuizForm extends Component {
         this.handleClickThree = this.handleClickThree.bind(this);
         this.handleClickFour = this.handleClickFour.bind(this);
         this.handleClickFive = this.handleClickFive.bind(this);
+    }
+
+    componentDidMount() {
+        //
+        // TODO
+        // Get user login information from login
+
+        axios.get(this.state.databaseURL + "/quizzes/user/1")
+        .then((response) => {
+            var quizzes = response.data;
+            if (quizzes.length > 0) {
+                for (let i = 0; i < quizzes.length; i++) {
+                    this.setState(prevState => ({
+                        quizzes: [...prevState.quizzes, quizzes[i]]
+                    }));
+                }
+            }
+        })
+        .catch(function(error) {
+            console.log("****\nERROR\n****");
+            console.log(error);
+        });
     }
 
     get currentTab() {
@@ -198,65 +213,30 @@ export default class QuizForm extends Component {
             powerPoints++;
         }
 
-        this.setState({
+        axios.post(this.state.databaseURL + "/quizzes", {
+            // TODO
+            //
+            // Get user login information from login
+
+            userID: "1",
             totalPoints: Math.round(total / count),
             transportPoints: transportPoints,
             dietPoints: dietPoints,
             shoppingPoints: shoppingPoints,
             wastePoints: wastePoints,
             powerPoints: powerPoints
+        })
+        .then((response) => {
+            var newQuiz = response.data;
+            this.setState(prevState => ({
+                submitted: true,
+                quizzes: [...prevState.quizzes, newQuiz]
+            }))
+        })
+        .catch(function(error) {
+            console.log("****\nERROR\n****");
+            console.log(error);
         });
-
-        var databaseURL = "https://stepsbysteps-backend.herokuapp.com";
-
-        axios.post(databaseURL + "/quizzes", { 
-            userID: "1",
-            totalPoints: this.state.totalPoints,
-            transportPoints: this.state.transportPoints,
-            dietPoints: this.state.dietPoints,
-            shoppingPoints: this.state.shoppingPoints,
-            wastePoints: this.state.wastePoints,
-            powerPoints: this.state.powerPoints
-        })
-
-        .then(function(response) {
-            console.log('success');
-        })
-
-        .catch(function(error) {
-            console.log("****\nERROR\n****");
-            console.log(error);
-        })
-        
-        axios.get(databaseURL + "/quizzes/user/1")
-
-        .then(function(response) {
-            console.log('success');
-            // console.log(response.data);
-
-            this.state.quizzes = [];
-            var quizzes = response.data;
-            for (let i = 0; i < quizzes.length; i++) {
-                console.log(quizzes[i])
-                // var joinedQuizzes = this.state.quizzes.concat(quizzes[i]);
-                // this.setState({quizzes: joinedQuizzes});
-                this.setState(prevState => ({
-                    quizzes: [prevState.quizzes, quizzes[i]]
-                }));
-            }
-
-            console.log(this.state.quizzes);
-            // id = data[0]['id'];
-        })
-        
-        .catch(function(error) {
-            console.log("****\nERROR\n****");
-            console.log(error);
-        })
-
-        this.setState({
-            submitted: true
-        })
     }
 
 
@@ -367,19 +347,16 @@ export default class QuizForm extends Component {
 
     renderResponse = (value) => {
         return (
-
             <Response
-                // quiz={this.state.quizzes[value]}
-                totalPoints={this.state.totalPoints}
-                transportPoints={this.state.quizzes[value].transportPoints}
-                dietPoints={this.state.quizzes[value].dietPoints}
-                shoppingPoints={this.state.quizzes[value].shoppingPoints}
-                wastePoints={this.state.quizzes[value].wastePoints}
-                powerPoints={this.state.quizzes[value].powerPoints} 
+                totalPoints={this.state.quizzes[value-1].totalPoints}
+                transportPoints={this.state.quizzes[value-1].transportPoints}
+                dietPoints={this.state.quizzes[value-1].dietPoints}
+                shoppingPoints={this.state.quizzes[value-1].shoppingPoints}
+                wastePoints={this.state.quizzes[value-1].wastePoints}
+                powerPoints={this.state.quizzes[value-1].powerPoints}
             />
-
         )
-    }
+    };
 
     render() {
 
@@ -416,10 +393,10 @@ export default class QuizForm extends Component {
                         {this.renderPower()}
                         <div className="submit">
                             <button onClick={this.onSubmit} className="submit-button">
-                                <a href="#results-page" onClick={this.onSubmit} className="submit-text" id="quiz-submit-btn">SUBMIT</a>
+                                <a href="#results-page" className="submit-text" id="quiz-submit-btn">SUBMIT</a>
                             </button>
                         </div>
-                        {this.state.submitted ? this.renderResponse(0) : null}
+                        {this.state.submitted ? this.renderResponse(this.state.quizzes.length) : null}
                     </TabContent>
                 </div>
 
