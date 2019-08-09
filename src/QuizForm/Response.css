@@ -54,7 +54,7 @@
 }
 .total-pts-container{
    
-   width: 40%;
+   width: 30%;
    display: inline-block;
    height: 150px;
    vertical-align: middle;
@@ -107,17 +107,28 @@
    
     
 }
-.breakdown-words, #past-quizzes-header{
+
+.breakdown-words{
     letter-spacing: 6px;
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
-    text-align: center;
+    text-align: left;
     padding-bottom: 50px;
-    display: flex;
+   
     flex-wrap: wrap;
     font-weight: bold;
 }
-
+#past-quizzes-header{
+    text-align: center;
+    letter-spacing: 6px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+   padding-bottom: 20px;
+    
+   
+    flex-wrap: wrap;
+    font-weight: bold;
+}
 .results-page{
    
     display: inline-block;
@@ -138,14 +149,18 @@
 .past-quizzes-container{
     width: 80%;
     margin-left: 10%;
-    padding-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .past-quizzes{
-    margin-left: 10%;
+    margin-left: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-direction: row-reverse;
     flex-wrap: wrap;
+    width: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
 }
 .past-quizzes .result-block{
     cursor: pointer;
@@ -163,6 +178,11 @@
 
 .result-block:hover {
     border: solid 1px cornflowerblue;
+   
+}
+#click-score{
+    letter-spacing: 3px;
+    color: grey;
 }
 
 

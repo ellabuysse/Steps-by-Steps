@@ -3,7 +3,7 @@ import { faSeedling } from '@fortawesome/free-solid-svg-icons'
 let array = [
     {
         icon: faSeedling,
-        text: "The average American emits 20 tons of greenhouse has emissions per year due to what "
+        text: "The average American emits 20 tons of greenhouse gas emissions per year due to what "
         + "they eat, how they power their homes and mobile devices, and how they travel from place "
         + "to place. Because human impact on the earth is so large, we have the power to make a "
         + "significant difference if we take action to change our lifestyles and habits. By working "

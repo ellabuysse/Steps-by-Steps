@@ -3,10 +3,10 @@ import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
 let array = [
     {
         icon: faGlobeAmericas,
-        text: "The United States population makes up less than 5% of the population on " 
-        + "earth but consumes more than 30% of the earth's resources. People waste valuable resources without realizing it, from using plastic straws that end "
-        + "up in the ocean and can kill animals like sea turtles, to forgetting to turn off " 
-        + "the lights which impacts global carbon emissions. Due to these lifestyles that are " 
+        text: "The United States population makes up less than 5% of the total population" 
+        + " but consumes more than 30% of the earth's resources. People waste valuable resources without realizing it, from using plastic straws that end "
+        + "up in the ocean killing animals like sea turtles to forgetting to turn off " 
+        + "the lights impacting global carbon emissions. Due to lifestyles that are " 
         + "detrimental to our earth and its many animals, we need to act now or the global environmental crisis will surmount in "
         + "serious affects. Rising sea levels could impact millions of people living on the coasts. "
         + "Changes in water temperature cause algae to leave coral reefs, making coral reefs "

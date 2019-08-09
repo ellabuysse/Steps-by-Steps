@@ -177,3 +177,14 @@ button{
  .quiz-page .page-container{
     margin-bottom: 4rem;
 } 
+
+.past-container{
+    outline:5px solid rgba(159, 209, 255, 0.36);
+    margin-top: 60px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+ 
+ 
+}

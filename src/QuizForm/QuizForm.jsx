@@ -393,9 +393,10 @@ export default class QuizForm extends Component {
                     wastePoints={this.state.currentQuiz.wastePoints}
                     powerPoints={this.state.currentQuiz.powerPoints}
                 />
-
+                <div className="past-container">
                 <div className="past-quizzes-container">
-                    <div id="past-quizzes-header">YOUR RECENT SCORES:</div>
+                    <div id="past-quizzes-header">YOUR RECENT SCORES</div>
+                    <div id="click-score">click score for more info</div>
                 </div>
 
                 <div className="past-quizzes">
@@ -408,6 +409,8 @@ export default class QuizForm extends Component {
                             />
                         ))
                     }
+                </div>
+                
                 </div>
             </React.Fragment>
         )
